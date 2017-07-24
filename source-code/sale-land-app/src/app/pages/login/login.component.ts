@@ -13,7 +13,7 @@ export class Login {
   public email:AbstractControl;
   public password:AbstractControl;
   public submitted:boolean = false;
-  public isRemember:boolean = true;
+  public isRemember:boolean = false;
   constructor(private authService: AuthService, fb:FormBuilder) {
     this.form = fb.group({
       'email': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
@@ -27,7 +27,6 @@ export class Login {
   public onSubmit(values:Object):void {
     this.submitted = true;
     if (this.form.valid) {
-      console.log(values);
       this.authService.authenticate(values['email'], values['password'])
         .subscribe(
           response => window.location.href = 'http://localhost:4200/#/pages/dashboard',
