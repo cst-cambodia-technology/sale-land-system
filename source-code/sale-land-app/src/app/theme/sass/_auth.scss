@@ -1,0 +1,15 @@
+@import 'conf/conf';
+
+.auth-main {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.auth-block {
+  width: 540px;
+  margin: 0 auto;
+  padding: 32px;
+}
