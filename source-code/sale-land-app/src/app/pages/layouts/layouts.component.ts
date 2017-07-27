@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-layouts',
-  templateUrl: './layouts.component.html',
-  styleUrls: ['./layouts.component.scss']
+  templateUrl: './layouts.html',
+  styleUrls: ['./layouts.scss']
 })
-export class LayoutsComponent implements OnInit {
+export class Layouts implements OnInit {
 
   constructor() { }
 
