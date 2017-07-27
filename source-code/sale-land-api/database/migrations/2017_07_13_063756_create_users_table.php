@@ -16,14 +16,15 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title', 100)->nullable()->default(null);
-            $table->string('givenName', 25);
+            $table->string('givenName', 25)->nullable()->default(null);
             $table->string('middleName', 25)->nullable()->default(null);
-            $table->string('familyName', 25);
+            $table->string('familyName', 25)->nullable()->default(null);
+            $table->string('suffix', 25)->nullable()->default(null);
             $table->string('displayName', 100);
             $table->string('email', 100)->unique();
             $table->string('password', 200);
-            $table->json('contactInfo')->nullable()->default(null);
-            $table->json('contactAddr')->nullable()->default(null);
+            $table->json('contact')->nullable()->default(null);
+            $table->json('Address')->nullable()->default(null);
             $table->string('about', 4000)->nullable()->default(null);
             $table->enum('status',['Active','Inactive']);
             $table->integer('createdBy')->nullable()->default(null);

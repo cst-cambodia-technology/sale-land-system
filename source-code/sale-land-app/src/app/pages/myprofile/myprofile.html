@@ -1,0 +1,157 @@
+<div class="row">
+    <div class="col-md-12">
+        <ba-card cardTitle="General Information" baCardClass="with-scroll">
+            <form class="form-horizontal">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="title" class="col-sm-2 control-label">Title</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="title">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="givenName" class="col-sm-2 control-label">First name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="givenName">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="middleName" class="col-sm-2 control-label">Middle name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="middleName">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="familyName" class="col-sm-2 control-label">Last name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="familyName">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <div class="offset-2 col-sm-10">
+                                <ba-picture-uploader [picture]="profile.picture" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="with-line">Contact Information</h3>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="phone" class="col-sm-2 control-label">Phone</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="phone">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="mobile" class="col-sm-2 control-label">Mobile</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="mobile">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="fax" class="col-sm-2 control-label">Fax</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="fax">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="website" class="col-sm-2 control-label">Website</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="website">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="skype" class="col-sm-2 control-label">Skype</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="skype">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="twitter" class="col-sm-2 control-label">Twitter</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="twitter">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="facebook" class="col-sm-2 control-label">Facebook</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="Facebook">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="with-line">Address Information</h3>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="street" class="col-sm-2 control-label">Street</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="street"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="city" class="col-sm-2 control-label">City/Town</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="city">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="state" class="col-sm-2 control-label">State/Province</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="state">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="postalCode" class="col-sm-2 control-label">Postal code</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="postalCode">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="country" class="col-sm-2 control-label">Country</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="country">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="with-line">Other Information</h3>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group row">
+                            <label for="about" class="col-sm-1 control-label">About</label>
+                            <div class="col-sm-11">
+                                <textarea class="form-control" id="about"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group row text-right">
+                            <div class="col-sm-12">
+                                <button type="submit" class="btn btn-primary">Done</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </ba-card>
+    </div>
+</div>

@@ -348,6 +348,24 @@ export const PAGES_MENU = [
             target: '_blank'
           }
         }
+      },
+      {
+        path: 'projects',
+        data: {
+          menu: {
+            title: 'general.menu.projects',
+            icon: 'ion-document',
+          }
+        }
+      },
+      {
+        path: 'myprofile',
+        data: {
+          menu: {
+            title: 'general.menu.my_profile',
+            hidden: true
+          }
+        }
       }
     ]
   }
