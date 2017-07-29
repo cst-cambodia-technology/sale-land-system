@@ -366,6 +366,15 @@ export const PAGES_MENU = [
             hidden: true
           }
         }
+      },
+      {
+        path: 'sellers',
+        data: {
+          menu: {
+            title: 'general.menu.sellers',
+            icon: 'ion-edit'
+          }
+        }
       }
     ]
   }

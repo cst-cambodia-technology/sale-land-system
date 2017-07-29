@@ -15,6 +15,7 @@ export class ProjectModalComponent implements OnInit {
   constructor(private activeModal: NgbActiveModal, private  projectsService: ProjectsService) { }
 
   ngOnInit() {
+
   }
 
   save(){
