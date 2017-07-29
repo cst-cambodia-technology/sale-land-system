@@ -1,11 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LayoutsComponent } from './layouts.component';
+import {AppTranslationModule} from "../../app.translation.module";
+import {NgaModule} from "../../theme/nga.module";
+import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
+import {routing} from "./layouts.routing";
+import {Layouts} from "./layouts.component";
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    AppTranslationModule,
+    NgaModule,
+    NgbModalModule,
+    routing,
   ],
-  declarations: [LayoutsComponent]
+  declarations: [
+      Layouts
+  ]
 })
 export class LayoutsModule { }
