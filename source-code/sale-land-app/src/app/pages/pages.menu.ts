@@ -359,11 +359,29 @@ export const PAGES_MENU = [
         }
       },
       {
+        path: 'layouts',
+        data: {
+          menu: {
+            title: 'general.menu.layouts',
+            icon: 'ion-document',
+          }
+        }
+      },
+      {
         path: 'myprofile',
         data: {
           menu: {
             title: 'general.menu.my_profile',
             hidden: true
+          }
+        }
+      },
+      {
+        path: 'sellers',
+        data: {
+          menu: {
+            title: 'general.menu.sellers',
+            icon: 'ion-edit'
           }
         }
       }

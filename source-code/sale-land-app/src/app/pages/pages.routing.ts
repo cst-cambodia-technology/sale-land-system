@@ -27,8 +27,10 @@ export const routes: Routes = [
       { path: 'forms', loadChildren: './forms/forms.module#FormsModule' },
       { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
       { path: 'maps', loadChildren: './maps/maps.module#MapsModule' },
+      { path: 'myprofile', loadChildren: './myprofile/myprofile.module#MyprofileModule' },
       { path: 'projects', loadChildren: './projects/projects.module#ProjectsModule' },
-      { path: 'myprofile', loadChildren: './myprofile/myprofile.module#MyprofileModule' }
+      { path: 'layouts', loadChildren: './layouts/layouts.module#LayoutsModule' },
+      { path: 'sellers', loadChildren: './sellers/sellers.module#SellersModule' }
     ]
   }
 ];

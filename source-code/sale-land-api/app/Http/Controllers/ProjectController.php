@@ -18,8 +18,8 @@ class ProjectController extends Controller
     public function validator(Request $request)
     {
         $this->validate($request, [
-            'name'     => 'required|string|max:100',
-            'description'  => 'string|max:4000',
+            'name'          => 'required|string|max:100',
+            'description'   => 'string|nullable|max:4000',
         ]);
     }
 
@@ -104,7 +104,7 @@ class ProjectController extends Controller
         $this->validator($request);
 
         try {
-            $project = Project::findOrFail($id);
+            $project                =   Project::findOrFail($id);
             $project->name          =   $request->input('name');
             $project->description   =   $request->input('description');
             $project->modifiedBy    =   $auth->id;

@@ -19,14 +19,14 @@ class LayoutController extends Controller
     public function validator(Request $request)
     {
         $this->validate($request, [
-            'projectId'     => 'required|integer',
-            'prefix'  => 'required|string|max:10',
-            'no'  => 'required|integer',
-            'label'  => 'required|string|max:100',
-            'size'  => 'string|nullable|max:100',
-            'price'  => 'numeric|nullable',
-            'description'  => 'string|nullable|max:4000',
-            'status'        => ['required', Rule::in(['Open', 'Blocked', 'Reserved', 'Closed'])]
+            'projectId'     =>  'required|integer',
+            'prefix'        =>  'required|string|max:10',
+            'no'            =>  'required|integer',
+            'label'         =>  'required|string|max:100',
+            'size'          =>  'string|nullable|max:100',
+            'price'         =>  'numeric|nullable',
+            'description'   =>  'string|nullable|max:4000',
+            'status'        =>  ['required', Rule::in(['Open', 'Blocked', 'Reserved', 'Closed'])]
         ]);
     }
 
@@ -126,7 +126,6 @@ class LayoutController extends Controller
             $layout->price      =   $request->input('price');
             $layout->description=   $request->input('description');
             $layout->status     =   $request->input('status');
-            $layout->createdBy  =   $auth->id;
             $layout->modifiedBy =   $auth->id;
             $layout->save();
 

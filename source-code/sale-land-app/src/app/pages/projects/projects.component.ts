@@ -28,7 +28,7 @@ export class Projects implements OnInit {
 
   projectModalShow(){
       const activeModal = this.modalService.open(ProjectModalComponent, {size: 'lg'});
-      activeModal.componentInstance.modalHeader = 'Add new project';
+      activeModal.componentInstance.modalHeader = 'Add new test';
       activeModal.componentInstance.modalAction = 'Save';
   }
 }
