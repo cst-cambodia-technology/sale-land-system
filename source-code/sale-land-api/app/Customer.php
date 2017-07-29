@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Seller extends Model
+class Customer extends Model
 {
     const CREATED_AT = 'createdAt';
     const UPDATED_AT = 'modifiedAt';
@@ -15,6 +15,6 @@ class Seller extends Model
      * @var array
      */
     protected $casts = [
-        'contact' => 'array', 'address' => 'array'
+        'identity' => 'array', 'contact' => 'array', 'address' => 'array'
     ];
 }
