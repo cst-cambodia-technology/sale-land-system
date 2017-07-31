@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Headers, Http, Response} from '@angular/http';
-import {AppSetting} from "./app.setting";
+import {ApiResource} from "./api.resource";
 import 'rxjs/Rx';
 
 @Injectable()
@@ -12,7 +12,7 @@ export class AuthService {
 
     authenticate(email: string, password: string) {
         return this.http.post(
-            AppSetting.API_URL + 'authenticate',
+            ApiResource.AUTHENTICATE,
             {email: email, password: password},
             {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})})
             .map(

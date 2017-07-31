@@ -1,3 +1,40 @@
-<p>
-  layouts works!
-</p>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-group row text-right">
+      <div class="col-sm-12">
+        <button type="button" class="btn btn-primary" (click)="layoutModalShow()">New layout</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <ba-card baCardClass="with-scroll">
+      <div class="row">
+
+        <div class="col-sm-12 horizontal-scroll">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th>LABEL</th>
+              <th>PROJECT</th>
+              <th>SIZE</th>
+              <th>PRICE</th>
+              <th>DESCRIPTION</th>
+              <th>STATUS</th>
+              <th>ACTION</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--<tr *ngFor="let item of metricsTableData">-->
+              <!--<td><img src="{{ ( item.image | baAppPicture )}}" width="20" height="20"></td>-->
+              <!--<td ngClass="nowrap">{{ item.browser }}</td>-->
+              <!--<td class="align-right">{{ item.visits }}</td>-->
+              <!--<td class="align-right">{{ item.purchases }}</td>-->
+              <!--<td class="align-right">{{ item.percent }}</td>-->
+            <!--</tr>-->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </ba-card>
+  </div>
+</div>

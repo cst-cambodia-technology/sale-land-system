@@ -18,6 +18,7 @@ import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
 import {AuthService} from "./auth.service";
 import {ProjectsService} from "./pages/projects/projects.service";
+import {LayoutService} from "./pages/layouts/layout.sevice";
 
 
 // Application wide providers
@@ -54,7 +55,8 @@ export type StoreType = {
   providers: [ // expose our Services and Providers into Angular's dependency injection
     APP_PROVIDERS,
     AuthService,
-    ProjectsService
+    ProjectsService,
+    LayoutService
   ]
 })
 
