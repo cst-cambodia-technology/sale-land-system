@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {LayoutModalComponent} from "./layout-modal/layout-modal.component";
 
 @Component({
   selector: 'app-layouts',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Layouts implements OnInit {
 
-  constructor() { }
+  public isBatch:boolean = false;
+
+  constructor( private modalLayout: NgbModal) { }
 
   ngOnInit() {
+
   }
+
+  layoutModalShow(){
+    const activeModalLayout = this.modalLayout.open(LayoutModalComponent, {size: 'lg'});
+    activeModalLayout.componentInstance.modalHeader = 'Add new layout';
+  }
+
 
 }
