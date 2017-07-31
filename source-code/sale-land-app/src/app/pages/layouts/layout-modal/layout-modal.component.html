@@ -1,0 +1,83 @@
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">{{modalHeader}}</h4>
+        <button class="close" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form #form="ngForm" (submit)="onSubmit(form)">
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <div class="checkbox">
+                        <ba-checkbox [(ngModel)]="isBatch" [label]="'Batch Insert'" [ngModelOptions]="{standalone: true}"></ba-checkbox>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="prefix">Label</label>
+                        <div class="row">
+
+                            <div class="col-sm-4">
+                                <input [(ngModel)]="layout.prefix" type="text" class="form-control" id="prefix" placeholder="pre" [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div class="col-sm-4">
+                                <input [(ngModel)]="layout.no" type="text" class="form-control" id="no" placeholder="no" [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div class="col-sm-4">
+                                <input [(ngModel)]="layout.to" type="text" class="form-control" id="to" placeholder="to" [ngModelOptions]="{standalone: true}">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group ">
+                        <label class="control-label " for="projectId">
+                            Project
+                        </label>
+                        <select [(ngModel)]="layout.projectId" class="select form-control" id="projectId" name="projectId" [ngModelOptions]="{standalone: true}" >
+                            <option value="1">
+                                project
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group ">
+                        <label class="control-label " for="size">
+                            Size
+                        </label>
+                        <input [(ngModel)]="layout.size" class="form-control" id="size" name="size" placeholder="Size of land" type="text" [ngModelOptions]="{standalone: true}" />
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group ">
+                        <label class="control-label " for="price">
+                            Price
+                        </label>
+                        <input [(ngModel)]="layout.price" class="form-control" id="price" name="price" placeholder="Price" type="text" [ngModelOptions]="{standalone: true}" />
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="control-label" for="description">
+                            Description
+                        </label>
+                        <textarea [(ngModel)]="layout.description" class="form-control" cols="40" id="description" name="description" placeholder="Description" rows="5" [ngModelOptions]="{standalone: true}" ></textarea>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <button class="btn btn-primary confirm-btn pull-right" type="submit">Save</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

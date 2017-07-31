@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
-import {ProjectsService} from "../projects.service";
+import { NgForm } from '@angular/forms';
+import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
+import { ProjectsService } from "../projects.service";
 
 @Component({
   selector: 'app-project-modal',
@@ -10,20 +11,20 @@ import {ProjectsService} from "../projects.service";
 export class ProjectModalComponent implements OnInit {
 
     modalHeader: string;
-    modalContent: string  = 'project content';
-
+    modalContent: string;
+    modalAction: string;
   constructor(private activeModal: NgbActiveModal, private  projectsService: ProjectsService) { }
 
   ngOnInit() {
 
   }
-
-  save(){
-    this.projectsService.storeProject('test','test')
+    onSubmit(form: NgForm) {
+    this.projectsService.storeProject(form.value.name, form.value.description)
         .subscribe(
-            response => console.log(response),
-            error => console.log(error)
+            () => console.log(this)
         );
+     form.reset();
+     this.activeModal.close();
   }
   close() {
     this.activeModal.close();

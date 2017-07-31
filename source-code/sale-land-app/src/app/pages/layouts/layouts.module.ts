@@ -5,17 +5,27 @@ import {NgaModule} from "../../theme/nga.module";
 import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
 import {routing} from "./layouts.routing";
 import {Layouts} from "./layouts.component";
+import { LayoutModalComponent } from './layout-modal/layout-modal.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {LayoutService} from "./layout.sevice";
 
 @NgModule({
   imports: [
     CommonModule,
     AppTranslationModule,
+    ReactiveFormsModule,
+    FormsModule,
     NgaModule,
     NgbModalModule,
     routing,
+
   ],
   declarations: [
-      Layouts
-  ]
+      Layouts,
+      LayoutModalComponent,
+  ],
+  entryComponents: [
+    LayoutModalComponent
+  ],
 })
 export class LayoutsModule { }
