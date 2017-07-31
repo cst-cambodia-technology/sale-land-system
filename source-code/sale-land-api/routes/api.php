@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,10 +11,6 @@ use Illuminate\Http\Request;
 |
 */
 
-/*Route developer test*/
-Route::get('test', function(){
-    return \App\Layout::first();
-});
 /*Route auth*/
 Route::post('authenticate', 'JWTAuthController@authenticate');
 
@@ -34,5 +28,16 @@ Route::middleware(['jwt.auth'])->group(function(){
     Route::get('layouts/{id}', 'LayoutController@show');
     Route::put('layouts/{id}', 'LayoutController@update');
 
+    /*Route seller*/
+    Route::get('sellers', 'SellerController@index');
+    Route::post('sellers', 'SellerController@store');
+    Route::get('sellers/{id}', 'SellerController@show');
+    Route::put('sellers/{id}', 'SellerController@update');
+
+    /*Route customer*/
+    Route::get('customers', 'CustomerController@index');
+    Route::post('customers', 'CustomerController@store');
+    Route::get('customers/{id}', 'CustomerController@show');
+    Route::put('customers/{id}', 'CustomerController@update');
 });
 

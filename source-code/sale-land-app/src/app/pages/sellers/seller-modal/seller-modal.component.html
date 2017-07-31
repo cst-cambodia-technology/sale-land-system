@@ -1,0 +1,68 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">{{modalHeaderSeller}}</h4>
+    <button class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="displayname">Seller Name :</label>
+            <input type="text" class="form-control" id="displayname" placeholder="Seller name">
+          </div>
+          <div class="form-group">
+            <label for="companyname">Company Name :</label>
+            <input type="text" class="form-control" id="companyname" placeholder="company name">
+          </div>
+          <div class="form-group">
+            <label for="jobtitle">Job Title :</label>
+            <input type="text" class="form-control" id="jobtitle" placeholder="job title">
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender :</label>
+            <select class="form-control" id="gender">
+              <option>Female</option>
+              <option>Male</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="dob">Date Of Birth :</label>
+            <input type="date" class="form-control" id="dob" placeholder="mm/dd/yyyy">
+          </div>
+          <div class="form-group">
+            <label for="contact">Contact :</label>
+            <input type="text" class="form-control" id="contact" placeholder="contact">
+          </div>
+        </div>
+          <!--//////////////////-->
+          <div class="col-md-6">
+
+            <div class="form-group">
+              <div class="offset-2">
+                <ba-picture-uploader [picture]="modalHeaderSeller.picture" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
+              </div>
+              </div>
+            <div class="form-group">
+              <label>Address :</label>
+              <input type="text" class="form-control" id="steet" placeholder="steet">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="city" placeholder="city">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="regionnumber" placeholder="region number">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="country" placeholder="country">
+            </div>
+          </div>
+        </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary confirm-btn" (click)="save()">Save</button>
+  </div>
+</div>

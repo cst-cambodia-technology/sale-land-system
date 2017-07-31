@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Seller;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use JWTAuth;
 
 class SellerController extends Controller
@@ -17,21 +18,33 @@ class SellerController extends Controller
     public function validator(Request $request)
     {
         $this->validate($request, [
-            'title'         =>  'string|nullable|max:15',
-            'givenName'     =>  'string|nullable|max:25',
-            'middleName'    =>  'string|nullable|max:25',
-            'familyName'    =>  'string|nullable|max:25',
-            'suffix'        =>  'string|nullable|max:10',
-            'displayName'   =>  'required|string|max:100',
-            'companyName'   =>  'string|nullable|max:100',
-            'jobTitle'      =>  'string|nullable|max:100',
-            'image'         =>  'string|nullable|max:2000',
-            'gender'        =>  ['string|nullable', Rule::in(['Male', 'Female'])],
-            'birthDate'     =>  'date|nullable',
-            'contact'       =>  'json|nullable',
-            'address'       =>  'json|nullable',
-            'note'          =>  'string|nullable|max:2000',
-            'status'        =>  ['required', Rule::in(['Active', 'Inactive'])],
+            'title'             =>  'string|nullable|max:15',
+            'givenName'         =>  'string|nullable|max:25',
+            'middleName'        =>  'string|nullable|max:25',
+            'familyName'        =>  'string|nullable|max:25',
+            'suffix'            =>  'string|nullable|max:10',
+            'displayName'       =>  'required|string|max:100',
+            'companyName'       =>  'string|nullable|max:100',
+            'jobTitle'          =>  'string|nullable|max:100',
+            'image'             =>  'string|nullable|max:2000',
+            'gender'            =>  ['nullable', Rule::in(['Male', 'Female'])],
+            'birthDate'         =>  'date|nullable',
+            'contact'           =>  'array|nullable',
+            'contact.email'     =>  'string|email|nullable|max:100',
+            'contact.phone'     =>  'string|nullable|max:20',
+            'contact.mobile'    =>  'string|nullable|max:20',
+            'contact.fax'       =>  'string|nullable|max:20',
+            'contact.otherPhone'=>  'string|nullable|max:20',
+            'contact.pager'     =>  'string|nullable|max:1000',
+            'contact.website'   =>  'string|nullable|max:1000',
+            'address'           =>  'array|nullable',
+            'address.street'    =>  'string|nullable|max:2000',
+            'address.city'      =>  'string|nullable|max:255',
+            'address.state'     =>  'string|nullable|max:255',
+            'address.postalCode'=>  'string|nullable|max:30',
+            'address.country'   =>  'string|nullable|max:255',
+            'note'              =>  'string|nullable|max:4000',
+            'status'            =>  ['required', Rule::in(['Active', 'Inactive'])],
         ]);
     }
 
@@ -77,6 +90,7 @@ class SellerController extends Controller
         $seller->companyName=   $request->input('companyName');
         $seller->jobTitle   =   $request->input('jobTitle');
         $seller->image      =   $request->input('image');
+        $seller->gender     =   $request->input('gender');
         $seller->birthDate  =   $request->input('birthDate');
         $seller->contact    =   $request->input('contact');
         $seller->address    =   $request->input('address');
@@ -138,12 +152,12 @@ class SellerController extends Controller
             $seller->companyName=   $request->input('companyName');
             $seller->jobTitle   =   $request->input('jobTitle');
             $seller->image      =   $request->input('image');
+            $seller->gender     =   $request->input('gender');
             $seller->birthDate  =   $request->input('birthDate');
             $seller->contact    =   $request->input('contact');
             $seller->address    =   $request->input('address');
             $seller->note       =   $request->input('note');
             $seller->status     =   $request->input('status');
-            $seller->createdBy  =   $auth->id;
             $seller->modifiedBy =   $auth->id;
             $seller->save();
 
