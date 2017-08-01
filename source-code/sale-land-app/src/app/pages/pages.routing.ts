@@ -30,7 +30,8 @@ export const routes: Routes = [
       { path: 'myprofile', loadChildren: './myprofile/myprofile.module#MyprofileModule' },
       { path: 'projects', loadChildren: './projects/projects.module#ProjectsModule' },
       { path: 'layouts', loadChildren: './layouts/layouts.module#LayoutsModule' },
-      { path: 'sellers', loadChildren: './sellers/sellers.module#SellersModule' }
+      { path: 'sellers', loadChildren: './sellers/sellers.module#SellersModule' },
+      { path: 'customers', loadChildren: './customers/customers.module#CustomersModule' }
     ]
   }
 ];

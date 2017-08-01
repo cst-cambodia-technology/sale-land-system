@@ -1,30 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Customers } from './customers.component';
 import {AppTranslationModule} from "../../app.translation.module";
 import {NgaModule} from "../../theme/nga.module";
+import {routing} from "./customers.routing";
+import { CustomerComponent } from './customer/customer.component';
 import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
-import {routing} from "./layouts.routing";
-import {Layouts} from "./layouts.component";
-import { LayoutModalComponent } from './layout-modal/layout-modal.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
     CommonModule,
     AppTranslationModule,
-    ReactiveFormsModule,
-    FormsModule,
     NgaModule,
     NgbModalModule,
-    routing,
-
+    routing
   ],
   declarations: [
-      Layouts,
-      LayoutModalComponent,
+      Customers,
+    CustomerComponent
   ],
   entryComponents: [
-    LayoutModalComponent
+    CustomerComponent
   ],
 })
-export class LayoutsModule { }
+export class CustomersModule { }

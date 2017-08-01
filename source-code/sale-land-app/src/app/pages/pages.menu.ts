@@ -363,7 +363,7 @@ export const PAGES_MENU = [
         data: {
           menu: {
             title: 'general.menu.layouts',
-            icon: 'ion-document',
+            icon: 'ion-ios-crop-strong',
           }
         }
       },
@@ -381,7 +381,17 @@ export const PAGES_MENU = [
         data: {
           menu: {
             title: 'general.menu.sellers',
-            icon: 'ion-edit'
+            icon: 'ion-android-cart'
+
+          }
+        }
+      },
+      {
+        path: 'customers',
+        data: {
+          menu: {
+            title: 'general.menu.customers',
+            icon: 'ion-android-people'
           }
         }
       }

@@ -4,13 +4,12 @@ import 'rxjs/Rx';
 import {ApiResource} from "../../api.resource";
 
 @Injectable()
-export class ProjectsService {
-
+export class CustomersService {
   constructor(private http: Http) { }
 
-  getProjects(){
+  getCustomers(){
     return this.http.get(
-        ApiResource.PROJECTS,
+        ApiResource.CUSTOMERS,
         {headers: new Headers({'Authorization': 'Bearer' + localStorage.getItem('token')})}
         )
         .map(
