@@ -63,7 +63,7 @@ class LayoutController extends Controller
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
 
-        $layouts =  Layout::all();
+        $layouts =  Layout::with('project')->get();
 
         return response()->json($layouts);
     }

@@ -12,7 +12,6 @@ export class Customers implements OnInit {
 
   @Input() customers: any;
 
-
   constructor(private customersService: CustomersService, private modalService: NgbModal) { }
 
   ngOnInit() {
