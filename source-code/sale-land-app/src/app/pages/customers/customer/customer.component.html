@@ -1,0 +1,42 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">Customer information</h4>
+    <button class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="displayName">Name</label>
+                <input type="text" class="form-control" id="displayName">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="companyName">Company</label>
+                <input type="text" class="form-control" id="companyName">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="jobTitle">Occupation</label>
+            <input type="text" class="form-control" id="jobTitle">
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <ba-picture-uploader [picture]="customer.picture" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" (click)="save()">Save</button>
+    </div>
+  </form>
+</div>

@@ -5,7 +5,6 @@ import {Input} from "@angular/core";
 
 export class Layout{
 
-
     public prefix: string;
     public no: number;
     public to: number;

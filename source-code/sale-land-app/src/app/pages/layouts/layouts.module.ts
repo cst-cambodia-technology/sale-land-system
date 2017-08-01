@@ -7,7 +7,7 @@ import {routing} from "./layouts.routing";
 import {Layouts} from "./layouts.component";
 import { LayoutModalComponent } from './layout-modal/layout-modal.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {LayoutService} from "./layout.sevice";
+import {LayoutsService} from "./layouts.sevice";
 
 @NgModule({
   imports: [

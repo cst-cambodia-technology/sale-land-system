@@ -1,11 +1,21 @@
 export class ApiResource {
-    public static API_ROOT = 'http://localhost:8000/api/';
+    public static API_ROOT: string      =   'http://localhost:8000/api/';
 
-    public static AUTHENTICATE: string = ApiResource.API_ROOT+'authenticate/';
+    public static AUTHENTICATE: string  =   ApiResource.API_ROOT + 'authenticate/';
+    public static  PROJECTS: string     =   ApiResource.API_ROOT + 'projects/';
+    public static  LAYOUTS: string      =   ApiResource.API_ROOT + 'layouts/';
+    public static  CUSTOMERS: string      =   ApiResource.API_ROOT + 'customers/';
 
 
+<<<<<<< .mine
     public static  LAYOUTS: string = ApiResource.API_ROOT+'layouts/';
     public static  SELLERS: string = ApiResource.API_ROOT+'sellers';
 
 
+=======
+
+
+
+
+>>>>>>> .theirs
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use JWTAuth;
 
 class CustomerController extends Controller
 {
