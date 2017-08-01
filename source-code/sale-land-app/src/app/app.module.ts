@@ -18,7 +18,7 @@ import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
 import {AuthService} from "./auth.service";
 import {ProjectsService} from "./pages/projects/projects.service";
-import {LayoutService} from "./pages/layouts/layouts.sevice";
+import {LayoutsService} from "./pages/layouts/layouts.sevice";
 import {CustomersService} from "./pages/customers/customers.service";
 
 
@@ -57,7 +57,7 @@ export type StoreType = {
     APP_PROVIDERS,
     AuthService,
     ProjectsService,
-    LayoutService,
+    LayoutsService,
     CustomersService
   ]
 })

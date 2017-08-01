@@ -8,7 +8,7 @@ import {Observable} from "rxjs/Observable";
  * Created by sokho on 7/28/2017.
  */
 @Injectable()
-export class LayoutService{
+export class LayoutsService{
     constructor(private http: Http){
 
     }

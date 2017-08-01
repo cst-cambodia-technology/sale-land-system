@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {LayoutModalComponent} from "./layout-modal/layout-modal.component";
-import {LayoutService} from "./layouts.sevice";
+import {LayoutsService} from "./layouts.sevice";
 import {Layout} from "./layouts.model";
 
 @Component({
@@ -13,7 +13,7 @@ export class Layouts implements OnInit {
 
   @Input() layouts = new Layout();
 
-  constructor( private modalLayout: NgbModal, private layoutService: LayoutService) {
+  constructor( private modalLayout: NgbModal, private layoutService: LayoutsService) {
   }
 
   ngOnInit() {

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgForm} from "@angular/forms";
-import {LayoutService} from "../layouts.sevice";
+import {LayoutsService} from "../layouts.sevice";
 import {Layout} from "../layouts.model";
 import {Response} from "@angular/http";
 import {Layouts} from "../layouts.component";
@@ -12,7 +12,7 @@ import {Layouts} from "../layouts.component";
   selector: 'app-layout-modal',
   templateUrl: './layout-modal.component.html',
   styleUrls: ['./layout-modal.component.scss'],
-  providers: [LayoutService],
+  providers: [LayoutsService],
 })
 export class LayoutModalComponent implements OnInit {
   layout =  new Layout();
@@ -25,7 +25,7 @@ export class LayoutModalComponent implements OnInit {
   // public isTo:boolean = false;
 
 
-  constructor( private activeModal: NgbActiveModal, private layoutService: LayoutService) { }
+  constructor( private activeModal: NgbActiveModal, private layoutService: LayoutsService) { }
 
   ngOnInit() {
 
