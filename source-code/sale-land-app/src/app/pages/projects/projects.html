@@ -23,9 +23,9 @@
                           <tr *ngFor="let item of projects">
                               <td>{{ item.name }}</td>
                               <td>{{ item.description }}</td>
-                              <td  *ngIf="!editing">
-                                  <a class="btn btn-info" (click)="onEdit()">EDIT</a>
-                                  <a href="" (click)="onDelete()">DELETE</a>
+                              <td>
+                                  <button class="btn btn-primary" (click)="onEdit()">EDIT</button>
+                                  <button class="btn btn-default" (click)="onDelete()">DELETE</button>
                               </td>
                           </tr>
                           </tbody>

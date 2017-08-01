@@ -12,7 +12,6 @@ export class ProjectModalComponent implements OnInit {
 
     modalHeader: string;
     modalContent: string;
-    modalAction: string;
   constructor(private activeModal: NgbActiveModal, private  projectsService: ProjectsService) { }
 
   ngOnInit() {

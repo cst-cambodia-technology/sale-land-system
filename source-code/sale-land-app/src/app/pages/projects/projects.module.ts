@@ -7,6 +7,7 @@ import { routing } from "./projects.routing";
 import { ProjectModalComponent } from './project-modal/project-modal.component';
 import { NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule } from '@angular/forms';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   imports: [
@@ -19,10 +20,12 @@ import { FormsModule } from '@angular/forms';
   ],
   declarations: [
       Projects,
-      ProjectModalComponent
+      ProjectModalComponent,
+      EditComponent
   ],
   entryComponents: [
-    ProjectModalComponent
+      ProjectModalComponent,
+      EditComponent
   ],
 })
 export class ProjectsModule { }
