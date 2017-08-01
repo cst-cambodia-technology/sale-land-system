@@ -29,11 +29,11 @@ class CustomerController extends Controller
             'image'                     =>  'string|nullable|max:2000',
             'gender'                    =>  ['nullable', Rule::in(['Male', 'Female'])],
             'birthDate'                 =>  'date|nullable',
-            'identityInfo'              =>  'array|nullable',
-            'identityInfo.type'         =>  'string|nullable|max:100',
-            'identityInfo.no'           =>  'string|nullable|max:100',
-            'identityInfo.releasedDate' =>  'date|nullable',
-            'identityInfo.expiredDate'  =>  'date|nullable',
+            'identity'                  =>  'array|nullable',
+            'identity.type'             =>  'string|nullable|max:100',
+            'identity.no'               =>  'string|nullable|max:100',
+            'identity.releasedDate'     =>  'date|nullable',
+            'identity.expiredDate'      =>  'date|nullable',
             'contact'                   =>  'array|nullable',
             'contact.email'             =>  'string|email|nullable|max:100',
             'contact.phone'             =>  'string|nullable|max:20',
@@ -97,7 +97,7 @@ class CustomerController extends Controller
         $customer->image        =   $request->input('image');
         $customer->gender       =   $request->input('gender');
         $customer->birthDate    =   $request->input('birthDate');
-        $customer->identityInfo =   $request->input('identityInfo');
+        $customer->identity     =   $request->input('identityInfo');
         $customer->contact      =   $request->input('contact');
         $customer->address      =   $request->input('address');
         $customer->note         =   $request->input('note');
@@ -160,7 +160,7 @@ class CustomerController extends Controller
             $customer->image        =   $request->input('image');
             $customer->gender       =   $request->input('gender');
             $customer->birthDate    =   $request->input('birthDate');
-            $customer->identityInfo =   $request->input('identityInfo');
+            $customer->identity     =   $request->input('identityInfo');
             $customer->contact      =   $request->input('contact');
             $customer->address      =   $request->input('address');
             $customer->note         =   $request->input('note');

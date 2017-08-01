@@ -9,18 +9,28 @@ import {Observable} from "rxjs/Observable";
  */
 @Injectable()
 export class LayoutsService{
+    private headers = new Headers({
+        'Authorization': 'Bearer' + localStorage.getItem('token'),
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    private option = new RequestOptions({ headers: this.headers });
+
     constructor(private http: Http){
 
     }
 
-    getLayouts(): Observable<any>{
-        let headers = new Headers({
-            'Authorization': 'Bearer' + localStorage.getItem('token'),
-            'X-Requested-With': 'XMLHttpRequest'
-        });
-        let option  = new RequestOptions({headers: headers});
+    getLayouts(): Observable<Layout[]>{
+        return this.http.get(ApiResource.LAYOUTS, this.option)
+            .map(
+                (res: Response)=>{
+                    return res.json();
+                }
 
-        return this.http.get(ApiResource.LAYOUTS, option)
+            );
+    }
+
+    getLayout(id: number): Observable<Layout>{
+        return this.http.get(ApiResource.LAYOUTS+id, this.option)
             .map(
                 (res: Response)=>{
                     return res.json();
@@ -28,8 +38,8 @@ export class LayoutsService{
             );
     }
 
-    addNewLayout(layout: Layout): Observable<any>{
-        let body = layout;
+    addNewLayout(layout: Layout[]): Observable<any>{
+        let body = { 'layouts': layout };
         let headers = new Headers({
             'Authorization': 'Bearer' + localStorage.getItem('token'),
             'X-Requested-With': 'XMLHttpRequest'
@@ -43,6 +53,7 @@ export class LayoutsService{
             );
 
     }
+
 
 
 }

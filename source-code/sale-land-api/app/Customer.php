@@ -15,6 +15,6 @@ class Customer extends Model
      * @var array
      */
     protected $casts = [
-        'identityInfo' => 'array', 'contact' => 'array', 'address' => 'array'
+        'identity' => 'array', 'contact' => 'array', 'address' => 'array'
     ];
 }
