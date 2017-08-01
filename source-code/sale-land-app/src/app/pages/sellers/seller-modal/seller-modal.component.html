@@ -10,16 +10,16 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label for="displayname">Seller Name :</label>
-            <input type="text" class="form-control" id="displayname" placeholder="Seller name">
+            <label for="displayName">Seller Name :</label>
+            <input type="text" class="form-control" id="displayName" placeholder="Seller name" >
           </div>
           <div class="form-group">
-            <label for="companyname">Company Name :</label>
-            <input type="text" class="form-control" id="companyname" placeholder="company name">
+            <label for="companyName">Company Name :</label>
+            <input type="text" class="form-control" id="companyName" placeholder="company name">
           </div>
           <div class="form-group">
-            <label for="jobtitle">Job Title :</label>
-            <input type="text" class="form-control" id="jobtitle" placeholder="job title">
+            <label for="jobTitle">Job Title :</label>
+            <input type="text" class="form-control" id="jobTitle" placeholder="job title">
           </div>
           <div class="form-group">
             <label for="gender">Gender :</label>
@@ -29,8 +29,8 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="dob">Date Of Birth :</label>
-            <input type="date" class="form-control" id="dob" placeholder="mm/dd/yyyy">
+            <label for="birthDate">Date Of Birth :</label>
+            <input type="date" class="form-control" id="birthDate" placeholder="mm/dd/yyyy">
           </div>
           <div class="form-group">
             <label for="contact">Contact :</label>
@@ -39,14 +39,13 @@
         </div>
           <!--//////////////////-->
           <div class="col-md-6">
-
             <div class="form-group">
               <div class="offset-2">
-                <ba-picture-uploader [picture]="modalHeaderSeller.picture" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
-              </div>
+                <ba-picture-uploader [picture]="sellers.picture" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
               </div>
             <div class="form-group">
               <label>Address :</label>
+            </div>
               <input type="text" class="form-control" id="steet" placeholder="steet">
             </div>
             <div class="form-group">
