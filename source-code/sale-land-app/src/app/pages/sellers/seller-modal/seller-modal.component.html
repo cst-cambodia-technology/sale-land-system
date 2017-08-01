@@ -6,48 +6,47 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form #form="ngForm" (submit)="onSubmit(form)">
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label for="displayname">Seller Name :</label>
-            <input type="text" class="form-control" id="displayname" placeholder="Seller name">
+            <label for="displayName">Seller Name :</label>
+            <input [(ngModel)]="sellers.displayName" type="text" class="form-control" id="displayName" placeholder="Seller name" [ngModelOptions]="{standalone: true}">
           </div>
           <div class="form-group">
-            <label for="companyname">Company Name :</label>
-            <input type="text" class="form-control" id="companyname" placeholder="company name">
+            <label for="companyName">Company Name :</label>
+            <input [(ngModel)]="sellers.companyName" type="text" class="form-control" id="companyName" placeholder="company name" [ngModelOptions]="{standalone: true}">
           </div>
           <div class="form-group">
-            <label for="jobtitle">Job Title :</label>
-            <input type="text" class="form-control" id="jobtitle" placeholder="job title">
+            <label for="jobTitle">Job Title :</label>
+            <input [(ngModel)]="sellers.jobTitle" type="text" class="form-control" id="jobTitle" placeholder="job title" [ngModelOptions]="{standalone: true}">
           </div>
           <div class="form-group">
             <label for="gender">Gender :</label>
-            <select class="form-control" id="gender">
+            <select [(ngModel)]="sellers.gender" class="form-control" id="gender" [ngModelOptions]="{standalone: true}">
               <option>Female</option>
               <option>Male</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="dob">Date Of Birth :</label>
-            <input type="date" class="form-control" id="dob" placeholder="mm/dd/yyyy">
+            <label for="birthDate">Date Of Birth :</label>
+            <input [(ngModel)]="sellers.birthDate" type="date" class="form-control" id="birthDate" placeholder="mm/dd/yyyy" [ngModelOptions]="{standalone: true}">
           </div>
           <div class="form-group">
             <label for="contact">Contact :</label>
-            <input type="text" class="form-control" id="contact" placeholder="contact">
+            <input [(ngModel)]="sellers.contact" type="text" class="form-control" id="contact" placeholder="contact" [ngModelOptions]="{standalone: true}">
           </div>
         </div>
           <!--//////////////////-->
           <div class="col-md-6">
-
             <div class="form-group">
               <div class="offset-2">
-                <ba-picture-uploader [picture]="modalHeaderSeller.picture" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
+                <ba-picture-uploader [picture]="modalHeaderSeller.picture" [defaultPicture]="defaultPicture"></ba-picture-uploader>
               </div>
               </div>
             <div class="form-group">
               <label>Address :</label>
-              <input type="text" class="form-control" id="steet" placeholder="steet">
+              <input [(ngModel)]="sellers.address" type="text" class="form-control" id="steet" placeholder="steet" [ngModelOptions]="{standalone: true}">
             </div>
             <div class="form-group">
               <input type="text" class="form-control" id="city" placeholder="city">
@@ -63,6 +62,6 @@
     </form>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-primary confirm-btn" (click)="save()">Save</button>
+    <button class="btn btn-primary confirm-btn" type="submit">Save</button>
   </div>
 </div>

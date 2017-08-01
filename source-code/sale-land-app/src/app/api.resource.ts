@@ -5,6 +5,7 @@ export class ApiResource {
 
 
     public static  LAYOUTS: string = ApiResource.API_ROOT+'layouts/';
+    public static  SELLERS: string = ApiResource.API_ROOT+'sellers';
 
 
 }

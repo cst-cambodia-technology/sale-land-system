@@ -1,5 +1,4 @@
 import { Routes, RouterModule }  from '@angular/router';
-
 import { ModuleWithProviders } from '@angular/core';
 import {Sellers} from "./sellers.component";
 
