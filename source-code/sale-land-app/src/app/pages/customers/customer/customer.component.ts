@@ -31,6 +31,10 @@ export class CustomerComponent implements OnInit {
     this.activeModal.close();
   }
 
+  cancel() {
+    this.close();
+  }
+
   save() {
 
   }

@@ -24,9 +24,9 @@ class LayoutController extends Controller
             'layouts.*.prefix'        =>  'required|string|max:10',
             'layouts.*.no'            =>  'required|integer',
             'layouts.*.label'         =>  'required|string|max:100',
-            'layouts.*.size'          =>  'present|string|nullable|max:100',
-            'layouts.*.price'         =>  'present|numeric|nullable',
-            'layouts.*.description'   =>  'present|string|nullable|max:4000',
+            'layouts.*.size'          =>  'string|nullable|max:100',
+            'layouts.*.price'         =>  'numeric|nullable',
+            'layouts.*.description'   =>  'string|nullable|max:4000',
             'layouts.*.status'        =>  ['required', Rule::in(['Open', 'Blocked', 'Reserved', 'Closed'])]
         ];
     }
@@ -44,9 +44,9 @@ class LayoutController extends Controller
             'prefix'        =>  'required|string|max:10',
             'no'            =>  'required|integer',
             'label'         =>  'required|string|max:100',
-            'size'          =>  'present|string|nullable|max:100',
-            'price'         =>  'present|numeric|nullable',
-            'description'   =>  'present|string|nullable|max:4000',
+            'size'          =>  'string|nullable|max:100',
+            'price'         =>  'numeric|nullable',
+            'description'   =>  'string|nullable|max:4000',
             'status'        =>  ['required', Rule::in(['Open', 'Blocked', 'Reserved', 'Closed'])]
         ]);
     }

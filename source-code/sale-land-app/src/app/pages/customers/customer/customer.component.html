@@ -8,35 +8,161 @@
   <form>
     <div class="modal-body">
       <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-9">
           <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
               <div class="form-group">
                 <label for="displayName">Name</label>
-                <input type="text" class="form-control" id="displayName">
+                <input type="text" class="form-control" id="displayName" maxlength="100">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="companyName">Company</label>
+                <input type="text" class="form-control" id="companyName" maxlength="100">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <ba-picture-uploader [picture]="customer.picture" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="jobTitle">Occupation</label>
+            <input type="text" class="form-control" id="jobTitle" maxlength="100">
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select class="form-control" id="gender">
+              <option value="null"></option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="birthDate">Date of birth</label>
+            <input type="date" class="form-control" id="birthDate">
+          </div>
+        </div>
+      </div>
+      <label>Identity information</label>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="type">Type</label>
+            <select class="form-control" id="type">
+              <option value="null"></option>
+              <option value="Khmer Identity Card">Khmer Identity Card</option>
+              <option value="Passport">Passport</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="no">No.</label>
+            <input type="text" class="form-control" id="no" maxlength="100">
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="releasedDate">Released</label>
+            <input type="date" class="form-control" id="releasedDate">
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="expiredDate">Expired</label>
+            <input type="date" class="form-control" id="expiredDate">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Contact information</label>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input type="email" class="form-control" id="email" placeholder="Email" maxlength="100">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="companyName">Company</label>
-                <input type="text" class="form-control" id="companyName">
+                <input type="text" class="form-control" id="phone" placeholder="Phone" maxlength="20">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="mobile" placeholder="Mobile" maxlength="20">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="fax" placeholder="Fax" maxlength="20">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="website" placeholder="Website" maxlength="1000">
               </div>
             </div>
           </div>
-
-
-          <div class="form-group">
-            <label for="jobTitle">Occupation</label>
-            <input type="text" class="form-control" id="jobTitle">
+        </div>
+        <div class="col-sm-6">
+          <label>Address information</label>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input class="form-control" id="street" placeholder="Street" maxlength="2000">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="city" placeholder="City/Town" maxlength="255">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="state" placeholder="State/Province" maxlength="255">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="postalCode" placeholder="Postal code" maxlength="30">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="country" placeholder="Country" maxlength="255">
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-sm-4">
-          <ba-picture-uploader [picture]="customer.picture" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
+      </div>
+      <label for="note">Notes</label>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <textarea class="form-control" id="note" maxlength="4000"></textarea>
+          </div>
         </div>
       </div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-primary" (click)="save()">Save</button>
+      <button class="btn btn-default" (click)="cancel()">Cancel</button>
     </div>
   </form>
 </div>

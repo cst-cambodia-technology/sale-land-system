@@ -26,7 +26,7 @@ class CreateCustomersTable extends Migration
             $table->string('image','2000')->nullable()->default(null);
             $table->enum('gender', ['Male', 'Female'])->nullable()->default(null);
             $table->date('birthDate')->nullable()->default(null);
-            $table->json('identityInfo')->nullable()->default(null);
+            $table->json('identity')->nullable()->default(null);
             $table->json('contact')->nullable()->default(null);
             $table->json('address')->nullable()->default(null);
             $table->string('note','4000')->nullable()->default(null);
