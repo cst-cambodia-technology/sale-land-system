@@ -12,8 +12,8 @@ export class SellerModal implements OnInit {
     // url: 'http://website.com/upload'
     url: '',
   };
-  modalHeaderSeller: string
-  constructor(private activeModal: NgbActiveModal,) { }
+  modalHeaderSeller: string = 'Seller information';
+  constructor(private activeModal: NgbActiveModal) { }
 
   ngOnInit() {
   }

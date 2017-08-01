@@ -19,6 +19,7 @@ import { PagesModule } from './pages/pages.module';
 import {AuthService} from "./auth.service";
 import {ProjectsService} from "./pages/projects/projects.service";
 import {LayoutService} from "./pages/layouts/layouts.sevice";
+import {CustomersService} from "./pages/customers/customers.service";
 
 
 // Application wide providers
@@ -56,7 +57,8 @@ export type StoreType = {
     APP_PROVIDERS,
     AuthService,
     ProjectsService,
-    LayoutService
+    LayoutService,
+    CustomersService
   ]
 })
 

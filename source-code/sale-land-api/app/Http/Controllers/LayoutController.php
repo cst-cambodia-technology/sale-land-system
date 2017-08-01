@@ -5,13 +5,34 @@ namespace App\Http\Controllers;
 use App\Layout;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use JWTAuth;
 
 class LayoutController extends Controller
 {
     /**
-     * Get a validator for an incoming layout request.
+     * Get a validator logic for an incoming store layouts request.
+     *
+     * @return array
+     */
+    public function validatorLogic()
+    {
+        return  [
+            'layouts'                 =>  'required|array',
+            'layouts.*.projectId'     =>  'required|integer',
+            'layouts.*.prefix'        =>  'required|string|max:10',
+            'layouts.*.no'            =>  'required|integer',
+            'layouts.*.label'         =>  'required|string|max:100',
+            'layouts.*.size'          =>  'present|string|nullable|max:100',
+            'layouts.*.price'         =>  'present|numeric|nullable',
+            'layouts.*.description'   =>  'present|string|nullable|max:4000',
+            'layouts.*.status'        =>  ['required', Rule::in(['Open', 'Blocked', 'Reserved', 'Closed'])]
+        ];
+    }
+
+    /**
+     * Get a validator for an incoming update layout request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Contracts\Validation\Validator
@@ -23,9 +44,9 @@ class LayoutController extends Controller
             'prefix'        =>  'required|string|max:10',
             'no'            =>  'required|integer',
             'label'         =>  'required|string|max:100',
-            'size'          =>  'string|nullable|max:100',
-            'price'         =>  'numeric|nullable',
-            'description'   =>  'string|nullable|max:4000',
+            'size'          =>  'present|string|nullable|max:100',
+            'price'         =>  'present|numeric|nullable',
+            'description'   =>  'present|string|nullable|max:4000',
             'status'        =>  ['required', Rule::in(['Open', 'Blocked', 'Reserved', 'Closed'])]
         ]);
     }
@@ -60,22 +81,29 @@ class LayoutController extends Controller
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
 
-        $this->validator($request);
+        Validator::make($request->all(), $this->validatorLogic())->validate();
 
-        $layout             =   new Layout();
-        $layout->projectId  =   $request->input('projectId');
-        $layout->prefix     =   $request->input('prefix');
-        $layout->no         =   $request->input('no');
-        $layout->label      =   $request->input('label');
-        $layout->size       =   $request->input('size');
-        $layout->price      =   $request->input('price');
-        $layout->description=   $request->input('description');
-        $layout->status     =   $request->input('status');
-        $layout->createdBy  =   $auth->id;
-        $layout->modifiedBy =   $auth->id;
-        $layout->save();
+        $layouts    =   [];
+        $items      =   $request->input('layouts');
 
-        return response()->json($layout);
+        foreach ($items as $item)
+        {
+            $layout             =   new Layout();
+            $layout->projectId  =   $item['projectId'];
+            $layout->prefix     =   $item['prefix'];
+            $layout->no         =   $item['no'];
+            $layout->label      =   $item['label'];
+            $layout->size       =   $item['size'];
+            $layout->price      =   $item['price'];
+            $layout->description=   $item['description'];
+            $layout->status     =   $item['status'];
+            $layout->createdBy  =   $auth->id;
+            $layout->modifiedBy =   $auth->id;
+            $layout->save();
+            $layouts[]          =   $layout;
+        }
+
+        return response()->json($layouts);
     }
 
     /**
@@ -117,7 +145,7 @@ class LayoutController extends Controller
         $this->validator($request);
 
         try {
-            $layout = Project::findOrFail($id);
+            $layout             =   Layout::findOrFail($id);
             $layout->projectId  =   $request->input('projectId');
             $layout->prefix     =   $request->input('prefix');
             $layout->no         =   $request->input('no');
