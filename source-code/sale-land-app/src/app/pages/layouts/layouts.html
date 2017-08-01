@@ -23,14 +23,19 @@
               <th>ACTION</th>
             </tr>
             </thead>
+
             <tbody>
-            <!--<tr *ngFor="let item of metricsTableData">-->
-              <!--<td><img src="{{ ( item.image | baAppPicture )}}" width="20" height="20"></td>-->
-              <!--<td ngClass="nowrap">{{ item.browser }}</td>-->
-              <!--<td class="align-right">{{ item.visits }}</td>-->
-              <!--<td class="align-right">{{ item.purchases }}</td>-->
-              <!--<td class="align-right">{{ item.percent }}</td>-->
-            <!--</tr>-->
+            <tr *ngFor="let layout of layouts">
+              <td>{{ layout.label}}</td>
+              <td>{{ layout.projectId}}</td>
+              <td>{{ layout.size}}</td>
+              <td>{{ layout.price}}</td>
+              <td>{{ layout.description }}</td>
+              <td>{{ layout.status }}</td>
+              <td>
+                <button type="button" class="btn btn-default"><span class="	glyphicon glyphicon-edit"></span></button>
+              </td>
+            </tr>
             </tbody>
           </table>
         </div>

@@ -18,7 +18,7 @@ import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
 import {AuthService} from "./auth.service";
 import {ProjectsService} from "./pages/projects/projects.service";
-import {LayoutService} from "./pages/layouts/layout.sevice";
+import {LayoutService} from "./pages/layouts/layouts.sevice";
 
 
 // Application wide providers

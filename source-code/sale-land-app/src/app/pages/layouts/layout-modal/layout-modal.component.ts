@@ -1,8 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgForm} from "@angular/forms";
-import {LayoutService} from "../layout.sevice";
-import {Layout} from "../layout.model";
+import {LayoutService} from "../layouts.sevice";
+import {Layout} from "../layouts.model";
+import {Response} from "@angular/http";
+import {Layouts} from "../layouts.component";
+
+
 
 @Component({
   selector: 'app-layout-modal',
@@ -11,12 +15,20 @@ import {Layout} from "../layout.model";
   providers: [LayoutService],
 })
 export class LayoutModalComponent implements OnInit {
-  layout = new Layout();
+  layout =  new Layout();
+
+  // layouts: Layouts;
 
   modalHeader: string;
+
+  public isBatch:boolean = false;
+  // public isTo:boolean = false;
+
+
   constructor( private activeModal: NgbActiveModal, private layoutService: LayoutService) { }
 
   ngOnInit() {
+
   }
 
   public close(){
@@ -24,16 +36,33 @@ export class LayoutModalComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    console.log(this.layout);
+    // console.log(this.layout);
     this.layout.label= this.layout.prefix+ this.layout.no;
     this.layout.status= 'Open';
-    this.layoutService.addNewLayout(this.layout)
-        .subscribe(
-            // data => console.log('success: ', data),
-            // err => console.log('error: ', err)
-            (response: Response) => response.json()
-        );
-    form.reset() ;
-    this.activeModal.close();
+    if(this.isBatch!=true){
+      this.layoutService.addNewLayout(this.layout)
+          .subscribe( (res: Response) => {
+                res.json();
+                // this.layouts.ngOnInit()
+              }
+              // (response: Response) => response.json()
+          );
+      form.reset() ;
+      this.activeModal.close();
+    }else {
+      if(this.layout.no > this.layout.to){
+        alert('To must be more then no.');
+      }else{
+        var row = this.layout.to-this.layout.no;
+          let layoutNew: Layout[];
+          for(var i=0; i<row;i++){
+            layoutNew.push(this.layout);
+          }
+          console.log(layoutNew);
+      }
+    }
+
+
+
   }
 }

@@ -21,13 +21,29 @@
                         <div class="row">
 
                             <div class="col-sm-4">
-                                <input [(ngModel)]="layout.prefix" type="text" class="form-control" id="prefix" placeholder="pre" [ngModelOptions]="{standalone: true}">
+                                <input [(ngModel)]="layout.prefix" #prefix="ngModel" type="text" class="form-control" id="prefix" name="prefix" placeholder="prefix" required [ngModelOptions]="{standalone: true}" maxlength="10">
+                                <div *ngIf="prefix.errors && (prefix.dirty || prefix.touched)">
+                                    <span class="help-block" [hidden]="!prefix.errors.required">
+                                        Prefix is required.
+                                    </span>
+                                </div>
+
                             </div>
                             <div class="col-sm-4">
-                                <input [(ngModel)]="layout.no" type="text" class="form-control" id="no" placeholder="no" [ngModelOptions]="{standalone: true}">
+                                <input [(ngModel)]="layout.no" #no="ngModel" type="number" class="form-control" id="no" placeholder="no" [ngModelOptions]="{standalone: true}" required >
+                                <div *ngIf="no.errors && (no.dirty || no.touched)">
+                                    <span class="help-block" [hidden]="!no.errors.required">
+                                        No is required.
+                                    </span>
+                                </div>
                             </div>
-                            <div class="col-sm-4">
-                                <input [(ngModel)]="layout.to" type="text" class="form-control" id="to" placeholder="to" [ngModelOptions]="{standalone: true}">
+                            <div class="col-sm-4" *ngIf="isBatch">
+                                <input [(ngModel)]="layout.to" #to="ngModel" type="number" class="form-control" id="to" placeholder="to" [ngModelOptions]="{standalone: true}" required >
+                                <div *ngIf="to.errors && (to.dirty || to.touched)">
+                                    <span class="help-block" [hidden]="!to.errors.required">
+                                        To is required.
+                                    </span>
+                                </div>
                             </div>
 
                         </div>
@@ -51,7 +67,7 @@
                         <label class="control-label " for="size">
                             Size
                         </label>
-                        <input [(ngModel)]="layout.size" class="form-control" id="size" name="size" placeholder="Size of land" type="text" [ngModelOptions]="{standalone: true}" />
+                        <input [(ngModel)]="layout.size" class="form-control" id="size" name="size" placeholder="Size of land" type="text" [ngModelOptions]="{standalone: true}" maxlength="100"/>
                     </div>
                 </div>
                 <div class="col-sm-4">
@@ -59,7 +75,7 @@
                         <label class="control-label " for="price">
                             Price
                         </label>
-                        <input [(ngModel)]="layout.price" class="form-control" id="price" name="price" placeholder="Price" type="text" [ngModelOptions]="{standalone: true}" />
+                        <input [(ngModel)]="layout.price" class="form-control" id="price" name="price" placeholder="Price" type="number" [ngModelOptions]="{standalone: true}" />
                     </div>
                 </div>
 
@@ -68,15 +84,14 @@
                         <label class="control-label" for="description">
                             Description
                         </label>
-                        <textarea [(ngModel)]="layout.description" class="form-control" cols="40" id="description" name="description" placeholder="Description" rows="5" [ngModelOptions]="{standalone: true}" ></textarea>
+                        <textarea [(ngModel)]="layout.description" class="form-control" cols="40" id="description" name="description" placeholder="Description" rows="5" [ngModelOptions]="{standalone: true}" maxlength="4000"></textarea>
                     </div>
                 </div>
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <button class="btn btn-primary confirm-btn pull-right" type="submit">Save</button>
+                        <button [disabled]="!form.valid" class="btn btn-primary pull-right" type="submit">Save</button>
                     </div>
                 </div>
-
             </div>
         </form>
     </div>
