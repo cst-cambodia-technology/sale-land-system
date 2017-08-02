@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {ProjectModalComponent} from "./project-modal/project-modal.component";
+import {ProjectComponent} from "./project/project.component";
 import {EditComponent} from "./edit/edit.component";
 import {ProjectsService} from "./projects.service";
 
@@ -33,7 +33,7 @@ export class Projects implements OnInit {
     }
 
   projectModalShow(){
-      const activeModal = this.modalService.open(ProjectModalComponent, {size: 'lg'});
+      const activeModal = this.modalService.open(ProjectComponent, {size: 'lg'});
       activeModal.componentInstance.modalHeader = 'Add new test';
   }
 }

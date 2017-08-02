@@ -35,7 +35,7 @@ class CustomerController extends Controller
             'identity.releasedDate'     =>  'date|nullable',
             'identity.expiredDate'      =>  'date|nullable',
             'contact'                   =>  'array|nullable',
-            'contact.email'             =>  'string|email|nullable|max:100',
+            'contact.email'             =>  'string|nullable|max:100',
             'contact.phone'             =>  'string|nullable|max:20',
             'contact.mobile'            =>  'string|nullable|max:20',
             'contact.fax'               =>  'string|nullable|max:20',
@@ -97,7 +97,7 @@ class CustomerController extends Controller
         $customer->image        =   $request->input('image');
         $customer->gender       =   $request->input('gender');
         $customer->birthDate    =   $request->input('birthDate');
-        $customer->identity     =   $request->input('identityInfo');
+        $customer->identity     =   $request->input('identity');
         $customer->contact      =   $request->input('contact');
         $customer->address      =   $request->input('address');
         $customer->note         =   $request->input('note');
@@ -160,7 +160,7 @@ class CustomerController extends Controller
             $customer->image        =   $request->input('image');
             $customer->gender       =   $request->input('gender');
             $customer->birthDate    =   $request->input('birthDate');
-            $customer->identity     =   $request->input('identityInfo');
+            $customer->identity     =   $request->input('identity');
             $customer->contact      =   $request->input('contact');
             $customer->address      =   $request->input('address');
             $customer->note         =   $request->input('note');

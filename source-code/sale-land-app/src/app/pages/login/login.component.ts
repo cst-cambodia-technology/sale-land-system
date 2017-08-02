@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
 import {AuthService} from "../../auth.service";
+import {AppSetting} from "../../app.setting";
 
 @Component({
   selector: 'login',
@@ -29,7 +30,7 @@ export class Login {
     if (this.form.valid) {
       this.authService.authenticate(values['email'], values['password'])
         .subscribe(
-          response => window.location.href = 'http://localhost:4200/#/pages/dashboard',
+          response => window.location.href = AppSetting.DOMAIN_NAME + '#/pages/dashboard',
           error => console.log(error)
         );
     }
