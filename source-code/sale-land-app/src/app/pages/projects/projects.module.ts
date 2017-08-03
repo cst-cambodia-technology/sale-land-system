@@ -4,9 +4,10 @@ import { Projects } from "./projects.component";
 import { AppTranslationModule } from "../../app.translation.module";
 import { NgaModule } from "../../theme/nga.module";
 import { routing } from "./projects.routing";
-import { ProjectModalComponent } from './project-modal/project-modal.component';
+import { ProjectComponent } from './project/project.component';
 import { NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule } from '@angular/forms';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   imports: [
@@ -19,10 +20,12 @@ import { FormsModule } from '@angular/forms';
   ],
   declarations: [
       Projects,
-      ProjectModalComponent
+      ProjectComponent,
+      EditComponent
   ],
   entryComponents: [
-    ProjectModalComponent
+      ProjectComponent,
+      EditComponent
   ],
 })
 export class ProjectsModule { }

@@ -4,15 +4,14 @@ import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { ProjectsService } from "../projects.service";
 
 @Component({
-  selector: 'app-project-modal',
-  templateUrl: './project-modal.component.html',
-  styleUrls: ['./project-modal.component.scss']
+  selector: 'app-project',
+  templateUrl: './project.html',
+  styleUrls: ['./project.scss']
 })
-export class ProjectModalComponent implements OnInit {
+export class ProjectComponent implements OnInit {
 
     modalHeader: string;
     modalContent: string;
-    modalAction: string;
   constructor(private activeModal: NgbActiveModal, private  projectsService: ProjectsService) { }
 
   ngOnInit() {

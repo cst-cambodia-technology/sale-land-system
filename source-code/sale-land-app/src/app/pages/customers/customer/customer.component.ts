@@ -1,18 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Host, Input, OnInit, Output} from '@angular/core';
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgUploaderOptions} from "ngx-uploader";
+import {Customer} from "./customer";
+import {CustomersService} from "../customers.service";
+import {AppSetting} from "../../../app.setting";
 
 @Component({
   selector: 'app-customer',
-  templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.scss']
+  templateUrl: './customer.html',
+  styleUrls: ['./customer.scss'],
 })
 export class CustomerComponent implements OnInit {
 
+  public action: string = null;
+
+  public customer:Customer =  new Customer();
+
   public defaultPicture = 'assets/img/theme/no-photo.png';
-  public customer:any = {
-    picture: 'assets/img/app/profile/Nasta.png'
-  };
+
   public uploaderOptions:NgUploaderOptions = {
     // url: 'http://website.com/upload'
     url: '',
@@ -22,7 +27,7 @@ export class CustomerComponent implements OnInit {
     url: '',
   };
 
-  constructor(private activeModal: NgbActiveModal) { }
+  constructor(private activeModal: NgbActiveModal, private customersService: CustomersService) { }
 
   ngOnInit() {
   }
@@ -35,7 +40,33 @@ export class CustomerComponent implements OnInit {
     this.close();
   }
 
-  save() {
+  actionListener() {
+    if(this.action == 'store'){
+      this.store(this.customer);
+    } else if(this.action == 'update'){
+      this.update(this.customer.id, this.customer);
+    }
+  }
 
+  store(customer: Customer) {
+    this.customersService.store(customer)
+        .subscribe(
+            (response: Customer) => {
+              this.activeModal.close();
+            },
+            (error:  Error) => console.log(error)
+        );
+  }
+
+  update(id: number, customer: Customer) {
+    this.customersService.update(id, customer)
+        .subscribe(
+            (response: Customer) => {
+              this.activeModal.close();
+
+              window.location.href = AppSetting.DOMAIN_NAME + '#/pages/customers';
+            },
+            (error:  Error) => console.log(error)
+        );
   }
 }

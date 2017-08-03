@@ -5,21 +5,21 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <form>
+  <form #form="ngForm">
     <div class="modal-body">
       <div class="row">
         <div class="col-sm-9">
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group">
-                <label for="displayName">Name</label>
-                <input type="text" class="form-control" id="displayName" maxlength="100">
+              <div class="form-group" [ngClass]="{'has-error': (!displayName.valid && displayName.touched), 'has-success': (displayName.valid && displayName.touched)}">
+                <label for="displayName">Name<span class="required">*</span></label>
+                <input [(ngModel)]="customer.displayName" #displayName="ngModel" type="text" required class="form-control" id="displayName" name="displayName" autofocus maxlength="100">
               </div>
             </div>
             <div class="col-sm-12">
               <div class="form-group">
                 <label for="companyName">Company</label>
-                <input type="text" class="form-control" id="companyName" maxlength="100">
+                <input [(ngModel)]="customer.companyName" type="text" class="form-control" id="companyName" name="companyName" maxlength="100">
               </div>
             </div>
           </div>
@@ -28,7 +28,7 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-                <ba-picture-uploader [picture]="customer.picture" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
+                <ba-picture-uploader [picture]="customer.image" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
               </div>
             </div>
           </div>
@@ -38,13 +38,13 @@
         <div class="col-sm-6">
           <div class="form-group">
             <label for="jobTitle">Occupation</label>
-            <input type="text" class="form-control" id="jobTitle" maxlength="100">
+            <input [(ngModel)]="customer.jobTitle" type="text" class="form-control" id="jobTitle" name="jobTitle" maxlength="100">
           </div>
         </div>
         <div class="col-sm-3">
           <div class="form-group">
             <label for="gender">Gender</label>
-            <select class="form-control" id="gender">
+            <select [(ngModel)]="customer.gender" class="form-control" id="gender" name="gender" [ngModelOptions]="{standalone: true}">
               <option value="null"></option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
@@ -54,7 +54,7 @@
         <div class="col-sm-3">
           <div class="form-group">
             <label for="birthDate">Date of birth</label>
-            <input type="date" class="form-control" id="birthDate">
+            <input [(ngModel)]="customer.birthDate" type="date" class="form-control" id="birthDate" name="birthDate">
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@
         <div class="col-sm-3">
           <div class="form-group">
             <label for="type">Type</label>
-            <select class="form-control" id="type">
+            <select [(ngModel)]="customer.identity.type" class="form-control" id="type" name="type" [ngModelOptions]="{standalone: true}">
               <option value="null"></option>
               <option value="Khmer Identity Card">Khmer Identity Card</option>
               <option value="Passport">Passport</option>
@@ -73,19 +73,19 @@
         <div class="col-sm-3">
           <div class="form-group">
             <label for="no">No.</label>
-            <input type="text" class="form-control" id="no" maxlength="100">
+            <input [(ngModel)]="customer.identity.no" type="text" class="form-control" id="no" name="no" maxlength="100">
           </div>
         </div>
         <div class="col-sm-3">
           <div class="form-group">
             <label for="releasedDate">Released</label>
-            <input type="date" class="form-control" id="releasedDate">
+            <input [(ngModel)]="customer.identity.releasedDate" type="date" class="form-control" id="releasedDate" name="releasedDate">
           </div>
         </div>
         <div class="col-sm-3">
           <div class="form-group">
             <label for="expiredDate">Expired</label>
-            <input type="date" class="form-control" id="expiredDate">
+            <input [(ngModel)]="customer.identity.expiredDate" type="date" class="form-control" id="expiredDate" name="expiredDate">
           </div>
         </div>
       </div>
@@ -95,27 +95,27 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-                <input type="email" class="form-control" id="email" placeholder="Email" maxlength="100">
+                <input [(ngModel)]="customer.contact.email" type="email" class="form-control" id="email" name="email" placeholder="Email"  maxlength="100">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="text" class="form-control" id="phone" placeholder="Phone" maxlength="20">
+                <input [(ngModel)]="customer.contact.phone" type="text" class="form-control" id="phone" name="phone" placeholder="Phone" maxlength="20">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="text" class="form-control" id="mobile" placeholder="Mobile" maxlength="20">
+                <input [(ngModel)]="customer.contact.mobile" type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile" maxlength="20">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="text" class="form-control" id="fax" placeholder="Fax" maxlength="20">
+                <input [(ngModel)]="customer.contact.fax" type="text" class="form-control" id="fax" name="fax" placeholder="Fax" maxlength="20">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="text" class="form-control" id="website" placeholder="Website" maxlength="1000">
+                <input [(ngModel)]="customer.contact.website" type="text" class="form-control" id="website" name="website" placeholder="Website" maxlength="1000">
               </div>
             </div>
           </div>
@@ -125,27 +125,27 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-                <input class="form-control" id="street" placeholder="Street" maxlength="2000">
+                <input [(ngModel)]="customer.address.street" type="text" class="form-control" id="street" name="street" placeholder="Street" maxlength="2000">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="text" class="form-control" id="city" placeholder="City/Town" maxlength="255">
+                <input [(ngModel)]="customer.address.city" type="text" class="form-control" id="city" name="city" placeholder="City/Town" maxlength="255">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="text" class="form-control" id="state" placeholder="State/Province" maxlength="255">
+                <input [(ngModel)]="customer.address.state" type="text" class="form-control" id="state" name="state" placeholder="State/Province" maxlength="255">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="text" class="form-control" id="postalCode" placeholder="Postal code" maxlength="30">
+                <input [(ngModel)]="customer.address.postalCode" type="text" class="form-control" id="postalCode" name="postalCode" placeholder="Postal code" maxlength="30">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="text" class="form-control" id="country" placeholder="Country" maxlength="255">
+                <input [(ngModel)]="customer.address.country" type="text" class="form-control" id="country" name="country" placeholder="Country" maxlength="255">
               </div>
             </div>
           </div>
@@ -155,13 +155,13 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group">
-            <textarea class="form-control" id="note" maxlength="4000"></textarea>
+            <textarea [(ngModel)]="customer.note" class="form-control" id="note" name="note" maxlength="4000"></textarea>
           </div>
         </div>
       </div>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-primary" (click)="save()">Save</button>
+      <button [disabled]="!form.valid" class="btn btn-primary" (click)="actionListener()">Save</button>
       <button class="btn btn-default" (click)="cancel()">Cancel</button>
     </div>
   </form>

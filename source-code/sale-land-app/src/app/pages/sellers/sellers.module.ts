@@ -7,14 +7,16 @@ import {RouterModule} from "@angular/router";
 import {routing} from "./sellers.routing";
 import {SellerModal} from './seller-modal/seller-modal.component';
 import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
-
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
     CommonModule,
-      NgaModule,
       AppTranslationModule,
+      NgaModule,
       NgbModalModule,
+      ReactiveFormsModule,
+      FormsModule,
       RouterModule,
       routing
   ],
