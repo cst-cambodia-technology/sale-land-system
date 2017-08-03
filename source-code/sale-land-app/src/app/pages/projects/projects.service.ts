@@ -57,4 +57,17 @@ export class ProjectsService {
             error => error.json()
         );
   }
+    // updateProject(id: number, project: Project) {
+    //     return this.http.put(
+    //         ApiResource.PROJECTS + id,
+    //         project,
+    //         {headers: new Headers({
+    //             'Authorization': 'Bearer' + localStorage.getItem('token'),
+    //             'X-Requested_With': 'XMLHttpRequest'
+    //         })})
+    //         .map(
+    //             response => response.json(),
+    //             error => error.json()
+    //         );
+    // }
 }
