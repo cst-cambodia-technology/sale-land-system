@@ -4,8 +4,9 @@ import { Customers } from './customers.component';
 import {AppTranslationModule} from "../../app.translation.module";
 import {NgaModule} from "../../theme/nga.module";
 import {routing} from "./customers.routing";
-import { CustomerComponent } from './customer/customer.component';
+import {CustomerComponent } from './customer/customer.component';
 import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
@@ -13,10 +14,11 @@ import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
     AppTranslationModule,
     NgaModule,
     NgbModalModule,
+    FormsModule,
     routing
   ],
   declarations: [
-      Customers,
+    Customers,
     CustomerComponent
   ],
   entryComponents: [

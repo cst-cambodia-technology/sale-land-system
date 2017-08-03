@@ -2,7 +2,7 @@
   <div class="col-sm-12">
     <div class="form-group row text-right">
       <div class="col-sm-12">
-        <button type="button" class="btn btn-primary" (click)="onNew()">New customer</button>
+        <button type="button" class="btn btn-primary" (click)="new()">New customer</button>
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@
               <td>{{ customer.contact.phone }}</td>
               <td>{{ customer.contact.email }}</td>
               <td>{{ customer.status }}</td>
-              <td><button class="btn btn-default" (click)="OnEdit()">Edit</button></td>
+              <td><button class="btn btn-default" (click)="edit(customer)">Edit</button></td>
             </tr>
             </tbody>
           </table>
@@ -42,4 +42,3 @@
     </ba-card>
   </div>
 </div>
-

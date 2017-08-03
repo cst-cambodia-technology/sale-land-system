@@ -2,15 +2,17 @@ import {Component, Input, OnInit} from '@angular/core';
 import {CustomersService} from "./customers.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {CustomerComponent} from "./customer/customer.component";
+import {Customer} from "./customer/customer";
 
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.html',
-  styleUrls: ['./customers.scss']
+  styleUrls: ['./customers.scss'],
 })
+
 export class Customers implements OnInit {
 
-  @Input() customers: any;
+  @Input() customers: Customer[];
 
   constructor(private customersService: CustomersService, private modalService: NgbModal) { }
 
@@ -19,18 +21,22 @@ export class Customers implements OnInit {
   }
 
   list() {
-    this.customersService.getCustomers()
+    this.customersService.index()
         .subscribe(
-            (response: Response) => this.customers = response,
-            (error: Error) => console.log(error)
+            (response: Customer[]) => this.customers = response,
+            (error:  Error) => console.log(error)
         );
   }
 
-  onNew() {
-    this.modalService.open(CustomerComponent, {size: 'lg', backdrop: 'static'});
+  new() {
+    const activeModal = this.modalService.open(CustomerComponent, {size: 'lg', backdrop: 'static'});
+    activeModal.componentInstance.action = 'store';
   }
 
-  onEdit() {
+  edit(customer: Customer) {
 
+    const activeModal = this.modalService.open(CustomerComponent, {size: 'lg', backdrop: 'static'});
+    activeModal.componentInstance.action = 'update';
+    activeModal.componentInstance.customer = customer;
   }
 }
