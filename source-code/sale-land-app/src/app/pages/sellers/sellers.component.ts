@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {SellersService} from "./sellers.service";
 import {SellerModal} from "./seller-modal/seller-modal.component";
+import {Seller} from "./sellers.modal";
 
 @Component({
   selector: 'app-sellers',
@@ -10,24 +11,30 @@ import {SellerModal} from "./seller-modal/seller-modal.component";
 })
 
 export class Sellers implements OnInit {
-  @Input() sellers: any;
-  constructor( private modalSeller: NgbModal, private sellersService: SellersService) { }
+
+  @Input() sellers: Seller[];
+
+  constructor( private modalSeller: NgbModal, private sellersService: SellersService){ }
 
   ngOnInit() {
-  this.list();
+    this.getSellers();
   }
-  list() {
+  getSellers() {
     this.sellersService.getSellers()
         .subscribe(
-            (response: Response) => this.sellers = response,
+            (seller: Seller[]) => this.sellers = seller,
             (error: Error) => console.log(error)
         );
   }
 
-  onNew() {
-    this.modalSeller.open(SellerModal, {size: 'lg', backdrop: 'static'});
+  new() {
+    const activeModal = this.modalSeller.open(SellerModal, {size: 'lg', backdrop: 'static'});
+    activeModal.componentInstance.action = 'store';
   }
 
-  onEdit() {}
-
+  edit(seller: Seller) {
+    const activeModal = this.modalSeller.open(SellerModal, {size: 'lg', backdrop: 'static'});
+    activeModal.componentInstance.action = 'update';
+    activeModal.componentInstance.seller = seller;
+  }
 }

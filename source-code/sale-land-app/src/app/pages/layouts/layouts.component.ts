@@ -25,7 +25,6 @@ export class Layouts implements OnInit{
 
   ngOnInit() {
     this.getLayoutList();
-
     // let timer = Observable.timer(2000,1000);
     //
     // timer.subscribe(()=> this.getLayoutList());
@@ -41,7 +40,7 @@ export class Layouts implements OnInit{
 
   layoutModalShow(){
     const activeModalLayout = this.modalLayout.open(LayoutModalComponent, {size: 'lg'});
-    activeModalLayout.componentInstance.modalHeader = 'Add new layout';
+    activeModalLayout.componentInstance.modalHeader = 'Layout Information';
     activeModalLayout.componentInstance.btnSave = 'Save';
   }
 
@@ -49,7 +48,7 @@ export class Layouts implements OnInit{
     let newCourse= Object.assign({}, layout);
     const activeModalLayout = this.modalLayout.open(LayoutModalComponent, {size: 'lg'});
 
-    activeModalLayout.componentInstance.modalHeader = 'Edit layout';
+    activeModalLayout.componentInstance.modalHeader = 'Edit Layout Information ';
 
     activeModalLayout.componentInstance.showHideBatchCheckBox = false;
 

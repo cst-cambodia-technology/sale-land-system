@@ -24,7 +24,7 @@ export class LayoutModalComponent implements OnInit {
 
   public modalHeader: string;
   public showHideBatchCheckBox: boolean = true;
-  public btnSave:string = 'Save';
+  public btnSave:string;
 
   public isBatch:boolean = false;
 
@@ -36,6 +36,7 @@ export class LayoutModalComponent implements OnInit {
   ngOnInit() {
 
     this.getProjects();
+
     // let timer = Observable.timer(2000,1000);
     //
     // timer.subscribe(()=> this.getProjects());
@@ -53,27 +54,25 @@ export class LayoutModalComponent implements OnInit {
     this.activeModal.close();
   }
 
-  onSubmit(form: NgForm){
+  actionListener(){
     // console.log(this.layout);
     this.layout.label= this.layout.prefix+ this.layout.no;
 
     if(this.btnSave =='Save'){
-
       this.layout.status= 'Open';
 
       if(this.isBatch!=true){
-
         let layouts = new Array();
         layouts.push(this.layout);
         this.layoutService.addNewLayout(layouts)
             .subscribe(
                 (response: Response) => {
                   response.json();
-
                 }
             );
 
-        form.reset() ;
+
+        // form.reset() ;
         this.activeModal.close();
       }else {
         if(this.layout.no > this.layout.to){
@@ -85,30 +84,24 @@ export class LayoutModalComponent implements OnInit {
           for(var i=0; i<row;i++){
             layouts.push(this.layout);
           }
-
           this.layoutService.addNewLayout(layouts)
               .subscribe(
                   (response: Response) => response.json()
               );
 
-          form.reset() ;
+          // form.reset() ;
           this.activeModal.close();
-
-
         }
       }
     }else {
-
       this.layoutService.updateLayout(this.layout.id, this.layout)
           .subscribe(
               (res) =>{
                 console.log(res.project.id);
               }
           );
-      form.reset() ;
+      // form.reset() ;
       this.activeModal.close();
-
     }
-
   }
 }
