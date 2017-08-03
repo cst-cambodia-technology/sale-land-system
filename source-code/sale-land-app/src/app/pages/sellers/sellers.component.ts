@@ -32,9 +32,16 @@ export class Sellers implements OnInit {
     activeModal.componentInstance.action = 'store';
   }
 
-  edit(seller: Seller) {
-    const activeModal = this.modalSeller.open(SellerModal, {size: 'lg', backdrop: 'static'});
-    activeModal.componentInstance.action = 'update';
-    activeModal.componentInstance.seller = seller;
+  edit(id: number) {
+    this.sellersService.show(id)
+        .subscribe(
+            (response: Seller) => {
+              const activeModal = this.modalSeller.open(SellerModal, {size: 'lg', backdrop: 'static'});
+              activeModal.componentInstance.action = 'update';
+              activeModal.componentInstance.seller = response;
+            },
+            (error:  Error) => {console.log(error)}
+        );
+
   }
 }

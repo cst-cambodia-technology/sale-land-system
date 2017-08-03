@@ -14,11 +14,11 @@
           <table class="table table-bordered">
             <thead>
             <tr>
-              <th>Seller Name</th>
-              <th>Company Name</th>
-              <th>Occupation</th>
-              <th>Address</th>
-              <th>Email</th>
+              <th>SELLER</th>
+              <th>COMPANY</th>
+              <th>OCCUPATION</th>
+              <th>ADDRESS</th>
+              <th>EMAIL</th>
               <th>Phone</th>
               <th>Status</th>
               <th>Action</th>
@@ -29,7 +29,12 @@
                 <td>{{ seller.displayName }}</td>
                 <td>{{ seller.companyName }}</td>
                 <td>{{ seller.jobTitle }}</td>
-                <td>{{ seller.address.street }}</td>
+                <td>{{seller.address.street ? seller.address.street  + ', ' : ''}}
+                  {{seller.address.city ? seller.address.city  + ', ' : ''}}
+                  {{seller.address.state ? seller.address.state  + ', ' : ''}}
+                  {{seller.address.postalCode ? seller.address.postalCode  + ' ' : ''}}
+                  {{seller.address.country ? seller.address.country : ''}}
+                </td>
                 <td>{{ seller.contact.email }}</td>
                 <td>{{ seller.contact.phone }}</td>
                 <td>{{ seller.status}}</td>

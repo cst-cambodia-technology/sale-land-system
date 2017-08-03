@@ -3,6 +3,7 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgUploaderOptions} from "ngx-uploader";
 import {Seller} from "../sellers.modal";
 import {SellersService} from "../sellers.service";
+import {AppSetting} from "../../../app.setting";
 
 @Component({
   selector: 'app-seller-module',
@@ -13,6 +14,7 @@ import {SellersService} from "../sellers.service";
 export class SellerModal implements OnInit {
 
   public action: string = null;
+
   public seller: Seller = new Seller();
 
   public defaultPicture = 'assets/img/theme/no-photo.png';
@@ -60,6 +62,8 @@ export class SellerModal implements OnInit {
         .subscribe(
             (response: Seller) => {
               this.activeModal.close();
+
+              window.location.href = AppSetting.DOMAIN_NAME + '#/pages/sellers';
             },
             (error: Error) => console.log(error)
         );
