@@ -13,11 +13,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
   imports: [
     CommonModule,
     AppTranslationModule,
-    ReactiveFormsModule,
-    FormsModule,
     NgaModule,
     NgbModalModule,
-    routing,
+    FormsModule,
+    routing
 
   ],
   declarations: [
