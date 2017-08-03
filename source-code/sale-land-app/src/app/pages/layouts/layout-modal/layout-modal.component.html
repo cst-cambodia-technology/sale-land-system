@@ -52,49 +52,14 @@
                     </div>
                 </div>
 
-                <!--<div class="col-sm-12">-->
-                    <!--<div class="form-group">-->
-                        <!--<label for="prefix">Label</label>-->
-                        <!--<div class="row">-->
-                            <!--<div class="col-sm-4">-->
-                                <!--<input [(ngModel)]="layout.prefix" #prefix="ngModel" type="text" class="form-control" id="prefix" name="prefix" placeholder="prefix" required [ngModelOptions]="{standalone: true}" maxlength="10">-->
-                                <!--<div *ngIf="prefix.errors && (prefix.dirty || prefix.touched)">-->
-                                    <!--<span class="help-block" [hidden]="!prefix.errors.required">-->
-                                        <!--Prefix is required.-->
-                                    <!--</span>-->
-                                <!--</div>-->
-
-                            <!--</div>-->
-                            <!--<div class="col-sm-4">-->
-                                <!--<input [(ngModel)]="layout.no" #no="ngModel" type="number" class="form-control" id="no" placeholder="no" [ngModelOptions]="{standalone: true}" required >-->
-                                <!--<div *ngIf="no.errors && (no.dirty || no.touched)">-->
-                                    <!--<span class="help-block" [hidden]="!no.errors.required">-->
-                                        <!--No is required.-->
-                                    <!--</span>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--<div class="col-sm-4" *ngIf="isBatch">-->
-                                <!--<input [(ngModel)]="layout.to" #to="ngModel" type="number" class="form-control" id="to" placeholder="to" [ngModelOptions]="{standalone: true}" required >-->
-                                <!--<div *ngIf="to.errors && (to.dirty || to.touched)">-->
-                                    <!--<span class="help-block" [hidden]="!to.errors.required">-->
-                                        <!--To is required.-->
-                                    <!--</span>-->
-                                <!--</div>-->
-                            <!--</div>-->
-
-                        <!--</div>-->
-
-                    <!--</div>-->
-                <!--</div>-->
                 <div class="col-sm-4">
                     <div class="form-group ">
                         <label class="control-label " for="projectId">
                             Project
                         </label>
                         <select [(ngModel)]="layout.projectId" #projectId="ngModel" class="select form-control" id="projectId" name="projectId" [ngModelOptions]="{standalone: true}" >
-                            <option value="1">
-                                project
-                            </option>
+
+                            <option *ngFor="let project of projects" value="{{ project.id }}">{{ project.name}}</option>
                         </select>
                     </div>
                 </div>
@@ -106,6 +71,7 @@
                         <input [(ngModel)]="layout.size" #size="ngModel" class="form-control" id="size" name="size" placeholder="Size of land" type="text" [ngModelOptions]="{standalone: true}" maxlength="100"/>
                     </div>
                 </div>
+
                 <div class="col-sm-4">
                     <div class="form-group ">
                         <label class="control-label " for="price">

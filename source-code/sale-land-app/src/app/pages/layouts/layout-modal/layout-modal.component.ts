@@ -1,13 +1,15 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgForm} from "@angular/forms";
 import {LayoutsService} from "../layouts.sevice";
 import {Layout} from "../layouts.model";
 import {Response} from "@angular/http";
-import {Layouts} from "../layouts.component";
-import {LayoutInterface} from "../layouts.interface";
-
-
+import {Projects} from "../../projects/projects.interface";
+import {ProjectsService} from "../../projects/projects.service";
+import {Route, Router, Routes} from "@angular/router";
+import {Observable} from "rxjs/Observable";
+import {Subject} from "rxjs/Subject";
+import {ReplaySubject} from "rxjs/ReplaySubject";
 
 @Component({
   selector: 'app-layout-modal',
@@ -16,24 +18,35 @@ import {LayoutInterface} from "../layouts.interface";
   providers: [LayoutsService],
 })
 export class LayoutModalComponent implements OnInit {
-   layout =  new Layout();
 
-  // layouts: Layouts;
+
+  @Input() layout =  new Layout();
 
   public modalHeader: string;
   public showHideBatchCheckBox: boolean = true;
   public btnSave:string = 'Save';
-  public id: number;
 
   public isBatch:boolean = false;
 
+  @Input() projects: Projects[];
+  constructor( private activeModal: NgbActiveModal, private layoutService: LayoutsService, private projectService: ProjectsService) {
 
-
-  constructor( private activeModal: NgbActiveModal, private layoutService: LayoutsService) { }
-
+  }
 
   ngOnInit() {
 
+    this.getProjects();
+    // let timer = Observable.timer(2000,1000);
+    //
+    // timer.subscribe(()=> this.getProjects());
+  }
+
+  private getProjects(){
+    this.projectService.getProjects()
+        .subscribe(
+            (projects: Projects[]) =>  this.projects = projects,
+            (error: Response) => console.log(error)
+        );
   }
 
   public close(){
@@ -86,8 +99,16 @@ export class LayoutModalComponent implements OnInit {
       }
     }else {
 
+      this.layoutService.updateLayout(this.layout.id, this.layout)
+          .subscribe(
+              (res) =>{
+                console.log(res.project.id);
+              }
+          );
+      form.reset() ;
+      this.activeModal.close();
+
     }
 
   }
-
 }
