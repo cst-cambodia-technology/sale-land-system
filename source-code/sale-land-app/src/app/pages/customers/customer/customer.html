@@ -5,15 +5,15 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <form>
+  <form #form="ngForm">
     <div class="modal-body">
       <div class="row">
         <div class="col-sm-9">
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group">
-                <label for="displayName">Name</label>
-                <input [(ngModel)]="customer.displayName" type="text" class="form-control" id="displayName" name="displayName" maxlength="100">
+              <div class="form-group" [ngClass]="{'has-error': (!displayName.valid && displayName.touched), 'has-success': (displayName.valid && displayName.touched)}">
+                <label for="displayName">Name<span class="required">*</span></label>
+                <input [(ngModel)]="customer.displayName" #displayName="ngModel" type="text" required class="form-control" id="displayName" name="displayName" autofocus maxlength="100">
               </div>
             </div>
             <div class="col-sm-12">
@@ -161,7 +161,7 @@
       </div>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-primary" (click)="actionListener()">Save</button>
+      <button [disabled]="!form.valid" class="btn btn-primary" (click)="actionListener()">Save</button>
       <button class="btn btn-default" (click)="cancel()">Cancel</button>
     </div>
   </form>

@@ -19,7 +19,7 @@ export class LayoutsService{
 
     }
 
-    getLayouts(): Observable<Layout[]>{
+    getLayouts(): Observable<any>{
         return this.http.get(ApiResource.LAYOUTS, this.option)
             .map(
                 (res: Response)=>{
@@ -40,18 +40,28 @@ export class LayoutsService{
 
     addNewLayout(layout: Layout[]): Observable<any>{
         let body = { 'layouts': layout };
-        let headers = new Headers({
-            'Authorization': 'Bearer' + localStorage.getItem('token'),
-            'X-Requested-With': 'XMLHttpRequest'
-        });
-        let options = new RequestOptions({ headers: headers });
+        // let headers = new Headers({
+        //     'Authorization': 'Bearer' + localStorage.getItem('token'),
+        //     'X-Requested-With': 'XMLHttpRequest'
+        // });
+        // let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(ApiResource.LAYOUTS, body, options)
+        return this.http.post(ApiResource.LAYOUTS, body, this.option)
             .map(
                 response => response.json(),
                 error => error.json()
             );
 
+    }
+
+    updateLayout(id: number, layout: Layout): Observable<any>{
+
+        let body = layout;
+        return this.http.put(ApiResource.LAYOUTS+id, body, this.option)
+            .map(
+                response => response.json(),
+                error => error.json()
+            );
     }
 
 

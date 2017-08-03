@@ -31,7 +31,7 @@ export const routes: Routes = [
       { path: 'projects', loadChildren: './projects/projects.module#ProjectsModule' },
       { path: 'layouts', loadChildren: './layouts/layouts.module#LayoutsModule' },
       { path: 'sellers', loadChildren: './sellers/sellers.module#SellersModule' },
-      { path: 'customers', loadChildren: './customers/customers.module#CustomersModule' }
+      { path: 'customers', loadChildren: './customers/customers.module#CustomersModule' },
     ]
   }
 ];

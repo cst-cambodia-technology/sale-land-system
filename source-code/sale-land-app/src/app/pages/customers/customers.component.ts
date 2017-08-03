@@ -33,10 +33,15 @@ export class Customers implements OnInit {
     activeModal.componentInstance.action = 'store';
   }
 
-  edit(customer: Customer) {
-
-    const activeModal = this.modalService.open(CustomerComponent, {size: 'lg', backdrop: 'static'});
-    activeModal.componentInstance.action = 'update';
-    activeModal.componentInstance.customer = customer;
+  edit(id: number) {
+    this.customersService.show(id)
+        .subscribe(
+            (response: Customer) => {
+              const activeModal = this.modalService.open(CustomerComponent, {size: 'lg', backdrop: 'static'});
+              activeModal.componentInstance.action = 'update';
+              activeModal.componentInstance.customer = response;
+            },
+            (error:  Error) => {console.log(error)}
+        );
   }
 }

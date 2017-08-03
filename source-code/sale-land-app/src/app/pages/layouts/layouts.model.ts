@@ -5,15 +5,20 @@ import {Input} from "@angular/core";
 
 export class Layout{
 
+    public id: number;
     public prefix: string;
     public no: number;
     public to: number;
     public label: string;
     public projectId: number;
-    public size: string;
-    public price: number;
+    public project: {
+        id: number;
+        name: string;
+    }
+    public size: string = null;
+    public price: number = null ;
     public status: string;
-    public description: string;
+    public description: string = null;
     constructor(){
 
     }

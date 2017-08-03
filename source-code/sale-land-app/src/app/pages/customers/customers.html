@@ -29,11 +29,16 @@
               <td><b>{{ customer.displayName }}</b></td>
               <td>{{ customer.companyName }}</td>
               <td>{{ customer.jobTitle }}</td>
-              <td>{{ customer.address.street }}</td>
+              <td>{{customer.address.street ? customer.address.street  + ', ' : ''}}
+                  {{customer.address.city ? customer.address.city  + ', ' : ''}}
+                  {{customer.address.state ? customer.address.state  + ', ' : ''}}
+                  {{customer.address.postalCode ? customer.address.postalCode  + ' ' : ''}}
+                  {{customer.address.country ? customer.address.country : ''}}
+              </td>
               <td>{{ customer.contact.phone }}</td>
               <td>{{ customer.contact.email }}</td>
               <td>{{ customer.status }}</td>
-              <td><button class="btn btn-default" (click)="edit(customer)">Edit</button></td>
+              <td><button class="btn btn-default" (click)="edit(customer.id)">Edit</button></td>
             </tr>
             </tbody>
           </table>

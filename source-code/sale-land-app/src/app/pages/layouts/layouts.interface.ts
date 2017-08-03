@@ -1,7 +1,8 @@
-import {Layout} from "./layouts.model";
-/**
- * Created by sokho on 8/1/2017.
- */
+
+import {Projects} from "../projects/projects.interface";
 export interface LayoutInterface{
-    setLayout(layout: Layout);
+    // setLayout(layout: Layout);
+    // setProject(projects: Projects[]): void;
+
+    projects: Projects[];
 }
