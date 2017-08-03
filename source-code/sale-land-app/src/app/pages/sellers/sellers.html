@@ -2,7 +2,7 @@
   <div class="col-sm-12">
     <div class="form-group row text-right">
       <div class="col-sm-12">
-        <button type="button" class="btn btn-primary" (click)="onNew()">New Seller</button>
+        <button type="button" class="btn btn-primary" (click)="new()">New Seller</button>
       </div>
     </div>
   </div>
@@ -16,12 +16,10 @@
             <tr>
               <th>Seller Name</th>
               <th>Company Name</th>
-              <th>Job Title</th>
-              <th>image</th>
-              <th>Gender</th>
-              <th>Birth Date
-              <th>Contact</th>
+              <th>Occupation</th>
               <th>Address</th>
+              <th>Email</th>
+              <th>Phone</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -30,14 +28,12 @@
               <tr *ngFor="let seller of sellers">
                 <td>{{ seller.displayName }}</td>
                 <td>{{ seller.companyName }}</td>
-                <td>{{ seller.jotTitle }}</td>
-                <td>{{ seller.image }}</td>
-                <td>{{ seller.gender }}</td>
-                <td>{{ seller.birthDate }}</td>
-                <td>{{ seller.contact }}</td>
+                <td>{{ seller.jobTitle }}</td>
                 <td>{{ seller.address.street }}</td>
+                <td>{{ seller.contact.email }}</td>
+                <td>{{ seller.contact.phone }}</td>
                 <td>{{ seller.status}}</td>
-                <td><button class="btn btn-default" (click)="OnEdit()">Edit</button></td>
+                <td><button class="btn btn-default" (click)="edit(seller)">Edit</button></td>
               </tr>
             </tbody>
           </table>
