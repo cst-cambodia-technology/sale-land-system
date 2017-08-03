@@ -10,10 +10,10 @@ export class AuthService {
 
     }
 
-    authenticate(email: string, password: string) {
+    authenticate(email: string, password: string, remember: boolean) {
         return this.http.post(
             ApiResource.AUTHENTICATE,
-            {email: email, password: password},
+            {email: email, password: password, remember:remember},
             {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})})
             .map(
                 (response: Response) => {

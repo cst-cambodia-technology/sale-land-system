@@ -14,7 +14,7 @@ export class Login {
   public email:AbstractControl;
   public password:AbstractControl;
   public submitted:boolean = false;
-  public isRemember:boolean = false;
+  public remember:boolean = false;
   constructor(private authService: AuthService, fb:FormBuilder) {
     this.form = fb.group({
       'email': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
@@ -28,7 +28,7 @@ export class Login {
   public onSubmit(values:Object):void {
     this.submitted = true;
     if (this.form.valid) {
-      this.authService.authenticate(values['email'], values['password'])
+      this.authService.authenticate(values['email'], values['password'], values['remember'])
         .subscribe(
           response => window.location.href = AppSetting.DOMAIN_NAME + '#/pages/dashboard',
           error => console.log(error)

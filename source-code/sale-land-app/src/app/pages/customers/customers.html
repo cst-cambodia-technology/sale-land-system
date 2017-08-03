@@ -14,19 +14,19 @@
           <table class="table table-bordered">
             <thead>
             <tr>
-              <th>CUSTOMER</th>
-              <th>COMPANY</th>
-              <th>OCCUPATION</th>
-              <th>ADDRESS</th>
-              <th>PHONE</th>
-              <th>EMAIL</th>
-              <th>STATUS</th>
-              <th>ACTION</th>
+              <th>Customer</th>
+              <th>Company</th>
+              <th>Occupation</th>
+              <th>Address</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th>Action</th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let customer of customers">
-              <td><b>{{ customer.displayName }}</b></td>
+              <td>{{ customer.displayName }}</td>
               <td>{{ customer.companyName }}</td>
               <td>{{ customer.jobTitle }}</td>
               <td>{{customer.address.street ? customer.address.street  + ', ' : ''}}
