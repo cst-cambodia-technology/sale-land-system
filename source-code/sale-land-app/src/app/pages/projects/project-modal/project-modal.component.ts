@@ -17,6 +17,7 @@ export class ProjectModalComponent implements OnInit {
   ngOnInit() {
 
   }
+
     onSubmit(form: NgForm) {
     this.projectsService.storeProject(form.value.name, form.value.description)
         .subscribe(

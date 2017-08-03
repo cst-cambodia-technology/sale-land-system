@@ -15,6 +15,7 @@ export class Projects implements OnInit {
   constructor(private modalService: NgbModal ,private projectsService: ProjectsService ) { }
 
   @Input() projects: Projects[];
+    @Input() project: Projects;
   ngOnInit() {
       this.projectsService.getProjects()
           .subscribe(
@@ -22,14 +23,14 @@ export class Projects implements OnInit {
               (error: Response) => console.log(error)
           )
   }
-    editing = true;
+
+    editing = false;
     editValue = '';
     onEdit() {
       const activeModal = this.modalService.open(EditComponent, {size: 'lg'},);
       activeModal.componentInstance.modalHeader = 'Edit project';
-        this.editing = false;
-        this.editValue;
-
+        this.editing = true;
+        this.editValue = 'adfa';
     }
 
   projectModalShow(){
