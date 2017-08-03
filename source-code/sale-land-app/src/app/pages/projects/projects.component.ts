@@ -24,24 +24,18 @@ export class Projects implements OnInit {
           )
   }
 
-    onEdit(project: Projects){
-      const activeModal = this.modalService.open(EditComponent, {size: 'lg'},);
-      activeModal.componentInstance.modalHeader = 'Edit project';
-      activeModal.componentInstance.project = project;
-    }
+    onEdit(id: number) {
+        this.projectsService.getProject(id)
+            .subscribe(
+                (response :Projects) => {
+                    const activeModal = this.modalService.open(EditComponent, {size: 'lg'},);
+                    activeModal.componentInstance.modalHeader = 'Edit project';
+                    activeModal.componentInstance.project = response;
+                },
+                (error: Error) => {console.log(error)}
+            );
 
-    // onEdit(id: number) {
-    //     this.projectsService.getProject(id)
-    //         .subscribe(
-    //             (response :Projects) => {
-    //                 const activeModal = this.modalService.open(EditComponent, {size: 'lg'},);
-    //                 activeModal.componentInstance.modalHeader = 'Edit project';
-    //                 activeModal.componentInstance.project = response;
-    //             },
-    //             (error: Error) => {console.log(error)}
-    //         );
-    //
-    // }
+    }
 
   projectModalShow(){
       const activeModal = this.modalService.open(ProjectComponent, {size: 'lg'});

@@ -20,12 +20,11 @@
                           </tr>
                           </thead>
                           <tbody>
-                          <tr *ngFor="let item of projects">
-                              <td>{{ item.name }}</td>
-                              <td>{{ item.description }}</td>
+                          <tr *ngFor="let project of projects">
+                              <td>{{ project.name }}</td>
+                              <td>{{ project.description }}</td>
                               <td>
-                                  <button class="btn btn-primary" (click)="onEdit(item)">EDIT</button>
-                                  <button class="btn btn-default" (click)="onDelete()">DELETE</button>
+                                  <button class="btn btn-primary" (click)="onEdit(project.id)">Edit</button>
                               </td>
                           </tr>
                           </tbody>

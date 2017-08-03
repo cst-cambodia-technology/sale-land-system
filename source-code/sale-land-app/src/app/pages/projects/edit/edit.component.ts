@@ -3,7 +3,6 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {ProjectsService} from "../projects.service";
 import {Projects} from "../projects.interface";
 import {Project} from "./edit";
-import {NgForm} from "@angular/forms";
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -26,24 +25,15 @@ export class EditComponent implements OnInit {
 
   ngOnInit() {}
 
-    onSubmit(form: NgForm) {
-    this.projectsService.updateProject(form.value.id, form.value.name, form.value.description)
+  onUpdate(id: number, project: Project) {
+    this.projectsService.updateProject(id, project)
         .subscribe(
-            () => console.log(this)
+            (response: Project) => {
+              this.activeModal.close();
+            },
+            (error:  Error) => console.log(error)
         );
-    form.reset();
-    this.activeModal.close();
   }
-
-  // update(id: number, project: Project) {
-  //   this.projectsService.updateProject(id, project)
-  //       .subscribe(
-  //           (response: Project) => {
-  //             this.activeModal.close();
-  //           },
-  //           (error:  Error) => console.log(error)
-  //       );
-  // }
 
   close() {
     this.activeModal.close();

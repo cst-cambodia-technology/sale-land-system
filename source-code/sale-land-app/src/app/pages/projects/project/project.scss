@@ -7,3 +7,9 @@
 .modal-content {
   color: $dropdown-text;
 }
+form {
+  .required {
+    color: #f95372;
+    margin-left: 2px;
+  }
+}
