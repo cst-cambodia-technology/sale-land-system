@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Headers, Http} from '@angular/http';
 import 'rxjs/Rx';
 import {ApiResource} from "../../api.resource";
-import {Project} from "./edit/edit";
+import {Project} from "./project/project";
 
 @Injectable()
 export class ProjectsService {

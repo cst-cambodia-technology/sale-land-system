@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" xmlns:trackBy="http://www.w3.org/1999/xhtml">
     <div class="col-sm-12">
         <div class="form-group row text-right">
             <div class="col-sm-12">
@@ -20,7 +20,7 @@
                           </tr>
                           </thead>
                           <tbody>
-                          <tr *ngFor="let project of projects">
+                          <tr *ngFor="let project of projects; trackBy: trackHero">
                               <td>{{ project.name }}</td>
                               <td>{{ project.description }}</td>
                               <td>
