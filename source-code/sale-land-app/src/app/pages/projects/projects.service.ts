@@ -31,10 +31,10 @@ export class ProjectsService {
         );
   }
 
-  storeProject(name: string, description: string) {
+  storeProject(project: Project) {
     return this.http.post(
         ApiResource.PROJECTS,
-        {name: name, description: description},
+        project,
         {headers: new Headers({
             'Authorization': 'Bearer' + localStorage.getItem('token'),
             'X-Requested-With': 'XMLHttpRequest'

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { ProjectsService } from "../projects.service";
-import {Project} from "../edit/edit";
+import { Project } from "./project";
+
 
 @Component({
   selector: 'app-project',
@@ -21,14 +21,34 @@ export class ProjectComponent implements OnInit {
 
   }
 
-    onSubmit(form: NgForm) {
-    this.projectsService.storeProject(form.value.name, form.value.description)
-        .subscribe(
-            () => console.log(this)
-        );
-     form.reset();
-     this.activeModal.close();
+  actionListener() {
+        if(this.action == 'store'){
+            this.storeProject(this.project);
+        } else if(this.action == 'update'){
+            this.updateProject(this.project.id, this.project);
+        }
   }
+
+  storeProject(project: Project) {
+        this.projectsService.storeProject(project)
+            .subscribe(
+                (response: Project) => {
+                    this.activeModal.close();
+                },
+                (error:  Error) => console.log(error)
+            );
+  }
+
+  updateProject(id: number, project: Project) {
+        this.projectsService.updateProject(id, project)
+            .subscribe(
+                (response: Project) => {
+                    this.activeModal.close();
+                },
+                (error:  Error) => console.log(error)
+            );
+  }
+
   close() {
     this.activeModal.close();
   }

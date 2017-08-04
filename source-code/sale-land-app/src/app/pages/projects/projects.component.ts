@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ProjectComponent} from "./project/project.component";
-import {EditComponent} from "./edit/edit.component";
 import {ProjectsService} from "./projects.service";
 
 
@@ -24,12 +23,12 @@ export class Projects implements OnInit {
           )
   }
 
-    onEdit(id: number) {
+  onEdit(id: number) {
         this.projectsService.getProject(id)
             .subscribe(
                 (response :Projects) => {
-                    const activeModal = this.modalService.open(EditComponent, {size: 'lg'},);
-                    activeModal.componentInstance.modalHeader = 'Edit project';
+                    const activeModal = this.modalService.open(ProjectComponent, {size: 'lg'},);
+                    activeModal.componentInstance.action = 'update';
                     activeModal.componentInstance.project = response;
                 },
                 (error: Error) => {console.log(error)}
@@ -39,6 +38,6 @@ export class Projects implements OnInit {
 
   projectModalShow(){
       const activeModal = this.modalService.open(ProjectComponent, {size: 'lg'});
-      activeModal.componentInstance.modalHeader = 'Add new test';
+      activeModal.componentInstance.action = 'store';
   }
 }
