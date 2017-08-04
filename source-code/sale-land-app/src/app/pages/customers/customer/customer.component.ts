@@ -4,9 +4,10 @@ import {NgUploaderOptions} from "ngx-uploader";
 import {Customer} from "./customer";
 import {CustomersService} from "../customers.service";
 import {AppSetting} from "../../../app.setting";
+import {Customers} from "../customers.component";
 
 @Component({
-  selector: 'app-customer',
+  selector: 'customer',
   templateUrl: './customer.html',
   styleUrls: ['./customer.scss'],
 })
@@ -63,7 +64,6 @@ export class CustomerComponent implements OnInit {
         .subscribe(
             (response: Customer) => {
               this.activeModal.close();
-
               window.location.href = AppSetting.DOMAIN_NAME + '#/pages/customers';
             },
             (error:  Error) => console.log(error)

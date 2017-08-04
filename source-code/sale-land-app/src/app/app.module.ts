@@ -60,7 +60,7 @@ export type StoreType = {
     ProjectsService,
     LayoutsService,
     CustomersService,
-    SellersService
+    SellersService,
   ]
 })
 

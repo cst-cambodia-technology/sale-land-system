@@ -30,7 +30,7 @@ class SellerController extends Controller
             'gender'            =>  ['nullable', Rule::in(['Male', 'Female'])],
             'birthDate'         =>  'date|nullable',
             'contact'           =>  'array|nullable',
-            'contact.email'     =>  'string|email|nullable|max:100',
+            'contact.email'     =>  'string|nullable|max:100',
             'contact.phone'     =>  'string|nullable|max:20',
             'contact.mobile'    =>  'string|nullable|max:20',
             'contact.fax'       =>  'string|nullable|max:20',

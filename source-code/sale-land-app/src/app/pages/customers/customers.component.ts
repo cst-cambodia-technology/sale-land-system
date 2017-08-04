@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CustomersService} from "./customers.service";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {CustomerComponent} from "./customer/customer.component";
 import {Customer} from "./customer/customer";
 
