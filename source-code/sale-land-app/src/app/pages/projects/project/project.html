@@ -5,7 +5,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <form #f="ngForm">
   <div class="modal-body">
     <div class="form-group" [ngClass]="{'has-error': (!name.valid && name.touched), 'has-success': (name.valid && name.touched)}">
         <label for="name">Name<span class="required">*</span></label>
@@ -16,7 +16,7 @@
       <div class="form-group" >
         <label for="description">Description</label>
         <div>
-          <textarea [(ngModel)]="project.description" class="form-control"  #description="ngModel" id="description" name="description" ngModel required  maxlength="4000"></textarea>
+          <textarea [(ngModel)]="project.description" class="form-control"  #description="ngModel" id="description" name="description"  maxlength="4000"></textarea>
         </div>
       </div>
       </div>
