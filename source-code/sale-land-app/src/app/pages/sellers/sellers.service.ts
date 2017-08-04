@@ -23,9 +23,7 @@ export class SellersService{
     show(id: number){
         return this.http.get(
             ApiResource.SELLERS + id,
-            {headers: new Headers({
-                'Authorization': 'Bearer' + localStorage.getItem('token')})}
-        )
+            {headers: new Headers({'Authorization': 'Bearer' + localStorage.getItem('token')})})
             .map(
                 response => response.json(),
                 error => error.json()

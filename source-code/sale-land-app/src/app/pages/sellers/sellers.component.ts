@@ -3,6 +3,7 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {SellersService} from "./sellers.service";
 import {SellerModal} from "./seller-modal/seller-modal.component";
 import {Seller} from "./sellers.modal";
+import {error} from "util";
 
 @Component({
   selector: 'app-sellers',
@@ -22,7 +23,7 @@ export class Sellers implements OnInit {
   getSellers() {
     this.sellersService.getSellers()
         .subscribe(
-            (seller: Seller[]) => this.sellers = seller,
+            (response: Seller[]) => this.sellers = response,
             (error: Error) => console.log(error)
         );
   }
@@ -33,14 +34,18 @@ export class Sellers implements OnInit {
   }
 
   edit(id: number) {
+      // let newSeller= Object.assign({}, seller);
+      // const activeModal = this.modalSeller.open(SellerModal, {size: 'lg', backdrop: 'static'});
+      // activeModal.componentInstance.action = 'update';
+      // activeModal.componentInstance.seller = newSeller;
     this.sellersService.show(id)
         .subscribe(
             (response: Seller) => {
-              const activeModal = this.modalSeller.open(SellerModal, {size: 'lg', backdrop: 'static'});
-              activeModal.componentInstance.action = 'update';
-              activeModal.componentInstance.seller = response;
+                const activeModal = this.modalSeller.open(SellerModal, {size: 'lg', backdrop: 'static'});
+                activeModal.componentInstance.action = 'update';
+                activeModal.componentInstance.seller = response;
             },
-            (error:  Error) => {console.log(error)}
+            (error: Error) => {console.log(error)}
         );
 
   }

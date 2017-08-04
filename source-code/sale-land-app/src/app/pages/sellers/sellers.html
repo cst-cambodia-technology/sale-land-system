@@ -32,13 +32,13 @@
                 <td>{{seller.address.street ? seller.address.street  + ', ' : ''}}
                   {{seller.address.city ? seller.address.city  + ', ' : ''}}
                   {{seller.address.state ? seller.address.state  + ', ' : ''}}
-                  {{seller.address.postalCode ? seller.address.postalCode  + ' ' : ''}}
+                  {{seller.address.postalCode ? seller.address.postalCode  + ', ' : ''}}
                   {{seller.address.country ? seller.address.country : ''}}
                 </td>
                 <td>{{ seller.contact.email }}</td>
                 <td>{{ seller.contact.phone }}</td>
                 <td>{{ seller.status}}</td>
-                <td><button class="btn btn-default" (click)="edit(seller)">Edit</button></td>
+                <td><button class="btn btn-default" (click)="edit(seller.id)">Edit</button></td>
               </tr>
             </tbody>
           </table>
