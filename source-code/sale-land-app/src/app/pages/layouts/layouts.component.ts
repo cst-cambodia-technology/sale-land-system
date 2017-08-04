@@ -1,9 +1,10 @@
-///<reference path="layout-modal/layout-modal.component.ts"/>
+///<reference path="layout/layout.component.ts"/>
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {LayoutModalComponent} from "./layout-modal/layout-modal.component";
-import {Layout} from "./layouts.model";
+import {LayoutModalComponent} from "./layout/layout.component";
+import {Layout} from "./layout/layouts";
 import {LayoutsService} from "./layouts.sevice";
+
 
 
 @Component({
@@ -13,11 +14,10 @@ import {LayoutsService} from "./layouts.sevice";
 })
 export class Layouts implements OnInit{
 
-
-
   @Input()layouts : Layout[];
   @Input()layout: Layout;
-  // @Input()projects: Projects[];
+
+  @Input()position:number;
 
   constructor(private modalLayout: NgbModal, private layoutService: LayoutsService) {
 
@@ -40,7 +40,6 @@ export class Layouts implements OnInit{
 
   layoutModalShow(){
     const activeModalLayout = this.modalLayout.open(LayoutModalComponent, {size: 'lg'});
-    activeModalLayout.componentInstance.modalHeader = 'Layout Information';
     activeModalLayout.componentInstance.btnSave = 'Save';
   }
 
@@ -48,17 +47,14 @@ export class Layouts implements OnInit{
     let newCourse= Object.assign({}, layout);
     const activeModalLayout = this.modalLayout.open(LayoutModalComponent, {size: 'lg'});
 
-    activeModalLayout.componentInstance.modalHeader = 'Edit Layout Information ';
 
     activeModalLayout.componentInstance.showHideBatchCheckBox = false;
 
     activeModalLayout.componentInstance.btnSave = 'Update';
 
-
-
     activeModalLayout.componentInstance.layout = newCourse;
     activeModalLayout.componentInstance.layout.projectId = newCourse.project.id;
-    console.log( newCourse);
+
 
   }
 

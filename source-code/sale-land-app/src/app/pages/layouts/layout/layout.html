@@ -1,23 +1,25 @@
 
 <div class="modal-content">
     <div class="modal-header">
-        <h4 class="modal-title">{{modalHeader}}</h4>
+        <h4 class="modal-title">Layout information</h4>
         <button class="close" aria-label="Close" (click)="close()" tabindex="-1">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <form #form="ngForm">
         <div class="modal-body">
-        <div class="col-sm-12" *ngIf="showHideBatchCheckBox">
-            <div class="checkbox">
-                <ba-checkbox [(ngModel)]="isBatch" [label]="'Multiple Insert'" [ngModelOptions]="{standalone: true}"></ba-checkbox>
+        <div class="row">
+            <div class="col-sm-12" *ngIf="showHideBatchCheckBox">
+                <div class="checkbox">
+                    <ba-checkbox [(ngModel)]="isBatch" [label]="'Multiple insert'" [ngModelOptions]="{standalone: true}"></ba-checkbox>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-4">
                 <div class="form-group" [ngClass]="{'has-error': (!prefix.valid && prefix.touched), 'has-success': (prefix.valid && prefix.touched)}">
                     <label class="control-label " for="prefix">Prefix<span class="star-red">*</span></label>
-                    <input [(ngModel)]="layout.prefix" #prefix="ngModel" type="text" class="form-control" id="prefix" name="prefix"required [ngModelOptions]="{standalone: true}" autofocus maxlength="10">
+                    <input [(ngModel)]="layout.prefix" #prefix="ngModel" type="text" class="form-control" id="prefix" name="prefix" required maxlength="10">
                     <!--<div *ngIf="prefix.errors && (prefix.dirty || prefix.touched)">-->
                         <!--<span class="help-block" [hidden]="!prefix.errors.required">-->
                             <!--Prefix is required.-->
@@ -90,7 +92,7 @@
         </div>
         </div>
         <div class="modal-footer">
-            <button [disabled]="!form.valid" class="btn btn-primary" (click)="actionListener()">Save</button>
+            <button [disabled]="!form.valid || !no.value"  class="btn btn-primary" (click)="actionListener()">Save</button>
             <button class="btn btn-default" (click)="close()">Cancel</button>
         </div>
     </form>

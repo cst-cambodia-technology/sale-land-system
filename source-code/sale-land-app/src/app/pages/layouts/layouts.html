@@ -25,11 +25,11 @@
             </thead>
 
             <tbody>
-            <tr *ngFor="let layout of layouts">
+            <tr *ngFor="let layout of layouts; let i = index">
               <td>{{ layout.label}}</td>
               <td>{{ layout.project.name}}</td>
               <td>{{ layout.size}}</td>
-              <td>{{ layout.price}}</td>
+              <td>{{ layout.price | currency:'USD':true:'4.2-2'}}</td>
               <td>{{ layout.description }}</td>
               <td>{{ layout.status }}</td>
               <td>

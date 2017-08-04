@@ -5,7 +5,7 @@ import {NgaModule} from "../../theme/nga.module";
 import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
 import {routing} from "./layouts.routing";
 import {Layouts} from "./layouts.component";
-import { LayoutModalComponent } from './layout-modal/layout-modal.component';
+import { LayoutModalComponent } from './layout/layout.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 

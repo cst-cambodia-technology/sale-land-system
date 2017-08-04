@@ -1,5 +1,5 @@
 import {Headers, Http, RequestOptions, Response} from "@angular/http";
-import {Layout} from "./layouts.model";
+import {Layout} from "./layout/layouts";
 import {ApiResource} from "../../api.resource";
 import {Injectable} from "@angular/core";
 import 'rxjs/Rx';
@@ -20,7 +20,7 @@ export class LayoutsService{
     }
 
     getLayouts(): Observable<any>{
-        return this.http.get(ApiResource.LAYOUTS, this.option)
+        return this.http.get(ApiResource.LAYOUTS,{headers: new Headers({'Authorization': 'Bearer' + localStorage.getItem('token')})})
             .map(
                 (res: Response)=>{
                     return res.json();
@@ -40,12 +40,6 @@ export class LayoutsService{
 
     addNewLayout(layout: Layout[]): Observable<any>{
         let body = { 'layouts': layout };
-        // let headers = new Headers({
-        //     'Authorization': 'Bearer' + localStorage.getItem('token'),
-        //     'X-Requested-With': 'XMLHttpRequest'
-        // });
-        // let options = new RequestOptions({ headers: headers });
-
         return this.http.post(ApiResource.LAYOUTS, body, this.option)
             .map(
                 response => response.json(),
@@ -63,6 +57,7 @@ export class LayoutsService{
                 error => error.json()
             );
     }
+
 
 
 
