@@ -1,5 +1,5 @@
-import {Address} from "../partials/address";
-import {Contact} from "../partials/contact";
+import {Address} from "../../partials/address";
+import {Contact} from "../../partials/contact";
 
 export class Seller{
     id: number = null;

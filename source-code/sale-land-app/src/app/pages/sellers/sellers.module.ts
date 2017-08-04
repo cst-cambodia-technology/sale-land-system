@@ -5,7 +5,7 @@ import {NgaModule} from "../../theme/nga.module";
 import {AppTranslationModule} from "../../app.translation.module";
 import {RouterModule} from "@angular/router";
 import {routing} from "./sellers.routing";
-import {SellerModal} from './seller-modal/seller-modal.component';
+import {SellerModal} from './seller/seller.component';
 import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 

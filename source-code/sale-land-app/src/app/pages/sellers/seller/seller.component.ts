@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgUploaderOptions} from "ngx-uploader";
-import {Seller} from "../sellers.modal";
+import {Seller} from "./sellers";
 import {SellersService} from "../sellers.service";
 import {AppSetting} from "../../../app.setting";
 
 @Component({
   selector: 'app-seller-module',
-  templateUrl: './seller-modal.component.html',
-  styleUrls: ['./seller-modal.component.scss'],
+  templateUrl: './seller.html',
+  styleUrls: ['./seller.scss'],
 
 })
 export class SellerModal implements OnInit {

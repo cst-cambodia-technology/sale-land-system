@@ -2,7 +2,7 @@ import {Headers, Http, RequestOptions} from "@angular/http";
 import {Injectable} from "@angular/core";
 import 'rxjs/Rx';
 import {ApiResource} from "../../api.resource";
-import {Seller} from "./sellers.modal";
+import {Seller} from "./seller/sellers";
 
 
 @Injectable()
@@ -56,6 +56,4 @@ export class SellersService{
 
                 );
     }
-
-
 }

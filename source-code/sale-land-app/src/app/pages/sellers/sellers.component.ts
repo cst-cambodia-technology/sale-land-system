@@ -1,14 +1,14 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {SellersService} from "./sellers.service";
-import {SellerModal} from "./seller-modal/seller-modal.component";
-import {Seller} from "./sellers.modal";
+import {SellerModal} from "./seller/seller.component";
+import {Seller} from "./seller/sellers";
 import {error} from "util";
 
 @Component({
   selector: 'app-sellers',
   templateUrl: './sellers.html',
-  styleUrls: ['./sellers.component.scss']
+  styleUrls: ['./sellers.scss']
 })
 
 export class Sellers implements OnInit {
