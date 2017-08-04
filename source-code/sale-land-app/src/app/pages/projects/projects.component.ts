@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ProjectComponent} from "./project/project.component";
 import {ProjectsService} from "./projects.service";
+import {Project} from "./project/project";
 
 
 @Component({
@@ -13,12 +14,12 @@ export class Projects implements OnInit {
 
   constructor(private modalService: NgbModal ,private projectsService: ProjectsService ) { }
 
-  @Input() projects: Projects[];
+  @Input() projects: Project[];
 
   ngOnInit() {
       this.projectsService.getProjects()
           .subscribe(
-              (projects: Projects[]) =>  this.projects = projects,
+              (response: Project[]) =>  this.projects = response,
               (error: Response) => console.log(error)
           )
   }
