@@ -1,9 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { ProjectsService } from "../projects.service";
 import { Project } from "./project";
-import {Projects} from "../projects.interface";
-
 
 @Component({
   selector: 'app-project',
@@ -16,7 +14,6 @@ export class ProjectComponent implements OnInit {
 
     public project:Project =  new Project();
 
-    @Input() projects: Projects[];
   constructor(private activeModal: NgbActiveModal, private  projectsService: ProjectsService) { }
 
   ngOnInit() {
