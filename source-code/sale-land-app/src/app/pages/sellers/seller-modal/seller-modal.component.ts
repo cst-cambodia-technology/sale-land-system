@@ -18,9 +18,9 @@ export class SellerModal implements OnInit {
   public seller: Seller = new Seller();
 
   public defaultPicture = 'assets/img/theme/no-photo.png';
-  public sellers:any = {
-    image: 'assets/img/app/profile/Nasta.png'
-  };
+  // public sellers:any = {
+  //   image: 'assets/img/app/profile/Nasta.png'
+  // };
   public uploaderOptions:NgUploaderOptions = {
     url: '',
   };
