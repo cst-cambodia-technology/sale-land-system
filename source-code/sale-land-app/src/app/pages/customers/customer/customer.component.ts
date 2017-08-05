@@ -1,10 +1,8 @@
-import {Component, EventEmitter, Host, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgUploaderOptions} from "ngx-uploader";
 import {Customer} from "./customer";
 import {CustomersService} from "../customers.service";
-import {AppSetting} from "../../../app.setting";
-import {Customers} from "../customers.component";
 
 @Component({
   selector: 'customer',
@@ -64,7 +62,6 @@ export class CustomerComponent implements OnInit {
         .subscribe(
             (response: Customer) => {
               this.activeModal.close();
-              window.location.href = AppSetting.DOMAIN_NAME + '#/pages/customers';
             },
             (error:  Error) => console.log(error)
         );
