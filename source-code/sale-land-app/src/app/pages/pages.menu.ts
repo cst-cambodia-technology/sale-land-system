@@ -10,7 +10,7 @@ export const PAGES_MENU = [
             icon: 'ion-android-home',
             selected: false,
             expanded: false,
-            order: 0
+            order: 0,
           }
         }
       },
@@ -23,6 +23,7 @@ export const PAGES_MENU = [
             selected: false,
             expanded: false,
             order: 100,
+            hidden: true,
           }
         },
         children: [
@@ -31,6 +32,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'general.menu.ck_editor',
+                hidden: true,
               }
             }
           }
@@ -45,6 +47,7 @@ export const PAGES_MENU = [
             selected: false,
             expanded: false,
             order: 250,
+            hidden: true,
           }
         },
         children: [
@@ -53,6 +56,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'general.menu.tree_view',
+                hidden: true,
               }
             }
           }
@@ -67,6 +71,7 @@ export const PAGES_MENU = [
             selected: false,
             expanded: false,
             order: 200,
+            hidden: true,
           }
         },
         children: [
@@ -75,6 +80,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'general.menu.chartist_js',
+                hidden: true,
               }
             }
           }
@@ -89,6 +95,7 @@ export const PAGES_MENU = [
             selected: false,
             expanded: false,
             order: 300,
+            hidden: true,
           }
         },
         children: [
@@ -97,6 +104,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'general.menu.typography',
+                hidden: true,
               }
             }
           },
@@ -105,6 +113,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'general.menu.buttons',
+                hidden: true,
               }
             }
           },
@@ -121,6 +130,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'general.menu.modals',
+                hidden: true,
               }
             }
           },
@@ -129,6 +139,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'Slim loading bar',
+                hidden: true,
               }
             }
           },
@@ -137,6 +148,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'general.menu.grid',
+                hidden: true,
               }
             }
           },
@@ -151,6 +163,7 @@ export const PAGES_MENU = [
             selected: false,
             expanded: false,
             order: 400,
+            hidden: true,
           }
         },
         children: [
@@ -159,6 +172,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'general.menu.form_inputs',
+                hidden: true,
               }
             }
           },
@@ -167,6 +181,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'general.menu.form_layouts',
+                hidden: true,
               }
             }
           }
@@ -181,6 +196,7 @@ export const PAGES_MENU = [
             selected: false,
             expanded: false,
             order: 500,
+            hidden: true,
           }
         },
         children: [
@@ -189,6 +205,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'general.menu.basic_tables',
+                hidden: true,
               }
             }
           },
@@ -197,6 +214,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'general.menu.smart_tables',
+                hidden: true,
               }
             }
           },
@@ -205,6 +223,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'Data Tables',
+                hidden: true,
               }
             }
           },
@@ -213,6 +232,7 @@ export const PAGES_MENU = [
              data: {
                menu: {
                  title: 'Hot Tables',
+                 hidden: true,
                }
              }
            }
@@ -227,6 +247,7 @@ export const PAGES_MENU = [
             selected: false,
             expanded: false,
             order: 600,
+            hidden: true,
           }
         },
         children: [
@@ -235,6 +256,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'general.menu.google_maps',
+                hidden: true,
               }
             }
           },
@@ -243,6 +265,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'general.menu.leaflet_maps',
+                hidden: true,
               }
             }
           },
@@ -251,6 +274,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'general.menu.bubble_maps',
+                hidden: true,
               }
             }
           },
@@ -259,6 +283,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'general.menu.line_maps',
+                hidden: true,
               }
             }
           }
@@ -273,6 +298,7 @@ export const PAGES_MENU = [
             selected: false,
             expanded: false,
             order: 650,
+            hidden: true,
           }
         },
         children: [
@@ -280,7 +306,8 @@ export const PAGES_MENU = [
             path: ['/login'],
             data: {
               menu: {
-                title: 'general.menu.login'
+                title: 'general.menu.login',
+                hidden: true,
               }
             }
           },
@@ -288,7 +315,8 @@ export const PAGES_MENU = [
             path: ['/register'],
             data: {
               menu: {
-                title: 'general.menu.register'
+                title: 'general.menu.register',
+                hidden: true,
               }
             }
           }
@@ -303,6 +331,7 @@ export const PAGES_MENU = [
             selected: false,
             expanded: false,
             order: 700,
+            hidden: true,
           }
         },
         children: [
@@ -311,7 +340,8 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'general.menu.menu_level_1_1',
-                url: '#'
+                url: '#',
+                hidden: true,
               }
             }
           },
@@ -320,7 +350,8 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'general.menu.menu_level_1_2',
-                url: '#'
+                url: '#',
+                hidden: true,
               }
             },
             children: [
@@ -329,7 +360,8 @@ export const PAGES_MENU = [
                 data: {
                   menu: {
                     title: 'general.menu.menu_level_1_2_1',
-                    url: '#'
+                    url: '#',
+                    hidden: true,
                   }
                 }
               }
@@ -345,7 +377,8 @@ export const PAGES_MENU = [
             url: 'http://akveo.com',
             icon: 'ion-android-exit',
             order: 800,
-            target: '_blank'
+            target: '_blank',
+            hidden: true,
           }
         }
       },
