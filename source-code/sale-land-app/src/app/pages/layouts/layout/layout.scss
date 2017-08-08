@@ -1,12 +1,6 @@
-//.ng-valid[required], .ng-valid.required  {
-//  border: 1px solid #42A948; /* green */
-//}
-//.ng-invalid:not(form)  {
-//  border: 1px solid #a94442; /* red */
-//}
-//.help-block{
-//  color: #a94442;
-//}
-.star-red{
-  color: red;
+form {
+  .required {
+    color: #f95372;
+    margin-left: 2px;
+  }
 }

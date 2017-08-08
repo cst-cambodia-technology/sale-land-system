@@ -6,7 +6,7 @@ import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
 import {routing} from "./layouts.routing";
 import {Layouts} from "./layouts.component";
 import { LayoutModalComponent } from './layout/layout.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
