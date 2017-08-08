@@ -21,8 +21,10 @@ class CreateUsersTable extends Migration
             $table->string('familyName', 25)->nullable()->default(null);
             $table->string('suffix', 25)->nullable()->default(null);
             $table->string('displayName', 100);
+            $table->string('jobTitle','100')->nullable()->default(null);
             $table->string('email', 100)->unique();
             $table->string('password', 200);
+            $table->json('authorized')->nullable()->default(null);
             $table->json('contact')->nullable()->default(null);
             $table->json('Address')->nullable()->default(null);
             $table->string('about', 4000)->nullable()->default(null);
