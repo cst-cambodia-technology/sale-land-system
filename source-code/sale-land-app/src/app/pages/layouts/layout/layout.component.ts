@@ -6,6 +6,7 @@ import {Response} from "@angular/http";
 import {ProjectsService} from "../../projects/projects.service";
 import construct = Reflect.construct;
 import {Project} from "../../projects/project/project";
+import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 
 @Component({
@@ -25,9 +26,17 @@ export class LayoutModalComponent implements OnInit {
 
   @Input() projects: Project[];
 
+  public form: FormGroup;
+  public prefix: AbstractControl;
+
+  constructor( private activeModal: NgbActiveModal, private layoutService: LayoutsService, private projectService: ProjectsService, fb: FormBuilder) {
+    this.form = fb.group({
+      'prefix': ['', Validators.compose([Validators.required]) ]
+    });
+
+    this.prefix = this.form.controls['prefix'];
 
 
-  constructor( private activeModal: NgbActiveModal, private layoutService: LayoutsService, private projectService: ProjectsService) {
   }
 
   ngOnInit() {
@@ -64,11 +73,11 @@ export class LayoutModalComponent implements OnInit {
         layouts.push(this.layout);
         this.layoutService.addNewLayout(layouts)
             .subscribe(
-                (response: Response) => {
-                  response.json();
+                (response: Layout) => {
+                  this.close();
                 }
             );
-        this.close();
+
 
       }else {
         if(this.layout.no > this.layout.to){
@@ -94,22 +103,20 @@ export class LayoutModalComponent implements OnInit {
           }
           this.layoutService.addNewLayout(layouts)
               .subscribe(
-                  (response: Response) => response.json()
+                  (response: Layout) => {
+                    this.close();
+                  }
               );
-          this.close();
+
         }
       }
     }else {
       this.layoutService.updateLayout(this.layout.id, this.layout)
           .subscribe(
-              (layout) =>{
-                // let layoutInterface: LayoutInterface;
-                //
-                // layoutInterface.setLayout(layout);
-
+              (res: Layout) =>{
+                this.close();
               }
           );
-      this.close();
     }
   }
 }
