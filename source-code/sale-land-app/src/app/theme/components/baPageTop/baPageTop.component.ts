@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 
 import {GlobalState} from '../../../global.state';
+import {AppSetting} from "../../../app.setting";
 
 @Component({
   selector: 'ba-page-top',
@@ -26,5 +27,10 @@ export class BaPageTop {
 
   public scrolledChanged(isScrolled) {
     this.isScrolled = isScrolled;
+  }
+
+  public signout() {
+    localStorage.removeItem('token');
+    window.location.href = AppSetting.DOMAIN_NAME + '#/login';
   }
 }
