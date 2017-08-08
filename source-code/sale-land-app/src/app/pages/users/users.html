@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-group row text-right">
+      <div class="col-sm-12">
+        <button type="button" class="btn btn-primary" (click)="new()">New User</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <ba-card baCardClass="with-scroll">
+      <div class="row">
+        <div class="col-sm-12 horizontal-scroll">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th>TITLE</th>
+              <th>USER</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--<tr *ngFor="let customer of customers">-->
+              <!--<td>{{ customer.displayName }}</td>-->
+              <!--<td>{{ customer.companyName }}</td>-->
+              <!--<td>{{ customer.jobTitle }}</td>-->
+              <!--<td>{{customer.address.street ? customer.address.street  + ', ' : ''}}-->
+                <!--{{customer.address.city ? customer.address.city  + ', ' : ''}}-->
+                <!--{{customer.address.state ? customer.address.state  + ', ' : ''}}-->
+                <!--{{customer.address.postalCode ? customer.address.postalCode  + ' ' : ''}}-->
+                <!--{{customer.address.country ? customer.address.country : ''}}-->
+              <!--</td>-->
+              <!--<td>{{ customer.contact.phone }}</td>-->
+              <!--<td>{{ customer.contact.email }}</td>-->
+              <!--<td>{{ customer.status }}</td>-->
+              <!--<td><button class="btn btn-default" (click)="edit(customer.id)">Edit</button></td>-->
+            <!--</tr>-->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </ba-card>
+  </div>
+</div>

@@ -39,5 +39,11 @@ Route::middleware(['jwt.auth'])->group(function(){
     Route::post('customers', 'CustomerController@store');
     Route::get('customers/{id}', 'CustomerController@show');
     Route::put('customers/{id}', 'CustomerController@update');
+
+    /*Route user*/
+    Route::get('users', 'UserController@index');
+    Route::post('users', 'UserController@store');
+    Route::get('users/{id}', 'UserController@show');
+    Route::put('users/{id}', 'UserController@update');
 });
 

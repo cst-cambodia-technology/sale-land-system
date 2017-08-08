@@ -114,6 +114,7 @@ export class LayoutModalComponent implements OnInit {
       this.layoutService.updateLayout(this.layout.id, this.layout)
           .subscribe(
               (res: Layout) =>{
+
                 this.close();
               }
           );

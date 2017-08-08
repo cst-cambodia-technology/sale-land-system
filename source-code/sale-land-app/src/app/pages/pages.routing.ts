@@ -32,6 +32,7 @@ export const routes: Routes = [
       { path: 'layouts', loadChildren: './layouts/layouts.module#LayoutsModule' },
       { path: 'sellers', loadChildren: './sellers/sellers.module#SellersModule' },
       { path: 'customers', loadChildren: './customers/customers.module#CustomersModule' },
+      { path: 'users', loadChildren: './users/users.module#UsersModule'}
     ]
   }
 ];

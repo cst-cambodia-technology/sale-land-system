@@ -1,5 +1,6 @@
 export class ApiResource {
-    public static API_ROOT: string      =   'http://128.199.198.192/api/';
+    // 128.199.198.192
+    public static API_ROOT: string      =   'http://localhost:8000/api/';
 
     public static AUTHENTICATE: string  =   ApiResource.API_ROOT + 'authenticate/';
     public static  PROJECTS: string     =   ApiResource.API_ROOT + 'projects/';
