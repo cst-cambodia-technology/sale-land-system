@@ -1,12 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {LayoutsService} from "../layouts.sevice";
 import {Layout} from "./layouts";
 import {Response} from "@angular/http";
 import {ProjectsService} from "../../projects/projects.service";
 import construct = Reflect.construct;
 import {Project} from "../../projects/project/project";
-import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ModalDirective} from "ngx-bootstrap";
+
 
 
 @Component({
@@ -16,56 +16,42 @@ import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/form
   providers: [LayoutsService],
 })
 export class LayoutModalComponent implements OnInit {
-
-
+  @ViewChild('childModal') public childModal: ModalDirective;
   @Input() layout =  new Layout();
-  public showHideBatchCheckBox: boolean = true;
-  public btnSave:string;
+  @Input() projects: Project[];
+  @Output() myEvent: EventEmitter<Layout> = new EventEmitter<Layout>();
 
+  public showHideBatchCheckBox: boolean = true;
+  public btnSave:string = 'Save';
   public isBatch:boolean = false;
 
-  @Input() projects: Project[];
-
-  public form: FormGroup;
-  public prefix: AbstractControl;
-
-  constructor( private activeModal: NgbActiveModal, private layoutService: LayoutsService, private projectService: ProjectsService, fb: FormBuilder) {
-    this.form = fb.group({
-      'prefix': ['', Validators.compose([Validators.required]) ]
-    });
-
-    this.prefix = this.form.controls['prefix'];
-
-
+  constructor(private layoutService: LayoutsService, private projectService: ProjectsService) {
   }
 
   ngOnInit() {
-
     this.getProjects();
-
-    // let timer = Observable.timer(2000,1000);
-    //
-    // timer.subscribe(()=> this.getProjects());
   }
 
-  private getProjects(){
-    this.projectService.getProjects()
-        .subscribe(
-            (projects: Project[]) =>  this.projects = projects,
-            (error: Response) => console.log(error)
-        );
+  /*show modal*/
+  show(){
+    this.childModal.show();
+    this.childModal.config={
+      backdrop: "static",
+      keyboard: false
+    };
+  }
+  /* hide modal*/
+  hide(){
+    this.childModal.hide();
+    this.resetForm();
   }
 
-  public close(){
-    this.activeModal.close();
-  }
-
+  /* click save */
   actionListener(){
-
 
     if(this.btnSave =='Save'){
       this.layout.status= 'Open';
-
+      /*single insert*/
       if(this.isBatch!=true){
         this.layout.label= this.layout.prefix+ this.layout.no;
 
@@ -73,18 +59,20 @@ export class LayoutModalComponent implements OnInit {
         layouts.push(this.layout);
         this.layoutService.addNewLayout(layouts)
             .subscribe(
-                (response: Layout) => {
-                  this.close();
-                }
+                (layout: Layout) => {
+                  this.myEvent.emit(layout);
+                  this.hide();
+                  this.resetForm();
+                },
+                (error: Response)=> console.log(error)
             );
-
-
+      /* multi insert*/
       }else {
         if(this.layout.no > this.layout.to){
           alert('End No must be more then Start No.');
         }else{
 
-          var numRow = this.layout.to-this.layout.no + 1 ;
+          let numRow = this.layout.to-this.layout.no + 1 ;
           let layouts = [];
           for(let i=0; i<numRow;i++){
             let layout: Layout = new Layout();
@@ -97,26 +85,47 @@ export class LayoutModalComponent implements OnInit {
             layout.price = this.layout.price;
             layout.description = this.layout.description;
             layout.status = 'Open';
-
             layouts.push(layout);
-
           }
           this.layoutService.addNewLayout(layouts)
               .subscribe(
-                  (response: Layout) => {
-                    this.close();
-                  }
+                  (layout: Layout) => {
+                    this.myEvent.emit(layout);
+                    this.hide();
+                    this.resetForm();
+                  },
+                  (error: Response)=> console.log(error)
               );
-
         }
       }
+    /* update layout */
     }else {
+      this.layout.label= this.layout.prefix+ this.layout.no;
+
       this.layoutService.updateLayout(this.layout.id, this.layout)
           .subscribe(
-              (res: Layout) =>{
-                this.close();
-              }
+              (layout: Layout) =>{
+                this.myEvent.emit(layout);
+                this.hide();
+                this.resetForm();
+              },
+              (error: Response)=> console.log(error)
           );
     }
+  }
+
+  /*reset form*/
+  public resetForm(){
+    this.layout  = new Layout();
+    this.isBatch = false;
+  }
+
+  /*Get all project from API*/
+  private getProjects(){
+    this.projectService.getProjects()
+        .subscribe(
+            (projects: Project[]) =>  this.projects = projects,
+            (error: Response) => console.log(error)
+        );
   }
 }

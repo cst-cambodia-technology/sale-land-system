@@ -55,7 +55,8 @@
       "layouts": "Layouts",
       "sellers": "Sellers",
       "customers": "Customers",
-      "test": "Test"
+      "test": "Test",
+      "users": "Manage Users"
     },
     "created_with": "Created with"
   },

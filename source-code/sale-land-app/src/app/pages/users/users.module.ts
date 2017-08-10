@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import {routing} from './users.routing';
+import {Users} from "./users.component";
 import {AppTranslationModule} from "../../app.translation.module";
 import {NgaModule} from "../../theme/nga.module";
 import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
-import {routing} from "./layouts.routing";
-import {Layouts} from "./layouts.component";
-import { LayoutModalComponent } from './layout/layout.component';
-import {FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {ModalModule} from "ngx-bootstrap";
-
+import {FormsModule} from "@angular/forms";
+import {UserStoreComponent} from "app/pages/users/store/user.store.component";
 
 @NgModule({
   imports: [
@@ -17,16 +16,14 @@ import {ModalModule} from "ngx-bootstrap";
     NgaModule,
     NgbModalModule,
     FormsModule,
-    routing,
-    ModalModule.forRoot(),
-
+    routing
   ],
   declarations: [
-      Layouts,
-      LayoutModalComponent,
+    Users,
+    UserStoreComponent,
   ],
   entryComponents: [
-      LayoutModalComponent
+    UserStoreComponent
   ],
 })
-export class LayoutsModule { }
+export class UsersModule { }

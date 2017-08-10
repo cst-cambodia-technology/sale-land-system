@@ -1,0 +1,73 @@
+<div class="modal-content" >
+    <div class="modal-header">
+        <h4 class="modal-title">User information</h4>
+        <button class="close" aria-label="Close" (click)="close()" tabindex="-1">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form #f="ngForm">
+        <div class="modal-body">
+            <!--<div class="form-group" [ngClass]="{'has-error': (!name.valid && name.touched), 'has-success': (name.valid && name.touched)}">-->
+                <!--<label for="name">Name<span class="required">*</span></label>-->
+                <!--<div>-->
+                    <!--<input [(ngModel)]="project.name" type="text" class="form-control"  #name="ngModel" id="name" name="name" required  maxlength="100">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group" >-->
+                <!--<label for="description">Description</label>-->
+                <!--<div>-->
+                    <!--<textarea [(ngModel)]="project.description" class="form-control"  #description="ngModel" id="description" name="description"  maxlength="4000"></textarea>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="displayName" class="control-label">First Name</label>
+                        <input type="text" class="form-control" id="displayName" name="displayName" >
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="email" class="control-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="password" class="control-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="confirmPassword" class="control-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <label class="control-label">Authorization access</label>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="checkbox">
+                                <ba-checkbox [(ngModel)]="isManageUser" [label]="'Manage Users'" [ngModelOptions]="{standalone: true}"></ba-checkbox>
+                            </div>
+                        </div>
+                        <div class="col-sm-10">
+                            <label><p style="font-weight: 300">Allow this user to add and inactive users and change permissions</p></label>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" [disabled]="!f.form.valid" (click)="actionListener()">Save</button>
+            <button class="btn btn-default" (click)="close()">Cancel</button>
+        </div>
+    </form>
+</div>

@@ -1,101 +1,94 @@
+<div bsModal #childModal="bs-modal" class="modal fade" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"aria-hidden="true">
+    <div class="modal-dialog modal-sm" style="margin-left: 300px" >
+        <div class="modal-content"style="width: 800px">
+            <div class="modal-header">
+                <h4 class="modal-title">Layout information</h4>
+                <button class="close" aria-label="Close" (click)="hide()" tabindex="-1">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form #form="ngForm">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12" *ngIf="showHideBatchCheckBox">
+                            <div class="checkbox">
+                                <ba-checkbox [(ngModel)]="isBatch" [label]="'Multiple insert'" [ngModelOptions]="{standalone: true}"></ba-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group" [ngClass]="{'has-error': (!prefix.valid && prefix.touched), 'has-success': (prefix.valid && prefix.touched)}">
+                                <label class="control-label " for="prefix">Prefix<span class="required">*</span></label>
+                                <input [(ngModel)]="layout.prefix" #prefix="ngModel" type="text" class="form-control" id="prefix" name="prefix" required maxlength="10">
+                                <!--<div *ngIf="prefix.errors && (prefix.dirty || prefix.touched)">-->
+                                    <!--<span class="help-block" [hidden]="!prefix.errors.required">-->
+                                        <!--Prefix is required.-->
+                                    <!--</span>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
 
-<div class="modal-content">
-    <div class="modal-header">
-        <h4 class="modal-title">Layout information</h4>
-        <button class="close" aria-label="Close" (click)="close()" tabindex="-1">
-            <span aria-hidden="true">&times;</span>
-        </button>
+                        <div class="col-sm-4">
+                            <div class="form-group" [ngClass]="{'has-error': (!no.valid && no.touched), 'has-success': (no.valid && no.touched)}">
+                                <label class="control-label" for="no" *ngIf="!isBatch">No.<span class="required">*</span></label>
+                                <label for="no" *ngIf="isBatch">Start No.<span class="required">*</span></label>
+                                <input [(ngModel)]="layout.no" #no="ngModel" type="number" class="form-control" id="no" required [ngModelOptions]="{standalone: true}">
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-4" *ngIf="isBatch">
+                            <div class="form-group" [ngClass]="{'has-error': (!to.valid && to.touched), 'has-success': (to.valid && to.touched)}">
+                                <label class="control-label " for="to">End No.<span class="required">*</span></label>
+                                <input [(ngModel)]="layout.to" #to="ngModel" type="number" class="form-control" id="to" required [ngModelOptions]="{standalone: true}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group" [ngClass]="{'has-error': (!projectId.valid && projectId.touched), 'has-success': (projectId.valid && projectId.touched)}">
+                                <label class="control-label " for="projectId">Project<span class="required">*</span></label>
+                                <select [(ngModel)]="layout.projectId" #projectId="ngModel" class="select form-control" id="projectId" name="projectId" required [ngModelOptions]="{standalone: true}" >
+
+                                    <option *ngFor="let project of projects" value="{{ project.id }}">{{ project.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group ">
+                                <label class="control-label " for="size">
+                                    Size
+                                </label>
+                                <input [(ngModel)]="layout.size" class="form-control" id="size" name="size" type="text" maxlength="100"/>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-group ">
+                                <label class="control-label " for="price">
+                                    Price
+                                </label>
+                                <input [(ngModel)]="layout.price" class="form-control" id="price" name="price" type="number" />
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label" for="description">
+                                    Description
+                                </label>
+                                <textarea [(ngModel)]="layout.description" class="form-control" cols="40" id="description" name="description" rows="5" maxlength="4000"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button [disabled]="!form.valid || !no.value || !projectId.value"  class="btn btn-primary" (click)="actionListener()">Save</button>
+
+                    <button class="btn btn-default" (click)="hide()">Cancel</button>
+                </div>
+
+            </form>
+        </div>
     </div>
-    <form #form="ngForm">
-        <div class="modal-body">
-        <div class="row">
-            <div class="col-sm-12" *ngIf="showHideBatchCheckBox">
-                <div class="checkbox">
-                    <ba-checkbox [(ngModel)]="isBatch" [label]="'Multiple insert'" [ngModelOptions]="{standalone: true}"></ba-checkbox>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="form-group" [ngClass]="{'has-error': (!prefix.valid && prefix.touched), 'has-success': (prefix.valid && prefix.touched)}">
-                    <label class="control-label " for="prefix">Prefix<span class="required">*</span></label>
-                    <input [(ngModel)]="layout.prefix" #prefix="ngModel" type="text" class="form-control" id="prefix" name="prefix" required maxlength="10">
-                    <!--<div *ngIf="prefix.errors && (prefix.dirty || prefix.touched)">-->
-                        <!--<span class="help-block" [hidden]="!prefix.errors.required">-->
-                            <!--Prefix is required.-->
-                        <!--</span>-->
-                    <!--</div>-->
-                </div>
-            </div>
-
-            <div class="col-sm-4">
-                <div class="form-group" [ngClass]="{'has-error': (!no.valid && no.touched), 'has-success': (no.valid && no.touched)}">
-                    <label class="control-label" for="no" *ngIf="!isBatch">No.<span class="required">*</span></label>
-                    <label for="no" *ngIf="isBatch">Start No.<span class="star-red">*</span></label>
-                    <input [(ngModel)]="layout.no" #no="ngModel" type="number" class="form-control" id="no" required [ngModelOptions]="{standalone: true}">
-                    <!--<div *ngIf="no.errors && (no.dirty || no.touched)">-->
-                        <!--<span class="help-block" [hidden]="!no.errors.required">-->
-                            <!--No is required.-->
-                        <!--</span>-->
-                    <!--</div>-->
-                </div>
-            </div>
-
-
-            <div class="col-sm-4" *ngIf="isBatch">
-                <div class="form-group" [ngClass]="{'has-error': (!to.valid && to.touched), 'has-success': (to.valid && to.touched)}">
-                    <label class="control-label " for="to">End No.<span class="required">*</span></label>
-                    <input [(ngModel)]="layout.to" #to="ngModel" type="number" class="form-control" id="to" required [ngModelOptions]="{standalone: true}">
-                    <!--<div *ngIf="to.errors && (to.dirty || to.touched)">-->
-                        <!--<span class="help-block" [hidden]="!to.errors.required">-->
-                            <!--To is required.-->
-                        <!--</span>-->
-                    <!--</div>-->
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="form-group" [ngClass]="{'has-error': (!projectId.valid && projectId.touched), 'has-success': (projectId.valid && projectId.touched)}">
-                    <label class="control-label " for="projectId">Project<span class="required">*</span></label>
-                    <select [(ngModel)]="layout.projectId" #projectId="ngModel" class="select form-control" id="projectId" name="projectId" required [ngModelOptions]="{standalone: true}" >
-
-                        <option *ngFor="let project of projects" value="{{ project.id }}">{{ project.name}}</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group ">
-                    <label class="control-label " for="size">
-                        Size
-                    </label>
-                    <input [(ngModel)]="layout.size" class="form-control" id="size" name="size" type="text" maxlength="100"/>
-                </div>
-            </div>
-
-            <div class="col-sm-4">
-                <div class="form-group ">
-                    <label class="control-label " for="price">
-                        Price
-                    </label>
-                    <input [(ngModel)]="layout.price" class="form-control" id="price" name="price" type="number" />
-                </div>
-            </div>
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label class="control-label" for="description">
-                        Description
-                    </label>
-                    <textarea [(ngModel)]="layout.description" class="form-control" cols="40" id="description" name="description" rows="5" maxlength="4000"></textarea>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="modal-footer">
-            <button [disabled]="!form.valid || !no.value || !projectId.value"  class="btn btn-primary" (click)="actionListener()">Save</button>
-
-            <button class="btn btn-default" (click)="close()">Cancel</button>
-        </div>
-    </form>
-
 </div>

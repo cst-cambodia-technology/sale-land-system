@@ -427,6 +427,15 @@ export const PAGES_MENU = [
             icon: 'ion-android-people'
           }
         }
+      },
+      {
+        path: 'users',
+        data: {
+          menu: {
+            title: 'general.menu.users',
+            icon: 'ion-android-people'
+          }
+        }
       }
     ]
   }
