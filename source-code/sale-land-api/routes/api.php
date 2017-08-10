@@ -39,5 +39,11 @@ Route::middleware(['jwt.auth'])->group(function(){
     Route::post('customers', 'CustomerController@store');
     Route::get('customers/{id}', 'CustomerController@show');
     Route::put('customers/{id}', 'CustomerController@update');
+
+    /*Route invoice*/
+    Route::get('invoices', 'InvoiceController@index');
+    Route::post('invoices', 'InvoiceController@store');
+    Route::get('invoices/{id}', 'InvoiceController@show');
+    Route::put('invoices/{id}', 'InvoiceController@update');
 });
 
