@@ -7,6 +7,7 @@ import {AppTranslationModule} from "../../app.translation.module";
 import {NgaModule} from "../../theme/nga.module";
 import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule} from "@angular/forms";
+import {UserStoreComponent} from "app/pages/users/store/user.store.component";
 
 @NgModule({
   imports: [
@@ -18,7 +19,11 @@ import {FormsModule} from "@angular/forms";
     routing
   ],
   declarations: [
-      Users
-  ]
+    Users,
+    UserStoreComponent,
+  ],
+  entryComponents: [
+    UserStoreComponent
+  ],
 })
 export class UsersModule { }

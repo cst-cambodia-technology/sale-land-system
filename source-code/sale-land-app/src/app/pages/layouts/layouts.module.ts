@@ -7,6 +7,7 @@ import {routing} from "./layouts.routing";
 import {Layouts} from "./layouts.component";
 import { LayoutModalComponent } from './layout/layout.component';
 import {FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ModalModule} from "ngx-bootstrap";
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
     NgaModule,
     NgbModalModule,
     FormsModule,
-    routing
+    routing,
+    ModalModule.forRoot(),
 
   ],
   declarations: [
@@ -24,7 +26,7 @@ import {FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
       LayoutModalComponent,
   ],
   entryComponents: [
-    LayoutModalComponent
+      LayoutModalComponent
   ],
 })
 export class LayoutsModule { }

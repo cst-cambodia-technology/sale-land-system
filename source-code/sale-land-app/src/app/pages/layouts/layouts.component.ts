@@ -1,6 +1,6 @@
 ///<reference path="layout/layout.component.ts"/>
-import {Component, Input, OnInit} from '@angular/core';
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {LayoutModalComponent} from "./layout/layout.component";
 import {Layout} from "./layout/layouts";
 import {LayoutsService} from "./layouts.sevice";
@@ -11,51 +11,47 @@ import {LayoutsService} from "./layouts.sevice";
   selector: 'app-layouts',
   templateUrl: './layouts.html',
   styleUrls: ['./layouts.scss'],
+  providers: [NgbActiveModal]
 })
 export class Layouts implements OnInit{
-
+  @ViewChild('childModal') public childModal: LayoutModalComponent;
   @Input()layouts : Layout[];
   @Input()layout: Layout;
 
-  @Input()position:number;
+  constructor(private layoutService: LayoutsService) {
 
-  constructor(private modalLayout: NgbModal, private layoutService: LayoutsService) {
-
+  }
+  /*reget layout data*/
+  refreshList(event){
+    console.log(event);
+    this.getLayoutList();
   }
 
   ngOnInit() {
     this.getLayoutList();
-    // let timer = Observable.timer(2000,1000);
-    //
-    // timer.subscribe(()=> this.getLayoutList());
   }
 
+  /* get all layout data */
   private getLayoutList(): void{
     this.layoutService.getLayouts()
-    .subscribe(
-    ( layouts: Layout[]) => this.layouts = layouts,
-    (error: Response)=> console.log(error)
-    );
+      .subscribe(( layouts: Layout[]) => this.layouts = layouts,
+          (error: Response)=> console.log(error)
+      );
   }
 
-  layoutModalShow(){
-    const activeModalLayout = this.modalLayout.open(LayoutModalComponent, {size: 'lg'});
-    activeModalLayout.componentInstance.btnSave = 'Save';
+  /* click new layout */
+  onNewLayout(){
+    this.childModal.showHideBatchCheckBox = true;
+    console.log(this.childModal.showHideBatchCheckBox);
   }
 
+  /*click edit*/
   onEdit(layout: Layout){
-    let newCourse= Object.assign({}, layout);
-    const activeModalLayout = this.modalLayout.open(LayoutModalComponent, {size: 'lg'});
+    let newLayout = Object.assign({}, layout);
 
-
-    activeModalLayout.componentInstance.showHideBatchCheckBox = false;
-
-    activeModalLayout.componentInstance.btnSave = 'Update';
-
-    activeModalLayout.componentInstance.layout = newCourse;
-    activeModalLayout.componentInstance.layout.projectId = newCourse.project.id;
-
-
+    this.childModal.btnSave = "Update";
+    this.childModal.showHideBatchCheckBox = false;
+    this.childModal.layout = newLayout;
+    this.childModal.layout.projectId = newLayout.project.id;
   }
-
 }

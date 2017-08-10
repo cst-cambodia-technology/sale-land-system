@@ -1,4 +1,4 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
+import {ModuleWithProviders} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {Users} from "./users.component";
 

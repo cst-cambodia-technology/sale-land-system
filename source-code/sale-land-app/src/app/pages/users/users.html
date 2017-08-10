@@ -13,18 +13,18 @@
           <table class="table table-bordered">
             <thead>
             <tr>
-              <th>TITLE</th>
-              <th>USER</th>
+              <th>User Name</th>
+              <th>Authorization Access</th>
               <th>Email</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
             </thead>
             <tbody>
-            <!--<tr *ngFor="let customer of customers">-->
-              <!--<td>{{ customer.displayName }}</td>-->
-              <!--<td>{{ customer.companyName }}</td>-->
-              <!--<td>{{ customer.jobTitle }}</td>-->
+            <tr *ngFor="let user of listUser">
+              <td>{{ user.displayName }}</td>
+              <td>{{ user.authorized}}</td>
+              <td>{{ user.email }}</td>
               <!--<td>{{customer.address.street ? customer.address.street  + ', ' : ''}}-->
                 <!--{{customer.address.city ? customer.address.city  + ', ' : ''}}-->
                 <!--{{customer.address.state ? customer.address.state  + ', ' : ''}}-->
@@ -33,9 +33,9 @@
               <!--</td>-->
               <!--<td>{{ customer.contact.phone }}</td>-->
               <!--<td>{{ customer.contact.email }}</td>-->
-              <!--<td>{{ customer.status }}</td>-->
-              <!--<td><button class="btn btn-default" (click)="edit(customer.id)">Edit</button></td>-->
-            <!--</tr>-->
+              <td>{{ user.status }}</td>
+              <td><button class="btn btn-default" (click)="edit(user)">Edit</button></td>
+            </tr>
             </tbody>
           </table>
         </div>
