@@ -21,11 +21,6 @@
                             <div class="form-group" [ngClass]="{'has-error': (!prefix.valid && prefix.touched), 'has-success': (prefix.valid && prefix.touched)}">
                                 <label class="control-label " for="prefix">Prefix<span class="required">*</span></label>
                                 <input [(ngModel)]="layout.prefix" #prefix="ngModel" type="text" class="form-control" id="prefix" name="prefix" required maxlength="10">
-                                <!--<div *ngIf="prefix.errors && (prefix.dirty || prefix.touched)">-->
-                                    <!--<span class="help-block" [hidden]="!prefix.errors.required">-->
-                                        <!--Prefix is required.-->
-                                    <!--</span>-->
-                                <!--</div>-->
                             </div>
                         </div>
 
