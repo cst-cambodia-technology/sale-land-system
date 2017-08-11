@@ -2,7 +2,8 @@
   <div class="col-sm-12">
     <div class="form-group row text-right">
       <div class="col-sm-12">
-        <button type="button" class="btn btn-primary" (click)="new()">New seller</button>
+        <!--<button type="button" class="btn btn-primary" (click)="new()">New seller</button>-->
+        <button type="button" class="btn btn-primary" (click)="sellerModal.show()">New seller</button>
       </div>
     </div>
   </div>
@@ -38,7 +39,7 @@
                 <td>{{ seller.contact.email }}</td>
                 <td>{{ seller.contact.phone }}</td>
                 <td>{{ seller.status}}</td>
-                <td><button class="btn btn-default" (click)="edit(seller.id)">Edit</button></td>
+                <td><button class="btn btn-default" (click)="[sellerModal.show(), edit(seller)]">Edit</button></td>
               </tr>
             </tbody>
           </table>
@@ -47,4 +48,5 @@
     </ba-card>
   </div>
 </div>
+<app-seller-module #sellerModal (myEvent)="refreshList($event)"></app-seller-module>
 

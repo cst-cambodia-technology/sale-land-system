@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {NgUploaderOptions} from "ngx-uploader";
 import {Seller} from "./sellers";
 import {SellersService} from "../sellers.service";
 import {AppSetting} from "../../../app.setting";
+import {ModalDirective} from "ngx-bootstrap";
 
 @Component({
   selector: 'app-seller-module',
@@ -13,14 +13,15 @@ import {AppSetting} from "../../../app.setting";
 })
 export class SellerModal implements OnInit {
 
-  public action: string = null;
+  @ViewChild('sellerModal') public sellerModal: ModalDirective;
+  @Output() myEvent: EventEmitter<Seller> = new EventEmitter<Seller>();
+
+  public action: string =null;
 
   public seller: Seller = new Seller();
 
   public defaultPicture = 'assets/img/theme/no-photo.png';
-  // public sellers:any = {
-  //   image: 'assets/img/app/profile/Nasta.png'
-  // };
+
   public uploaderOptions:NgUploaderOptions = {
     url: '',
   };
@@ -28,19 +29,27 @@ export class SellerModal implements OnInit {
     url: '',
   };
 
-  constructor(private activeModal: NgbActiveModal, private sellersService: SellersService) { }
+  constructor(private sellersService: SellersService) { }
 
   ngOnInit() {
 
   }
 
-  close() {
-    this.activeModal.close();
+  /*show modal*/
+  show(){
+    this.sellerModal.show();
+    this.action = 'store';
+    this.sellerModal.config={
+      backdrop: "static",
+      keyboard: false
+    };
   }
-
-  cancel(){
-    this.close();
+  /* hide modal*/
+  hide(){
+    this.sellerModal.hide();
+    this.resetForm();
   }
+  /*click save */
   actionListener(){
     if(this.action == 'store'){
       this.storeSellers(this.seller);
@@ -48,24 +57,33 @@ export class SellerModal implements OnInit {
       this.updateSellers(this.seller.id, this.seller);
     }
   }
+  /*function store seller*/
   storeSellers(seller: Seller){
     this.sellersService.storeSellers(seller)
         .subscribe(
-            (response: Seller) => {
-              this.activeModal.close();
+            (seller: Seller) => {
+              this.myEvent.emit(seller);
+              this.hide();
             },
             (error: Error) => console.log(error)
         );
   }
+  /*function update seller*/
   updateSellers(id: number, seller: Seller){
     this.sellersService.updateSellers(id, seller)
         .subscribe(
-            (response: Seller) => {
-              this.activeModal.close();
+            (seller: Seller) => {
+              this.myEvent.emit(seller);
+              this.hide();
 
               window.location.href = AppSetting.DOMAIN_NAME + '#/pages/sellers';
             },
             (error: Error) => console.log(error)
         );
+  }
+
+  /*reset form seller*/
+  public resetForm(){
+    this.seller  = new Seller();
   }
 }

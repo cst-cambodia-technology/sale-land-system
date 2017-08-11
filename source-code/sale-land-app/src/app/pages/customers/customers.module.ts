@@ -5,7 +5,7 @@ import {AppTranslationModule} from "../../app.translation.module";
 import {NgaModule} from "../../theme/nga.module";
 import {routing} from "./customers.routing";
 import {CustomerComponent } from './customer/customer.component';
-import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule} from "@angular/forms";
 
 @NgModule({
@@ -13,7 +13,7 @@ import {FormsModule} from "@angular/forms";
     CommonModule,
     AppTranslationModule,
     NgaModule,
-    NgbModalModule,
+    NgbModule.forRoot(),
     FormsModule,
     routing
   ],
