@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {CustomersService} from "./customers.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {CustomerComponent} from "./customer/customer.component";
@@ -11,7 +11,7 @@ import {Customer} from "./customer/customer";
 })
 
 export class Customers implements OnInit {
-
+  @ViewChild('customerModal') public customerModal: CustomerComponent
   @Input() customers: Customer[];
 
   constructor(private customersService: CustomersService, private modalService: NgbModal) { }
@@ -20,6 +20,14 @@ export class Customers implements OnInit {
     this.list();
   }
 
+  getNotification(customer: Customer) {
+      if(this.customerModal.action == 'store') {
+          this.customers.push(customer);
+      } else if(this.customerModal.action == 'update') {
+        let updateCustomer = this.customers.find(this.findCustomer, customer.id);
+        this.customers[this.customers.indexOf(updateCustomer)] = customer;
+      }
+  }
   list() {
     this.customersService.index()
         .subscribe(
@@ -29,19 +37,18 @@ export class Customers implements OnInit {
   }
 
   new() {
-    const activeModal = this.modalService.open(CustomerComponent, {size: 'lg', backdrop: 'static'});
-    activeModal.componentInstance.action = 'store';
+    this.customerModal.customer = new Customer();
+    this.customerModal.action = 'store';
+    this.customerModal.open();
   }
 
-  edit(id: number) {
-    this.customersService.show(id)
-        .subscribe(
-            (response: Customer) => {
-              const activeModal = this.modalService.open(CustomerComponent, {size: 'lg', backdrop: 'static'});
-              activeModal.componentInstance.action = 'update';
-              activeModal.componentInstance.customer = response;
-            },
-            (error:  Error) => {console.log(error)}
-        );
+  edit(customer: Customer) {
+      this.customerModal.customer = Object.assign({}, customer);
+      this.customerModal.action = 'update';
+      this.customerModal.open();
+  }
+
+  findCustomer(customer) {
+      return customer.id === this;
   }
 }

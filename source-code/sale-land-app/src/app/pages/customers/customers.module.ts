@@ -7,13 +7,15 @@ import {routing} from "./customers.routing";
 import {CustomerComponent } from './customer/customer.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule} from "@angular/forms";
+import {ModalModule} from "ngx-bootstrap";
 
 @NgModule({
   imports: [
     CommonModule,
     AppTranslationModule,
     NgaModule,
-    NgbModule.forRoot(),
+    NgbModule,
+    ModalModule,
     FormsModule,
     routing
   ],

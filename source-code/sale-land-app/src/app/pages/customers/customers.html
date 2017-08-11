@@ -37,7 +37,7 @@
               <td>{{ customer.contact.phone }}</td>
               <td>{{ customer.contact.email }}</td>
               <td>{{ customer.status }}</td>
-              <td><button class="btn btn-default" (click)="edit(customer.id)">Edit</button></td>
+              <td><button class="btn btn-default" (click)="edit(customer)">Edit</button></td>
             </tr>
             </tbody>
           </table>
@@ -46,3 +46,5 @@
     </ba-card>
   </div>
 </div>
+
+<app-customer #customerModal (notifyCustomers)="getNotification($event)"></app-customer>
