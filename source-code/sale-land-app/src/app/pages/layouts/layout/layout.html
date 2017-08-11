@@ -1,6 +1,6 @@
-<div bsModal #childModal="bs-modal" class="modal fade" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"aria-hidden="true">
-    <div class="modal-dialog modal-sm" style="margin-left: 300px" >
-        <div class="modal-content"style="width: 800px">
+<div bsModal #childModal="bs-modal" class="modal fade show" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Layout information</h4>
                 <button class="close" aria-label="Close" (click)="hide()" tabindex="-1">
@@ -84,10 +84,8 @@
                 </div>
                 <div class="modal-footer">
                     <button [disabled]="!form.valid || !no.value || !projectId.value"  class="btn btn-primary" (click)="actionListener()">Save</button>
-
                     <button class="btn btn-default" (click)="hide()">Cancel</button>
                 </div>
-
             </form>
         </div>
     </div>
