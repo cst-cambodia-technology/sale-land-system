@@ -14,16 +14,16 @@ import {LayoutsService} from "./layouts.sevice";
   providers: [NgbActiveModal]
 })
 export class Layouts implements OnInit{
-  @ViewChild('childModal') public childModal: LayoutModalComponent;
+  @ViewChild('layoutModal') public layoutModal: LayoutModalComponent
   @Input()layouts : Layout[];
   @Input()layout: Layout;
 
   constructor(private layoutService: LayoutsService) {
 
   }
-  /*reget layout data*/
-  refreshList(event){
-    console.log(event);
+  /*function invoke from layoutModal component to get data */
+  refreshList(seller){
+    console.log(seller);
     this.getLayoutList();
   }
 
@@ -41,17 +41,17 @@ export class Layouts implements OnInit{
 
   /* click new layout */
   onNewLayout(){
-    this.childModal.showHideBatchCheckBox = true;
-    console.log(this.childModal.showHideBatchCheckBox);
+    this.layoutModal.showHideBatchCheckBox = true;
+    console.log(this.layoutModal.showHideBatchCheckBox);
   }
 
   /*click edit*/
   onEdit(layout: Layout){
     let newLayout = Object.assign({}, layout);
 
-    this.childModal.btnSave = "Update";
-    this.childModal.showHideBatchCheckBox = false;
-    this.childModal.layout = newLayout;
-    this.childModal.layout.projectId = newLayout.project.id;
+    this.layoutModal.btnSave = "Update";
+    this.layoutModal.showHideBatchCheckBox = false;
+    this.layoutModal.layout = newLayout;
+    this.layoutModal.layout.projectId = newLayout.project.id;
   }
 }

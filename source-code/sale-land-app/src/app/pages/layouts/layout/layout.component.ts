@@ -16,7 +16,7 @@ import {ModalDirective} from "ngx-bootstrap";
   providers: [LayoutsService],
 })
 export class LayoutModalComponent implements OnInit {
-  @ViewChild('childModal') public childModal: ModalDirective;
+  @ViewChild('layoutModal') public layoutModal: ModalDirective;
   @Input() layout =  new Layout();
   @Input() projects: Project[];
   @Output() myEvent: EventEmitter<Layout> = new EventEmitter<Layout>();
@@ -34,21 +34,20 @@ export class LayoutModalComponent implements OnInit {
 
   /*show modal*/
   show(){
-    this.childModal.show();
-    this.childModal.config={
+    this.layoutModal.show();
+    this.layoutModal.config={
       backdrop: "static",
       keyboard: false
     };
   }
   /* hide modal*/
   hide(){
-    this.childModal.hide();
+    this.layoutModal.hide();
     this.resetForm();
   }
 
   /* click save */
   actionListener(){
-
     if(this.btnSave =='Save'){
       this.layout.status= 'Open';
       /*single insert*/

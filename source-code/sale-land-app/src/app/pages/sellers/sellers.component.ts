@@ -1,9 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {SellersService} from "./sellers.service";
 import {SellerModal} from "./seller/seller.component";
 import {Seller} from "./seller/sellers";
-import {error} from "util";
 
 @Component({
   selector: 'app-sellers',
@@ -12,10 +10,11 @@ import {error} from "util";
 })
 
 export class Sellers implements OnInit {
+   @Input() sellers: Seller[];
 
-  @Input() sellers: Seller[];
+   @ViewChild('sellerModal') public sellerModal: SellerModal;
 
-  constructor( private modalSeller: NgbModal, private sellersService: SellersService){ }
+  constructor(private sellersService: SellersService){ }
 
   ngOnInit() {
     this.getSellers();
@@ -28,25 +27,30 @@ export class Sellers implements OnInit {
         );
   }
 
-  new() {
-    const activeModal = this.modalSeller.open(SellerModal, {size: 'lg', backdrop: 'static'});
-    activeModal.componentInstance.action = 'store';
-  }
+  /*function invoke from sellerModal component*/
+  refreshList(seller){
+      if (this.sellerModal.action == 'store'){
+          this.sellers.push(seller);
+      }else if(this.sellerModal.action == 'update'){
+          let id = seller.id;
+          let updateSeller = this.sellers.find(this.findIndexToUpdate, id);
+          let index = this.sellers.indexOf(updateSeller);
 
-  edit(id: number) {
-      // let newSeller= Object.assign({}, seller);
-      // const activeModal = this.modalSeller.open(SellerModal, {size: 'lg', backdrop: 'static'});
-      // activeModal.componentInstance.action = 'update';
-      // activeModal.componentInstance.seller = newSeller;
-    this.sellersService.show(id)
-        .subscribe(
-            (response: Seller) => {
-                const activeModal = this.modalSeller.open(SellerModal, {size: 'lg', backdrop: 'static'});
-                activeModal.componentInstance.action = 'update';
-                activeModal.componentInstance.seller = response;
-            },
-            (error: Error) => {console.log(error)}
-        );
+          this.sellers[index] = seller;
+      }
+  }
+  /*find id in new seller*/
+  findIndexToUpdate(seller){
+      return seller.id === this;
+  }
+  edit(seller: Seller) {
+
+      let newSeller = Object.assign({}, seller);
+
+      this.sellerModal.action = "update";
+      this.sellerModal.seller = newSeller;
 
   }
 }
+
+

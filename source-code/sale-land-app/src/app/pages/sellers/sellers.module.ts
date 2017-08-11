@@ -8,6 +8,7 @@ import {routing} from "./sellers.routing";
 import {SellerModal} from './seller/seller.component';
 import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ModalModule} from "ngx-bootstrap";
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     NgaModule,
     FormsModule,
     RouterModule,
-    routing
+    routing,
+    ModalModule.forRoot(),
   ],
   declarations: [
       Sellers,
