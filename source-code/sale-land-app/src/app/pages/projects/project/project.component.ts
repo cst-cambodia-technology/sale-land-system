@@ -17,7 +17,6 @@ export class ProjectComponent implements OnInit {
   constructor(private activeModal: NgbActiveModal, private  projectsService: ProjectsService) { }
 
   ngOnInit() {
-
   }
 
   actionListener() {
@@ -31,7 +30,7 @@ export class ProjectComponent implements OnInit {
   storeProject(project: Project) {
         this.projectsService.storeProject(project)
             .subscribe(
-                (response: Project) => {
+                (response: Project[]) => {
                     this.activeModal.close();
                 },
                 (error:  Error) => console.log(error)

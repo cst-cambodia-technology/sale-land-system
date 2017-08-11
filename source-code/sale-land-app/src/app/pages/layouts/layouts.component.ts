@@ -55,3 +55,4 @@ export class Layouts implements OnInit{
     this.childModal.layout.projectId = newLayout.project.id;
   }
 }
+

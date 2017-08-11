@@ -16,19 +16,24 @@ export class Projects implements OnInit {
 
   @Input() projects: Project[];
 
+    refreshList(event){
+        console.log(event);
+        this.getProjectList();
+    }
   ngOnInit() {
-      this.projectsService.getProjects()
-          .subscribe(
-              (response: Project[]) =>  this.projects = response,
-              (error: Response) => console.log(error)
-          )
+      this.getProjectList();
   }
-
+    private getProjectList(): void{
+        this.projectsService.getProjects()
+            .subscribe(( projects: Project[]) => this.projects = projects,
+                (error: Response)=> console.log(error)
+            );
+    }
   onEdit(id: number) {
         this.projectsService.getProject(id)
             .subscribe(
                 (response :Projects) => {
-                    const activeModal = this.modalService.open(ProjectComponent, {size: 'lg'},);
+                    const activeModal = this.modalService.open(ProjectComponent, {size: 'lg',backdrop:'static'});
                     activeModal.componentInstance.action = 'update';
                     activeModal.componentInstance.project = response;
                 },
@@ -38,7 +43,7 @@ export class Projects implements OnInit {
     }
 
   projectModalShow(){
-      const activeModal = this.modalService.open(ProjectComponent, {size: 'lg'});
+      const activeModal = this.modalService.open(ProjectComponent, {size: 'lg',backdrop:'static'});
       activeModal.componentInstance.action = 'store';
   }
 }
