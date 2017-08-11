@@ -47,6 +47,7 @@ export class Sellers implements OnInit {
 
       let newSeller = Object.assign({}, seller);
 
+      this.sellerModal.show();
       this.sellerModal.action = "update";
       this.sellerModal.seller = newSeller;
 

@@ -4,6 +4,7 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {LayoutModalComponent} from "./layout/layout.component";
 import {Layout} from "./layout/layouts";
 import {LayoutsService} from "./layouts.sevice";
+import {Context} from "vm";
 
 
 
@@ -41,6 +42,9 @@ export class Layouts implements OnInit{
 
   /* click new layout */
   onNewLayout(){
+    this.layoutModal.show();
+
+
     this.layoutModal.showHideBatchCheckBox = true;
     console.log(this.layoutModal.showHideBatchCheckBox);
   }
@@ -48,7 +52,7 @@ export class Layouts implements OnInit{
   /*click edit*/
   onEdit(layout: Layout){
     let newLayout = Object.assign({}, layout);
-
+    this.layoutModal.show();
     this.layoutModal.btnSave = "Update";
     this.layoutModal.showHideBatchCheckBox = false;
     this.layoutModal.layout = newLayout;
