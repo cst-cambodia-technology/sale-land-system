@@ -47,7 +47,7 @@ export class Layouts implements OnInit{
 
   /*click edit*/
   onEdit(layout: Layout){
-    let newLayout = Object.assign({}, layout);
+    let newLayout = Object.assign({},layout);
 
     this.layoutModal.btnSave = "Update";
     this.layoutModal.showHideBatchCheckBox = false;
