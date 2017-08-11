@@ -60,7 +60,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        if (! $auth = JWTAuth::parseToken()->authenticate())
+        if (! $user = JWTAuth::parseToken()->authenticate())
         {
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
@@ -78,7 +78,7 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        if (! $auth = JWTAuth::parseToken()->authenticate())
+        if (! $user = JWTAuth::parseToken()->authenticate())
         {
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
@@ -102,8 +102,8 @@ class CustomerController extends Controller
         $customer->address      =   $request->input('address');
         $customer->note         =   $request->input('note');
         $customer->status       =   $request->input('status');
-        $customer->createdBy    =   $auth->id;
-        $customer->modifiedBy   =   $auth->id;
+        $customer->createdBy    =   $user->id;
+        $customer->modifiedBy   =   $user->id;
         $customer->save();
 
         return response()->json($customer);
@@ -117,7 +117,7 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        if (! $auth = JWTAuth::parseToken()->authenticate())
+        if (! $user = JWTAuth::parseToken()->authenticate())
         {
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
@@ -140,7 +140,7 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (! $auth = JWTAuth::parseToken()->authenticate())
+        if (! $user = JWTAuth::parseToken()->authenticate())
         {
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
@@ -165,7 +165,7 @@ class CustomerController extends Controller
             $customer->address      =   $request->input('address');
             $customer->note         =   $request->input('note');
             $customer->status       =   $request->input('status');
-            $customer->modifiedBy   =   $auth->id;
+            $customer->modifiedBy   =   $user->id;
             $customer->save();
 
             return response()->json($customer);

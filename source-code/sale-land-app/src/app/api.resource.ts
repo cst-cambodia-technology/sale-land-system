@@ -1,5 +1,4 @@
 export class ApiResource {
-    // 128.199.198.192
     public static API_ROOT: string      =   'http://localhost:8000/api/';
 
     public static AUTHENTICATE: string  =   ApiResource.API_ROOT + 'authenticate/';

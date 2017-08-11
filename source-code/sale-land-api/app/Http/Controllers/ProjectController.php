@@ -30,7 +30,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        if (! $auth = JWTAuth::parseToken()->authenticate())
+        if (! $user = JWTAuth::parseToken()->authenticate())
         {
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
@@ -48,7 +48,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        if (! $auth = JWTAuth::parseToken()->authenticate())
+        if (! $user = JWTAuth::parseToken()->authenticate())
         {
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
@@ -58,8 +58,8 @@ class ProjectController extends Controller
         $project = new Project();
         $project->name          =   $request->input('name');
         $project->description   =   $request->input('description');
-        $project->createdBy     =   $auth->id;
-        $project->modifiedBy    =   $auth->id;
+        $project->createdBy     =   $user->id;
+        $project->modifiedBy    =   $user->id;
         $project->save();
 
         return response()->json($project);
@@ -73,7 +73,7 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        if (! $auth = JWTAuth::parseToken()->authenticate())
+        if (! $user = JWTAuth::parseToken()->authenticate())
         {
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
@@ -96,7 +96,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (! $auth = JWTAuth::parseToken()->authenticate())
+        if (! $user = JWTAuth::parseToken()->authenticate())
         {
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
@@ -107,7 +107,7 @@ class ProjectController extends Controller
             $project                =   Project::findOrFail($id);
             $project->name          =   $request->input('name');
             $project->description   =   $request->input('description');
-            $project->modifiedBy    =   $auth->id;
+            $project->modifiedBy    =   $user->id;
             $project->save();
 
             return response()->json($project);

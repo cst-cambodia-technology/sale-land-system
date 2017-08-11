@@ -55,7 +55,7 @@ class SellerController extends Controller
      */
     public function index()
     {
-        if (! $auth = JWTAuth::parseToken()->authenticate())
+        if (! $user = JWTAuth::parseToken()->authenticate())
         {
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
@@ -73,7 +73,7 @@ class SellerController extends Controller
      */
     public function store(Request $request)
     {
-        if (! $auth = JWTAuth::parseToken()->authenticate())
+        if (! $user = JWTAuth::parseToken()->authenticate())
         {
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
@@ -96,8 +96,8 @@ class SellerController extends Controller
         $seller->address    =   $request->input('address');
         $seller->note       =   $request->input('note');
         $seller->status     =   $request->input('status');
-        $seller->createdBy  =   $auth->id;
-        $seller->modifiedBy =   $auth->id;
+        $seller->createdBy  =   $user->id;
+        $seller->modifiedBy =   $user->id;
         $seller->save();
 
         return response()->json($seller);
@@ -111,7 +111,7 @@ class SellerController extends Controller
      */
     public function show($id)
     {
-        if (! $auth = JWTAuth::parseToken()->authenticate())
+        if (! $user = JWTAuth::parseToken()->authenticate())
         {
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
@@ -134,7 +134,7 @@ class SellerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (! $auth = JWTAuth::parseToken()->authenticate())
+        if (! $user = JWTAuth::parseToken()->authenticate())
         {
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
@@ -158,7 +158,7 @@ class SellerController extends Controller
             $seller->address    =   $request->input('address');
             $seller->note       =   $request->input('note');
             $seller->status     =   $request->input('status');
-            $seller->modifiedBy =   $auth->id;
+            $seller->modifiedBy =   $user->id;
             $seller->save();
 
             return response()->json($seller);

@@ -9,6 +9,7 @@ import {ModalDirective} from "ngx-bootstrap";
 
 
 
+
 @Component({
   selector: 'app-layout-modal',
   templateUrl: './layout.html',

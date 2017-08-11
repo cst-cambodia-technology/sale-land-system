@@ -58,7 +58,7 @@ class LayoutController extends Controller
      */
     public function index()
     {
-        if (! $auth = JWTAuth::parseToken()->authenticate())
+        if (! $user = JWTAuth::parseToken()->authenticate())
         {
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
@@ -76,7 +76,7 @@ class LayoutController extends Controller
      */
     public function store(Request $request)
     {
-        if (! $auth = JWTAuth::parseToken()->authenticate())
+        if (! $user = JWTAuth::parseToken()->authenticate())
         {
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
@@ -97,8 +97,8 @@ class LayoutController extends Controller
             $layout->price      =   $item['price'];
             $layout->description=   $item['description'];
             $layout->status     =   $item['status'];
-            $layout->createdBy  =   $auth->id;
-            $layout->modifiedBy =   $auth->id;
+            $layout->createdBy  =   $user->id;
+            $layout->modifiedBy =   $user->id;
             $layout->save();
             $layouts[]          =   $layout;
         }
@@ -114,7 +114,7 @@ class LayoutController extends Controller
      */
     public function show($id)
     {
-        if (! $auth = JWTAuth::parseToken()->authenticate())
+        if (! $user = JWTAuth::parseToken()->authenticate())
         {
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
@@ -137,7 +137,7 @@ class LayoutController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (! $auth = JWTAuth::parseToken()->authenticate())
+        if (! $user = JWTAuth::parseToken()->authenticate())
         {
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
@@ -154,7 +154,7 @@ class LayoutController extends Controller
             $layout->price      =   $request->input('price');
             $layout->description=   $request->input('description');
             $layout->status     =   $request->input('status');
-            $layout->modifiedBy =   $auth->id;
+            $layout->modifiedBy =   $user->id;
             $layout->save();
 
             return response()->json($layout);
