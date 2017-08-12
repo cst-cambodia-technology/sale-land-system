@@ -7,7 +7,7 @@ import { routing } from "./projects.routing";
 import { ProjectComponent } from './project/project.component';
 import { NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule } from '@angular/forms';
-
+import { ModalModule } from "ngx-bootstrap";
 @NgModule({
   imports: [
       CommonModule,
@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
       FormsModule,
       NgbModalModule,
       routing,
+      ModalModule.forRoot(),
   ],
   declarations: [
       Projects,

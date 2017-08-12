@@ -35,9 +35,9 @@ export class Layouts implements OnInit{
   /* get all layout data */
   private getLayoutList(): void{
     this.layoutService.getLayouts()
-      .subscribe(( layouts: Layout[]) => this.layouts = layouts,
-          (error: Response)=> console.log(error)
-      );
+        .subscribe(( layouts: Layout[]) => this.layouts = layouts,
+            (error: Response)=> console.log(error)
+        );
   }
 
   /* click new layout */

@@ -1,5 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {ProjectComponent} from "./project/project.component";
 import {ProjectsService} from "./projects.service";
 import {Project} from "./project/project";
@@ -12,33 +11,44 @@ import {Project} from "./project/project";
 })
 export class Projects implements OnInit {
 
-  constructor(private modalService: NgbModal ,private projectsService: ProjectsService ) { }
-
   @Input() projects: Project[];
+  @ViewChild('projectModal') public projectModal: ProjectComponent;
+
+  constructor(private projectsService: ProjectsService ) { }
 
   ngOnInit() {
-      this.projectsService.getProjects()
-          .subscribe(
-              (response: Project[]) =>  this.projects = response,
-              (error: Response) => console.log(error)
-          )
+    this.getProjectList();
   }
 
-  onEdit(id: number) {
-        this.projectsService.getProject(id)
-            .subscribe(
-                (response :Projects) => {
-                    const activeModal = this.modalService.open(ProjectComponent, {size: 'lg'},);
-                    activeModal.componentInstance.action = 'update';
-                    activeModal.componentInstance.project = response;
-                },
-                (error: Error) => {console.log(error)}
+  private getProjectList(): void{
+        this.projectsService.getProjects()
+            .subscribe(( projects: Project[]) => this.projects = projects,
+                (error: Response)=> console.log(error)
             );
+   }
 
-    }
+  onEdit(project:Project) {
+      let editProject = Object.assign({}, project);
+      this.projectModal.show();
+      this.projectModal.action = "update";
+      this.projectModal.project = editProject;
+  }
 
   projectModalShow(){
-      const activeModal = this.modalService.open(ProjectComponent, {size: 'lg'});
-      activeModal.componentInstance.action = 'store';
+        this.projectModal.show();
+  }
+
+  refreshList(project){
+        if (this.projectModal.action == 'store'){
+            this.projects.push(project);
+        }else if(this.projectModal.action == 'update'){
+            let id = project.id;
+            let updateProject = this.projects.find(this.findIndexToUpdate, id);
+            let index = this.projects.indexOf(updateProject);
+            this.projects[index] = project;
+        }
+    }
+  findIndexToUpdate(project){
+        return project.id === this;
   }
 }
