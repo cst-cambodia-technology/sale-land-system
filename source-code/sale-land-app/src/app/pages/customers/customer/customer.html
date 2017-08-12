@@ -1,168 +1,172 @@
-<div class="modal-content">
-  <div class="modal-header">
-    <h4 class="modal-title">Customer information</h4>
-    <button class="close" aria-label="Close" (click)="close()" tabindex="-1">
-      <span aria-hidden="true">&times;</span>
-    </button>
+<div bsModal #customerModal="bs-modal" class="modal fade show" role="dialog" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Customer information</h4>
+        <button class="close" aria-label="Close" (click)="close()" tabindex="-1">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #form="ngForm">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-9">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group" [ngClass]="{'has-error': (!displayName.valid && displayName.touched), 'has-success': (displayName.valid && displayName.touched)}">
+                    <label for="displayName">Name<span class="required">*</span></label>
+                    <input [(ngModel)]="customer.displayName" #displayName="ngModel" type="text" required class="form-control" id="displayName" name="displayName" maxlength="100">
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="companyName">Company</label>
+                    <input [(ngModel)]="customer.companyName" type="text" class="form-control" id="companyName" name="companyName" maxlength="100">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <ba-picture-uploader [picture]="customer.image" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="jobTitle">Occupation</label>
+                <input [(ngModel)]="customer.jobTitle" type="text" class="form-control" id="jobTitle" name="jobTitle" maxlength="100">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="gender">Gender</label>
+                <select [(ngModel)]="customer.gender" class="form-control" id="gender" name="gender" [ngModelOptions]="{standalone: true}">
+                  <option value="null"></option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="birthDate">Date of birth</label>
+                <input [(ngModel)]="customer.birthDate" type="date" class="form-control" id="birthDate" name="birthDate">
+              </div>
+            </div>
+          </div>
+          <label>Identity information</label>
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="type">Type</label>
+                <select [(ngModel)]="customer.identity.type" class="form-control" id="type" name="type" [ngModelOptions]="{standalone: true}">
+                  <option value="null"></option>
+                  <option value="Khmer Identity Card">Khmer Identity Card</option>
+                  <option value="Passport">Passport</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="no">No.</label>
+                <input [(ngModel)]="customer.identity.no" type="text" class="form-control" id="no" name="no" maxlength="100">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="releasedDate">Released</label>
+                <input [(ngModel)]="customer.identity.releasedDate" type="date" class="form-control" id="releasedDate" name="releasedDate">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="expiredDate">Expired</label>
+                <input [(ngModel)]="customer.identity.expiredDate" type="date" class="form-control" id="expiredDate" name="expiredDate">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label>Contact information</label>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <input [(ngModel)]="customer.contact.email" type="email" class="form-control" id="email" name="email" placeholder="Email"  maxlength="100">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input [(ngModel)]="customer.contact.phone" type="text" class="form-control" id="phone" name="phone" placeholder="Phone" maxlength="20">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input [(ngModel)]="customer.contact.mobile" type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile" maxlength="20">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input [(ngModel)]="customer.contact.fax" type="text" class="form-control" id="fax" name="fax" placeholder="Fax" maxlength="20">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input [(ngModel)]="customer.contact.website" type="text" class="form-control" id="website" name="website" placeholder="Website" maxlength="1000">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label>Address information</label>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <input [(ngModel)]="customer.address.street" type="text" class="form-control" id="street" name="street" placeholder="Street" maxlength="2000">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input [(ngModel)]="customer.address.city" type="text" class="form-control" id="city" name="city" placeholder="City/Town" maxlength="255">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input [(ngModel)]="customer.address.state" type="text" class="form-control" id="state" name="state" placeholder="State/Province" maxlength="255">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input [(ngModel)]="customer.address.postalCode" type="text" class="form-control" id="postalCode" name="postalCode" placeholder="Postal code" maxlength="30">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input [(ngModel)]="customer.address.country" type="text" class="form-control" id="country" name="country" placeholder="Country" maxlength="255">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <label for="note">Notes</label>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <textarea [(ngModel)]="customer.note" class="form-control" id="note" name="note" maxlength="4000"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button [disabled]="!form.valid" class="btn btn-primary" (click)="actionListener()">Save</button>
+          <button class="btn btn-default" (click)="cancel()">Cancel</button>
+        </div>
+      </form>
+    </div>
   </div>
-  <form #form="ngForm">
-    <div class="modal-body">
-      <div class="row">
-        <div class="col-sm-9">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group" [ngClass]="{'has-error': (!displayName.valid && displayName.touched), 'has-success': (displayName.valid && displayName.touched)}">
-                <label for="displayName">Name<span class="required">*</span></label>
-                <input [(ngModel)]="customer.displayName" #displayName="ngModel" type="text" required class="form-control" id="displayName" name="displayName" maxlength="100">
-              </div>
-            </div>
-            <div class="col-sm-12">
-              <div class="form-group">
-                <label for="companyName">Company</label>
-                <input [(ngModel)]="customer.companyName" type="text" class="form-control" id="companyName" name="companyName" maxlength="100">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <ba-picture-uploader [picture]="customer.image" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="jobTitle">Occupation</label>
-            <input [(ngModel)]="customer.jobTitle" type="text" class="form-control" id="jobTitle" name="jobTitle" maxlength="100">
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="form-group">
-            <label for="gender">Gender</label>
-            <select [(ngModel)]="customer.gender" class="form-control" id="gender" name="gender" [ngModelOptions]="{standalone: true}">
-              <option value="null"></option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="form-group">
-            <label for="birthDate">Date of birth</label>
-            <input [(ngModel)]="customer.birthDate" type="date" class="form-control" id="birthDate" name="birthDate">
-          </div>
-        </div>
-      </div>
-      <label>Identity information</label>
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="form-group">
-            <label for="type">Type</label>
-            <select [(ngModel)]="customer.identity.type" class="form-control" id="type" name="type" [ngModelOptions]="{standalone: true}">
-              <option value="null"></option>
-              <option value="Khmer Identity Card">Khmer Identity Card</option>
-              <option value="Passport">Passport</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="form-group">
-            <label for="no">No.</label>
-            <input [(ngModel)]="customer.identity.no" type="text" class="form-control" id="no" name="no" maxlength="100">
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="form-group">
-            <label for="releasedDate">Released</label>
-            <input [(ngModel)]="customer.identity.releasedDate" type="date" class="form-control" id="releasedDate" name="releasedDate">
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="form-group">
-            <label for="expiredDate">Expired</label>
-            <input [(ngModel)]="customer.identity.expiredDate" type="date" class="form-control" id="expiredDate" name="expiredDate">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-6">
-          <label>Contact information</label>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <input [(ngModel)]="customer.contact.email" type="email" class="form-control" id="email" name="email" placeholder="Email"  maxlength="100">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input [(ngModel)]="customer.contact.phone" type="text" class="form-control" id="phone" name="phone" placeholder="Phone" maxlength="20">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input [(ngModel)]="customer.contact.mobile" type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile" maxlength="20">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input [(ngModel)]="customer.contact.fax" type="text" class="form-control" id="fax" name="fax" placeholder="Fax" maxlength="20">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input [(ngModel)]="customer.contact.website" type="text" class="form-control" id="website" name="website" placeholder="Website" maxlength="1000">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <label>Address information</label>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <input [(ngModel)]="customer.address.street" type="text" class="form-control" id="street" name="street" placeholder="Street" maxlength="2000">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input [(ngModel)]="customer.address.city" type="text" class="form-control" id="city" name="city" placeholder="City/Town" maxlength="255">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input [(ngModel)]="customer.address.state" type="text" class="form-control" id="state" name="state" placeholder="State/Province" maxlength="255">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input [(ngModel)]="customer.address.postalCode" type="text" class="form-control" id="postalCode" name="postalCode" placeholder="Postal code" maxlength="30">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input [(ngModel)]="customer.address.country" type="text" class="form-control" id="country" name="country" placeholder="Country" maxlength="255">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <label for="note">Notes</label>
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <textarea [(ngModel)]="customer.note" class="form-control" id="note" name="note" maxlength="4000"></textarea>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button [disabled]="!form.valid" class="btn btn-primary" (click)="actionListener()">Save</button>
-      <button class="btn btn-default" (click)="cancel()">Cancel</button>
-    </div>
-  </form>
 </div>

@@ -21,6 +21,7 @@ import {LayoutsService} from "./pages/layouts/layouts.sevice";
 import {CustomersService} from "./pages/customers/customers.service";
 import {SellersService} from "./pages/sellers/sellers.service";
 import {UserService} from "./pages/users/users.service";
+import {ModalModule} from "ngx-bootstrap";
 
 
 // Application wide providers
@@ -51,6 +52,7 @@ export type StoreType = {
     ReactiveFormsModule,
     NgaModule.forRoot(),
     NgbModule.forRoot(),
+    ModalModule.forRoot(),
     PagesModule,
     routing
   ],

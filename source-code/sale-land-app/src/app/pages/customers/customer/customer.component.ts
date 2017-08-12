@@ -1,19 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgUploaderOptions} from "ngx-uploader";
 import {Customer} from "./customer";
 import {CustomersService} from "../customers.service";
+import {ModalDirective} from "ngx-bootstrap";
 
 @Component({
-  selector: 'customer',
+  selector: 'app-customer',
   templateUrl: './customer.html',
   styleUrls: ['./customer.scss'],
 })
 export class CustomerComponent implements OnInit {
+  @ViewChild('customerModal') public customerModal: ModalDirective;
+  @Input() customer:Customer =  new Customer();
+  @Output() notifyCustomers: EventEmitter<Customer> = new EventEmitter<Customer>();
 
   public action: string = null;
-
-  public customer:Customer =  new Customer();
 
   public defaultPicture = 'assets/img/theme/no-photo.png';
 
@@ -26,13 +28,18 @@ export class CustomerComponent implements OnInit {
     url: '',
   };
 
-  constructor(private activeModal: NgbActiveModal, private customersService: CustomersService) { }
+  constructor(private customersService: CustomersService) { }
 
   ngOnInit() {
   }
 
+  open() {
+      this.customerModal.show();
+      this.customerModal.config = { backdrop: "static", keyboard: false };
+  }
+
   close() {
-    this.activeModal.close();
+    this.customerModal.hide();
   }
 
   cancel() {
@@ -51,7 +58,8 @@ export class CustomerComponent implements OnInit {
     this.customersService.store(customer)
         .subscribe(
             (response: Customer) => {
-              this.activeModal.close();
+                this.customerModal.ngOnDestroy();
+                this.notifyCustomers.emit(response);
             },
             (error:  Error) => console.log(error)
         );
@@ -61,7 +69,8 @@ export class CustomerComponent implements OnInit {
     this.customersService.update(id, customer)
         .subscribe(
             (response: Customer) => {
-              this.activeModal.close();
+                this.customerModal.ngOnDestroy();
+                this.notifyCustomers.emit(response);
             },
             (error:  Error) => console.log(error)
         );
