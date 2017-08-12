@@ -24,7 +24,7 @@
                               <td>{{ project.name }}</td>
                               <td>{{ project.description }}</td>
                               <td>
-                                  <button class="btn btn-default" (click)="onEdit(project.id)">Edit</button>
+                                  <button class="btn btn-default" (click)="onEdit(project)">Edit</button>
                               </td>
                           </tr>
                           </tbody>
@@ -34,3 +34,4 @@
         </ba-card>
     </div>
 </div>
+<app-project #projectModal (myEvent)="refreshList($event)"></app-project>

@@ -4,7 +4,6 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {LayoutModalComponent} from "./layout/layout.component";
 import {Layout} from "./layout/layouts";
 import {LayoutsService} from "./layouts.sevice";
-import {Context} from "vm";
 
 
 
@@ -35,9 +34,9 @@ export class Layouts implements OnInit{
   /* get all layout data */
   private getLayoutList(): void{
     this.layoutService.getLayouts()
-      .subscribe(( layouts: Layout[]) => this.layouts = layouts,
-          (error: Response)=> console.log(error)
-      );
+        .subscribe(( layouts: Layout[]) => this.layouts = layouts,
+            (error: Response)=> console.log(error)
+        );
   }
 
   /* click new layout */
@@ -51,6 +50,7 @@ export class Layouts implements OnInit{
 
   /*click edit*/
   onEdit(layout: Layout){
+    let newLayout = Object.assign({}, layout);
     this.layoutModal.show();
     this.layoutModal.btnSave = "Update";
     this.layoutModal.showHideBatchCheckBox = false;
@@ -58,4 +58,3 @@ export class Layouts implements OnInit{
     this.layoutModal.layout.projectId = newLayout.project.id;
   }
 }
-

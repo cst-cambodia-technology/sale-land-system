@@ -7,8 +7,4 @@ export class Project {
     constructor() {
 
     }
-
-    push(project: Project) {
-        
-    }
 }

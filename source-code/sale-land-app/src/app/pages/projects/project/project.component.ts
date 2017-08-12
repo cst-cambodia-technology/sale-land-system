@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
+import {Component, OnInit, Output, ViewChild, EventEmitter} from '@angular/core';
 import { ProjectsService } from "../projects.service";
 import { Project } from "./project";
+import {ModalDirective} from "ngx-bootstrap";
 
 @Component({
   selector: 'app-project',
@@ -10,14 +10,31 @@ import { Project } from "./project";
 })
 export class ProjectComponent implements OnInit {
 
-    public action: string = null;
+  @ViewChild('projectModal') public projectModal: ModalDirective;
+  @Output() myEvent: EventEmitter<Project> = new EventEmitter<Project>();
 
-    public project:Project =  new Project();
+  public action: string = null;
+  public project:Project =  new Project();
 
-  constructor(private activeModal: NgbActiveModal, private  projectsService: ProjectsService) { }
+  constructor(private  projectsService: ProjectsService) { }
 
   ngOnInit() {
   }
+
+  /*show modal*/
+  show(){
+    this.projectModal.show();
+    this.action = 'store';
+    this.projectModal.config={
+         backdrop: "static",
+         keyboard: false
+        };
+    }
+    /* hide modal*/
+  hide(){
+     this.projectModal.hide();
+     this.project = new Project();
+    }
 
   actionListener() {
         if(this.action == 'store'){
@@ -30,25 +47,23 @@ export class ProjectComponent implements OnInit {
   storeProject(project: Project) {
         this.projectsService.storeProject(project)
             .subscribe(
-                (response: Project[]) => {
-                    this.activeModal.close();
+                (project: Project) => {
+                    this.myEvent.emit(project);
+                    this.hide();
                 },
-                (error:  Error) => console.log(error)
+                (error: Error) => console.log(error)
             );
-
   }
 
   updateProject(id: number, project: Project) {
         this.projectsService.updateProject(id, project)
             .subscribe(
-                (response: Project) => {
-                    this.activeModal.close();
+                (project: Project) => {
+                    this.myEvent.emit(project);
+                    this.hide();
                 },
                 (error:  Error) => console.log(error)
             );
   }
 
-  close() {
-    this.activeModal.close();
-  }
 }
