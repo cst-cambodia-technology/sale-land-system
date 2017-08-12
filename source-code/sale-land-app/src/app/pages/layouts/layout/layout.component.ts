@@ -35,6 +35,7 @@ export class LayoutModalComponent implements OnInit {
 
   /*show modal*/
   show(){
+    this.btnSave = "Save";
     this.layoutModal.show();
     this.layoutModal.config={
       backdrop: "static",
