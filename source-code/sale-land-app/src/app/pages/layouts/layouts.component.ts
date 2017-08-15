@@ -15,9 +15,11 @@ import {LayoutsService} from "./layouts.sevice";
   providers: [NgbActiveModal]
 })
 export class Layouts implements OnInit{
-  @ViewChild('layoutModal') public layoutModal: LayoutModalComponent
+  @ViewChild('layoutModal') public layoutModal: LayoutModalComponent;
   @Input()layouts : Layout[];
   @Input()layout: Layout;
+
+  p: number = 1;
 
   constructor(private layoutService: LayoutsService) {
 

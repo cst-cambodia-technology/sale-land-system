@@ -25,11 +25,11 @@
             </thead>
 
             <tbody>
-            <tr *ngFor="let layout of layouts; let i = index">
+            <tr *ngFor="let layout of layouts | paginate: { itemsPerPage: 10, currentPage: p }">
               <td>{{ layout.label}}</td>
               <td>{{ layout.project.name}}</td>
               <td>{{ layout.size}}</td>
-              <td>{{ layout.price | currency:'USD':true:'4.2-2'}}</td>
+              <td>{{ layout.price | currency:'USD':true:'1.2-2'}}</td>
               <td>{{ layout.description }}</td>
               <td>{{ layout.status }}</td>
               <td>
@@ -40,6 +40,21 @@
           </table>
         </div>
       </div>
+
+      <div class="row">
+        <div class="pagination">
+          <pagination-controls (pageChange)=" p = $event "
+                               previousLabel="Previous"
+                               nextLabel="Next"
+                               screenReaderPaginationLabel="Pagination"
+                               screenReaderPageLabel="page"
+                               screenReaderCurrentLabel="You're on page"
+                               autoHide="true"
+                               maxSize="10">
+          </pagination-controls>
+        </div>
+      </div>
+
     </ba-card>
   </div>
 </div>

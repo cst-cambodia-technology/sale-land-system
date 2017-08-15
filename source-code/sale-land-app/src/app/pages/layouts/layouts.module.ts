@@ -8,6 +8,7 @@ import {Layouts} from "./layouts.component";
 import { LayoutModalComponent } from './layout/layout.component';
 import {FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ModalModule} from "ngx-bootstrap";
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import {ModalModule} from "ngx-bootstrap";
     FormsModule,
     routing,
     ModalModule.forRoot(),
+    NgxPaginationModule,
 
   ],
   declarations: [
