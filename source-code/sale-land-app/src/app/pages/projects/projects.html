@@ -9,9 +9,12 @@
     <div class="col-sm-12">
         <ba-card baCardClass="with-scroll">
             <div class="row">
-
                 <div class="col-sm-12 horizontal-scroll">
-                      <table class="table table-bordered">
+  
+                      <input type="text" [(ngModel)]="search" placeholder="Search" />
+                      <br><br>
+
+                      <table class="table table-bordered"> 
                           <thead>
                           <tr>
                               <th>NAME</th>
@@ -20,7 +23,7 @@
                           </tr>
                           </thead>
                           <tbody>
-                          <tr *ngFor="let project of projects">
+                          <tr *ngFor="let project of projects | filter:search ">
                               <td>{{ project.name }}</td>
                               <td>{{ project.description }}</td>
                               <td>
