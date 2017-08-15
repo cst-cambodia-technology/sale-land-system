@@ -12,7 +12,7 @@ class Invoice extends Model
     /**
      * Get the details for the invoice.
      */
-    public function details()
+    public function invoiceDetails()
     {
         return $this->hasMany('App\InvoiceDetail', 'invoiceId','id');
     }
