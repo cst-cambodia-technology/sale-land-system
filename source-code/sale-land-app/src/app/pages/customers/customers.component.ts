@@ -44,6 +44,8 @@ export class Customers implements OnInit {
 
   edit(customer: Customer) {
       this.customerModal.customer = Object.assign({}, customer);
+      this.customerModal.customer.address = Object.assign({}, customer.address);
+      this.customerModal.customer.contact = Object.assign({}, customer.contact);
       this.customerModal.action = 'update';
       this.customerModal.open();
   }
