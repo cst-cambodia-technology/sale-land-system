@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Invoice;
 use App\InvoiceDetail;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
-
+use JWTAuth;
 class InvoiceController extends Controller
 {
     /**
@@ -21,6 +22,7 @@ class InvoiceController extends Controller
             'no'                            =>  'required|string|max:21',
             'date'                          =>  'required|date',
             'invoiceDetails'                =>  'required|array',
+            'invoiceDetails.*.id'           =>  'integer|nullable',
             'invoiceDetails.*.layoutId'     =>  'required|integer',
             'invoiceDetails.*.label'        =>  'required|string|max:100',
             'invoiceDetails.*.size'         =>  'string|nullable|max:100',
@@ -89,7 +91,7 @@ class InvoiceController extends Controller
         $invoice->modifiedBy    =   $user->id;
         $invoice->save();
 
-        $items =  $request->input('items');
+        $items =  $request->input('invoiceDetails');
 
         foreach ($items as $item) {
             $invoiceDetail              =   new InvoiceDetail();
@@ -107,25 +109,25 @@ class InvoiceController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Retrieve the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
-    }
+        if (! $user = JWTAuth::parseToken()->authenticate())
+        {
+            return response()->json(['error' => 'user_authenticate_not_found'], 404);
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        try {
+            $invoice = Invoice::findOrFail($id)->with('invoiceDetails');
+
+            return response()->json($invoice);
+        } catch (ModelNotFoundException $e){
+            return response()->json($e->getMessage(),404);
+        }
     }
 
     /**
@@ -137,7 +139,47 @@ class InvoiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (! $user = JWTAuth::parseToken()->authenticate())
+        {
+            return response()->json(['error' => 'user_authenticate_not_found'], 404);
+        }
+
+        $this->validator($request);
+
+        try {
+            $invoice                =   Invoice::findOrFail($id);
+            $invoice->customerId    =   $request->input('customerId');
+            $invoice->no            =   $request->input('no');
+            $invoice->date          =   $request->input('date');
+            $invoice->memo          =   $request->input('memo');
+            $invoice->subTotal      =   $request->input('subTotal');
+            $invoice->discountMethod=   $request->input('discountMethod');
+            $invoice->discount      =   $request->input('discount');
+            $invoice->discountValue =   $request->input('discountValue');
+            $invoice->grandTotal    =   $request->input('grandTotal');
+            $invoice->deposit       =   $request->input('deposit');
+            $invoice->balance       =   $request->input('balance');
+            $invoice->status        =   $request->input('status');
+            $invoice->modifiedBy    =   $user->id;
+            $invoice->save();
+
+        } catch (ModelNotFoundException $e) {
+            return response()->json($e->getMessage(),404);
+        }
+
+        $items =  $request->input('invoiceDetails');
+
+        foreach ($items as $item) {
+            $invoiceDetail              =   $invoice->invoiceDetails()->find($item['id']);
+            $invoiceDetail->layoutId    =   $item['layoutId'];
+            $invoiceDetail->label       =   $item['label'];
+            $invoiceDetail->size        =   $item['size'];
+            $invoiceDetail->price       =   $item['price'];
+            $invoiceDetail->description =   $item['description'];
+            $invoiceDetail->modifiedBy  =   $user->id;
+            $invoiceDetail->save();
+        }
+
     }
 
     /**
