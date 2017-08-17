@@ -17,6 +17,10 @@ class CreateInvoiceDetailsTable extends Migration
             $table->increments('id');
             $table->integer('invoiceId');
             $table->integer('layoutId');
+            $table->string('layout', 100);
+            $table->string('size', 100)->nullable()->default(null);
+            $table->decimal('price', 10, 2)->nullable()->default(null);
+            $table->string('description', 4000)->nullable()->default(null);
             $table->integer('createdBy')->nullable()->default(null);
             $table->integer('modifiedBy')->nullable()->default(null);
             $table->timestamp('createdAt')->nullable()->default(null);

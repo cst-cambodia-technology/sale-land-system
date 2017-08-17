@@ -6,6 +6,7 @@ use App\Invoice;
 use App\InvoiceDetail;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use JWTAuth;
 class InvoiceController extends Controller
 {
@@ -24,7 +25,7 @@ class InvoiceController extends Controller
             'invoiceDetails'                =>  'required|array',
             'invoiceDetails.*.id'           =>  'integer|nullable',
             'invoiceDetails.*.layoutId'     =>  'required|integer',
-            'invoiceDetails.*.label'        =>  'required|string|max:100',
+            'invoiceDetails.*.layout'        =>  'required|string|max:100',
             'invoiceDetails.*.size'         =>  'string|nullable|max:100',
             'invoiceDetails.*.price'        =>  'numeric|nullable',
             'invoiceDetails.*.description'  =>  'string|nullable|max:4000',
@@ -43,13 +44,26 @@ class InvoiceController extends Controller
     /**
      * Retrieve a listing of the resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         if (! $user = JWTAuth::parseToken()->authenticate())
         {
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
+        }
+
+        $option = $request->input('option');
+
+        if ($option == 'generateNo') {
+            $lastInvoice = Invoice::all()->last();
+            if ($lastInvoice) {
+                $no = $lastInvoice->id + 100;
+            } else {
+               $no = 100;
+            }
+            return response()->json($no);
         }
 
         $invoices = Invoice::all();
@@ -96,7 +110,7 @@ class InvoiceController extends Controller
         foreach ($items as $item) {
             $invoiceDetail              =   new InvoiceDetail();
             $invoiceDetail->layoutId    =   $item['layoutId'];
-            $invoiceDetail->label       =   $item['label'];
+            $invoiceDetail->layout     =   $item['layout'];
             $invoiceDetail->size        =   $item['size'];
             $invoiceDetail->price       =   $item['price'];
             $invoiceDetail->description =   $item['description'];
@@ -172,7 +186,7 @@ class InvoiceController extends Controller
         foreach ($items as $item) {
             $invoiceDetail              =   $invoice->invoiceDetails()->find($item['id']);
             $invoiceDetail->layoutId    =   $item['layoutId'];
-            $invoiceDetail->label       =   $item['label'];
+            $invoiceDetail->layout      =   $item['layout'];
             $invoiceDetail->size        =   $item['size'];
             $invoiceDetail->price       =   $item['price'];
             $invoiceDetail->description =   $item['description'];
