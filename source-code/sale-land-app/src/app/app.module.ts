@@ -22,6 +22,7 @@ import {CustomersService} from "./pages/customers/customers.service";
 import {SellersService} from "./pages/sellers/sellers.service";
 import {UserService} from "./pages/users/users.service";
 import {ModalModule} from "ngx-bootstrap";
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 // Application wide providers
@@ -54,6 +55,7 @@ export type StoreType = {
     NgbModule.forRoot(),
     ModalModule.forRoot(),
     PagesModule,
+
     routing
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection

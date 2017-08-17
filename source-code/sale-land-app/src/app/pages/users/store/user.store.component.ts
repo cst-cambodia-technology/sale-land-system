@@ -19,7 +19,11 @@ export class UserStoreComponent implements OnInit{
     ngOnInit(): void {
     }
 
-    public close(){
+    close() {
         this.activeModal.close();
+    }
+
+    actionlistener() {
+
     }
 }

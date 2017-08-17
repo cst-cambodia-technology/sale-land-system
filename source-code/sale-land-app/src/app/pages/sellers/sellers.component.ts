@@ -44,12 +44,11 @@ export class Sellers implements OnInit {
       return seller.id === this;
   }
   edit(seller: Seller) {
-
-      let newSeller = Object.assign({}, seller);
-
+      this.sellerModal.seller = Object.assign({}, seller);
+      this.sellerModal.seller.address = Object.assign({}, seller.address);
+      this.sellerModal.seller.contact = Object.assign({}, seller.contact);
       this.sellerModal.show();
       this.sellerModal.action = "update";
-      this.sellerModal.seller = newSeller;
 
   }
 }
