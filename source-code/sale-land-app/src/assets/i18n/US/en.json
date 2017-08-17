@@ -19,6 +19,8 @@
     },
     "menu": {
       "dashboard": "Dashboard",
+      "sales":"Sales",
+      "invoice":"Invoice",
       "editors": "Editors",
       "ck_editor": "CKEditor",
       "components": "Components",

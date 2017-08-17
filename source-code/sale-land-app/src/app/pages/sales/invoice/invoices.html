@@ -1,0 +1,196 @@
+<!--<p>-->
+  <!--invoice works!-->
+<!--</p>-->
+
+<ba-card>
+  <form>
+    <div class="row">
+      <div class="col-sm-12">
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="invoiceNo" class="control-label">Invoice No</label>
+              <input type="text" id="invoiceNo" name="invoiceNo" class="form-control">
+            </div>
+          </div>
+
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="invoiceDate" class="control-label">Invoice Date</label>
+              <input type="date" id="invoiceDate" name="invoiceDate" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="customer" class="control-label">Customer</label>
+              <select [(ngModel)]="customer.id" id="customer" class="form-control" [ngModelOptions]="{standalone: true}">
+
+                <option *ngFor="let customer of customers" value="{{ customer.id }}">{{ customer.displayName }}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="memo" class="control-label">Memo</label>
+              <input type="text" id="memo" name="memo" class="form-control">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="control-label">Layout</label>
+              <select [(ngModel)]="layoutList.layoutId" (change)="onChange(layoutList.layoutId)" class="form-control" [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let layout of layouts" value="{{ layout.id }}">{{ layout.label }}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="size" class="control-label">Size</label>
+              <input [(ngModel)]="layoutList.size" type="text" id="size" class="form-control" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="price" class="control-label">Price</label>
+              <input [(ngModel)]="layoutList.price" type="number" id="price" class="form-control" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="description" class="control-label">Description</label>
+              <textarea [(ngModel)]="layoutList.description" id="description" class="form-control" [ngModelOptions]="{standalone: true}"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="button" class="btn btn-primary" (click)="onClickAdd()">Add</button>
+        </div>
+
+
+      </div>
+    </div>
+  </form>
+
+  <!--table-->
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>No.</th>
+          <th>Layout</th>
+          <th>Size</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let row of layoutLists; let i = index">
+          <td>{{ i+1 }}</td>
+          <td>{{ row.label }}</td>
+          <td>{{ row.size }}</td>
+          <td>{{ row.price }}</td>
+          <td>{{ row.description }}</td>
+          <td>
+            <button class="btn btn-default">clear</button>
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!--subtotal-->
+  <br>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="pull-right">
+        <form>
+          <table>
+            <tr>
+              <th></th>
+              <th style="padding-left: 15%">SubTotal:</th>
+              <th id="subTotal">$20000</th>
+            </tr>
+            <br>
+            <tr>
+              <th style="padding-right: 5%">
+                <select id="discountMethod" class="form-control" >
+                  <option value="percent">Discount Percent</option>
+                  <option value="value">Discount Value</option>
+                </select>
+              </th>
+              <th>
+                <input type="number" id="discount" class="form-control" style="width: 60%">
+              </th>
+              <th id="discountValue">20000</th>
+            </tr>
+            <br>
+            <tr>
+              <th></th>
+              <th style="padding-left: 15%">Grand Total:</th>
+              <th id="grandTotal">$20000</th>
+            </tr>
+
+            <br>
+            <tr>
+              <th></th>
+              <th style="padding-left: 15%">Deposit:</th>
+              <th >
+                <input type="number" id="deposit" class="form-control" style="width: 60%">
+              </th>
+            </tr>
+            <br>
+            <tr>
+              <th></th>
+              <th style="padding-left: 15%">Balance:</th>
+              <th id="balance">$20000</th>
+            </tr>
+
+          </table>
+
+          <br>
+          <div class="pull-right" style="margin-right: 30%">
+            <button type="button"class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-default">Cancel</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+      <!--<form>-->
+        <!--<div >-->
+          <!--<div class="col-sm-12" style="text-align: right">-->
+            <!--<div class="form-group">-->
+              <!--<label for="subTotal">SubTotal:</label>-->
+              <!--<label id="subTotal" class="text-lg-center">$20000</label>-->
+            <!--</div>-->
+          <!--</div>-->
+
+          <!--<div class="col-sm-4 pull-right">-->
+            <!--<select id="discountMethod">-->
+              <!--<option value="percent">Discount Percent</option>-->
+              <!--<option value="value">Discount Value</option>-->
+            <!--</select>-->
+          <!--</div>-->
+        <!--</div>-->
+
+      <!--</form>-->
+  </div>
+</ba-card>
