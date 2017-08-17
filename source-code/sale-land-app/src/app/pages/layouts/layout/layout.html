@@ -27,7 +27,7 @@
                         <div class="col-sm-4">
                             <div class="form-group" [ngClass]="{'has-error': (!no.valid && no.touched), 'has-success': (no.valid && no.touched)}">
                                 <label class="control-label" for="no" *ngIf="!isBatch">No.<span class="required">*</span></label>
-                                <label for="no" *ngIf="isBatch">Start No.<span class="required">*</span></label>
+                                <label for="no" *ngIf="isBatch">Start no.<span class="required">*</span></label>
                                 <input [(ngModel)]="layout.no" #no="ngModel" type="number" class="form-control" id="no" required [ngModelOptions]="{standalone: true}">
                             </div>
                         </div>
@@ -35,7 +35,7 @@
 
                         <div class="col-sm-4" *ngIf="isBatch">
                             <div class="form-group" [ngClass]="{'has-error': (!to.valid && to.touched), 'has-success': (to.valid && to.touched)}">
-                                <label class="control-label " for="to">End No.<span class="required">*</span></label>
+                                <label class="control-label " for="to">End no.<span class="required">*</span></label>
                                 <input [(ngModel)]="layout.to" #to="ngModel" type="number" class="form-control" id="to" required [ngModelOptions]="{standalone: true}">
                             </div>
                         </div>

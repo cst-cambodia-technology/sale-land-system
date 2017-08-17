@@ -56,7 +56,7 @@ class InvoiceController extends Controller
 
         $option = $request->input('option');
 
-        if ($option == 'generateNo') {
+        if ($option == 'InvoiceNo') {
             $lastInvoice = Invoice::all()->last();
             if ($lastInvoice) {
                 $no = $lastInvoice->id + 100;
@@ -136,7 +136,7 @@ class InvoiceController extends Controller
         }
 
         try {
-            $invoice = Invoice::findOrFail($id)->with('invoiceDetails');
+            $invoice = Invoice::findOrFail($id)->with('details')->get();
 
             return response()->json($invoice);
         } catch (ModelNotFoundException $e){
