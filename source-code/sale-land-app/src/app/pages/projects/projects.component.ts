@@ -2,7 +2,6 @@ import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {ProjectComponent} from "./project/project.component";
 import {ProjectsService} from "./projects.service";
 import {Project} from "./project/project";
-import { FilterPipe } from './filter.pipe';
 
 @Component({
   selector: 'app-projects',
@@ -51,4 +50,6 @@ export class Projects implements OnInit {
   findIndexToUpdate(project){
         return project.id === this;
   }
+
+   p: number = 1;
 }
