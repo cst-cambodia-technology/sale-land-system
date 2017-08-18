@@ -9,52 +9,39 @@
   <div class="col-sm-12">
     <ba-card baCardClass="with-scroll">
       <div class="row">
-
         <div class="col-sm-12 horizontal-scroll">
           <table class="table table-bordered">
             <thead>
-            <tr>
-              <th>LAYOUT</th>
-              <th>PROJECT</th>
-              <th>SIZE</th>
-              <th>PRICE</th>
-              <th>DESCRIPTION</th>
-              <th>STATUS</th>
-              <th>ACTION</th>
-            </tr>
+              <tr>
+                <th>LAYOUT</th>
+                <th>PROJECT</th>
+                <th>SIZE</th>
+                <th>PRICE</th>
+                <th>DESCRIPTION</th>
+                <th>STATUS</th>
+                <th>ACTION</th>
+              </tr>
             </thead>
-
             <tbody>
-            <tr *ngFor="let layout of layouts | paginate: { itemsPerPage: 10, currentPage: p }">
-              <td>{{ layout.label}}</td>
-              <td>{{ layout.project.name}}</td>
-              <td>{{ layout.size}}</td>
-              <td>{{ layout.price | currency:'USD':true:'1.2-2'}}</td>
-              <td>{{ layout.description }}</td>
-              <td>{{ layout.status }}</td>
-              <td>
-                <button type="button" class="btn btn-default" (click)="onEdit(layout)">Edit</button>
-              </td>
-            </tr>
+              <tr *ngFor="let layout of layouts | paginate: { itemsPerPage: 10, currentPage: p }">
+                <td>{{ layout.label}}</td>
+                <td>{{ layout.project.name}}</td>
+                <td>{{ layout.size}}</td>
+                <td>{{ layout.price | currency:'USD':true:'1.2-2'}}</td>
+                <td>{{ layout.description }}</td>
+                <td>{{ layout.status }}</td>
+                <td>
+                  <button type="button" class="btn btn-default" (click)="onEdit(layout)">Edit</button>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="pagination">
-          <pagination-controls (pageChange)=" p = $event "
-                               previousLabel="Previous"
-                               nextLabel="Next"
-                               screenReaderPaginationLabel="Pagination"
-                               screenReaderPageLabel="page"
-                               screenReaderCurrentLabel="You're on page"
-                               autoHide="true"
-                               maxSize="10">
-          </pagination-controls>
+        <div class="col-sm-12 text-right">
+          <br/>
+          <pagination-controls (pageChange)="p = ($event)"></pagination-controls>
         </div>
       </div>
-
     </ba-card>
   </div>
 </div>

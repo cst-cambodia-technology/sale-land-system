@@ -18,7 +18,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
       FormsModule,
       NgbModalModule,
       routing,
-      ModalModule.forRoot(),
+      ModalModule,
       NgxPaginationModule
   ],
   declarations: [

@@ -5,15 +5,13 @@ import {LayoutModalComponent} from "./layout/layout.component";
 import {Layout} from "./layout/layouts";
 import {LayoutsService} from "./layouts.sevice";
 
-
-
-
 @Component({
   selector: 'app-layouts',
   templateUrl: './layouts.html',
   styleUrls: ['./layouts.scss'],
   providers: [NgbActiveModal]
 })
+
 export class Layouts implements OnInit{
   @ViewChild('layoutModal') public layoutModal: LayoutModalComponent;
   @Input()layouts : Layout[];

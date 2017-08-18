@@ -61,7 +61,7 @@ class InvoiceController extends Controller
             if ($lastInvoice) {
                 $no = $lastInvoice->id + 100;
             } else {
-               $no = 100;
+                $no = 100;
             }
             return response()->json($no);
         }
@@ -70,8 +70,6 @@ class InvoiceController extends Controller
 
         return response()->json($invoices);
     }
-
-
 
     /**
      * Store a newly created resource in storage.
