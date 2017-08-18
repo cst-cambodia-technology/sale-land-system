@@ -29,13 +29,12 @@ export class Sellers implements OnInit {
 
   /*function invoke from sellerModal component*/
   refreshList(seller){
-      if (this.sellerModal.action == 'store'){
+      if (this.sellerModal.isNew){
           this.sellers.push(seller);
-      }else if(this.sellerModal.action == 'update'){
+      } else {
           let id = seller.id;
           let updateSeller = this.sellers.find(this.findIndexToUpdate, id);
           let index = this.sellers.indexOf(updateSeller);
-
           this.sellers[index] = seller;
       }
   }
@@ -43,14 +42,20 @@ export class Sellers implements OnInit {
   findIndexToUpdate(seller){
       return seller.id === this;
   }
+
+  new() {
+      this.sellerModal.isNew = true;
+      this.sellerModal.show();
+  }
   edit(seller: Seller) {
       this.sellerModal.seller = Object.assign({}, seller);
       this.sellerModal.seller.address = Object.assign({}, seller.address);
       this.sellerModal.seller.contact = Object.assign({}, seller.contact);
+      this.sellerModal.isNew = false;
+      seller.status == "Active" ? this.sellerModal.isActive = true : this.sellerModal.isActive = false;
       this.sellerModal.show();
-      this.sellerModal.action = "update";
-
   }
+
 }
 
 

@@ -2,7 +2,6 @@ import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core'
 import {NgUploaderOptions} from "ngx-uploader";
 import {Seller} from "./sellers";
 import {SellersService} from "../sellers.service";
-import {AppSetting} from "../../../app.setting";
 import {ModalDirective} from "ngx-bootstrap";
 
 @Component({
@@ -16,7 +15,9 @@ export class SellerModal implements OnInit {
   @ViewChild('sellerModal') public sellerModal: ModalDirective;
   @Output() myEvent: EventEmitter<Seller> = new EventEmitter<Seller>();
 
-  public action: string =null;
+  public isNew: boolean;
+
+  public isActive: boolean;
 
   public seller: Seller = new Seller();
 
@@ -38,7 +39,6 @@ export class SellerModal implements OnInit {
   /*show modal*/
   show(){
     this.sellerModal.show();
-    this.action = 'store';
     this.sellerModal.config={
       backdrop: "static",
       keyboard: false
@@ -51,12 +51,22 @@ export class SellerModal implements OnInit {
   }
   /*click save */
   actionListener(){
-    if(this.action == 'store'){
+    if(this.isNew){
       this.storeSellers(this.seller);
-    }else if(this.action == 'update'){
+    } else {
       this.updateSellers(this.seller.id, this.seller);
     }
   }
+  actionStatus() {
+    if(this.isActive) {
+      this.seller.status = 'Inactive';
+      this.updateSellers(this.seller.id, this.seller);
+    } else {
+      this.seller.status = 'Active';
+      this.updateSellers(this.seller.id, this.seller);
+    }
+  }
+
   /*function store seller*/
   storeSellers(seller: Seller){
     this.sellersService.storeSellers(seller)
@@ -73,10 +83,8 @@ export class SellerModal implements OnInit {
     this.sellersService.updateSellers(id, seller)
         .subscribe(
             (seller: Seller) => {
-              this.myEvent.emit(seller);
               this.hide();
-
-              window.location.href = AppSetting.DOMAIN_NAME + '#/pages/sellers';
+              this.myEvent.emit(seller);
             },
             (error: Error) => console.log(error)
         );

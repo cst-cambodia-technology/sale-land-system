@@ -162,10 +162,25 @@
             </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <button [disabled]="!form.valid" class="btn btn-primary" (click)="actionListener()">Save</button>
-          <button class="btn btn-default" (click)="cancel()">Cancel</button>
+        <div class="container" style="margin-bottom: 2%;">
+          <div class="row">
+            <div class="col-md-4">
+              <div *ngIf="!isNew">
+                <button class="btn btn-default float-left" (click)="actionStatus()">{{isActive ? 'Make Inactive': 'Make active'}}</button>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="float-right">
+                <button [disabled]="!form.valid" class="btn btn-primary" (click)="actionListener()">Save</button>
+                <button class="btn btn-default" (click)="hide()">Cancel</button>
+              </div>
+            </div>
+          </div>
         </div>
+        <!--<div class="modal-footer">-->
+          <!--<button [disabled]="!form.valid" class="btn btn-primary" (click)="actionListener()">Save</button>-->
+          <!--<button class="btn btn-default" (click)="cancel()">Cancel</button>-->
+        <!--</div>-->
       </form>
     </div>
   </div>

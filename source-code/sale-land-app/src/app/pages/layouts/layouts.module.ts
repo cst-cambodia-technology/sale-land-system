@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {AppTranslationModule} from "../../app.translation.module";
-import {NgaModule} from "../../theme/nga.module";
-import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
-import {routing} from "./layouts.routing";
-import {Layouts} from "./layouts.component";
+import { AppTranslationModule } from "../../app.translation.module";
+import { NgaModule } from "../../theme/nga.module";
+import { NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
+import { routing } from "./layouts.routing";
+import { Layouts } from "./layouts.component";
 import { LayoutModalComponent } from './layout/layout.component';
-import {FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {ModalModule} from "ngx-bootstrap";
-import {NgxPaginationModule} from "ngx-pagination";
-
+import { FormsModule } from "@angular/forms";
+import { ModalModule } from "ngx-bootstrap";
+import { NgxPaginationModule } from "ngx-pagination";
 
 @NgModule({
   imports: [
@@ -19,7 +18,7 @@ import {NgxPaginationModule} from "ngx-pagination";
     NgbModalModule,
     FormsModule,
     routing,
-    ModalModule.forRoot(),
+    ModalModule,
     NgxPaginationModule,
 
   ],
