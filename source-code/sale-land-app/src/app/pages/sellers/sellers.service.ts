@@ -56,4 +56,17 @@ export class SellersService{
 
                 );
     }
+    inactiveactions(status: string, seller: Seller){
+        return this.http.put(
+            ApiResource.SELLERS + status,
+            seller,
+            {headers: new Headers({
+                'Authorization': 'Bearer' + localStorage.getItem('token'),
+                'X-Requested-With': 'XMLHttpRequest' })})
+            .map(
+                response => response.json(),
+                error => error.json()
+
+            );
+    }
 }
