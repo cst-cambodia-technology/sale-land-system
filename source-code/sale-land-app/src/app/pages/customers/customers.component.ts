@@ -21,9 +21,9 @@ export class Customers implements OnInit {
   }
 
   getNotification(customer: Customer) {
-      if(this.customerModal.action == 'store') {
+      if(this.customerModal.isNew) {
           this.customers.push(customer);
-      } else if(this.customerModal.action == 'update') {
+      } else {
         let updateCustomer = this.customers.find(this.findCustomer, customer.id);
         this.customers[this.customers.indexOf(updateCustomer)] = customer;
       }
@@ -35,10 +35,9 @@ export class Customers implements OnInit {
             (error:  Error) => console.log(error)
         );
   }
-
   new() {
     this.customerModal.customer = new Customer();
-    this.customerModal.action = 'store';
+    this.customerModal.isNew = true;
     this.customerModal.open();
   }
 
@@ -46,7 +45,8 @@ export class Customers implements OnInit {
       this.customerModal.customer = Object.assign({}, customer);
       this.customerModal.customer.address = Object.assign({}, customer.address);
       this.customerModal.customer.contact = Object.assign({}, customer.contact);
-      this.customerModal.action = 'update';
+      this.customerModal.isNew = false;
+      customer.status == "Active" ? this.customerModal.isActive = true : this.customerModal.isActive = false;
       this.customerModal.open();
   }
 

@@ -15,7 +15,9 @@ export class CustomerComponent implements OnInit {
   @Input() customer:Customer =  new Customer();
   @Output() notifyCustomers: EventEmitter<Customer> = new EventEmitter<Customer>();
 
-  public action: string = null;
+  public isNew: boolean;
+
+  public isActive: boolean;
 
   public defaultPicture = 'assets/img/theme/no-photo.png';
 
@@ -47,13 +49,21 @@ export class CustomerComponent implements OnInit {
   }
 
   actionListener() {
-    if(this.action == 'store'){
+    if(this.isNew){
       this.store(this.customer);
-    } else if(this.action == 'update'){
+    } else {
       this.update(this.customer.id, this.customer);
     }
   }
-
+  actionStatus() {
+    if(this.isActive) {
+    this.customer.status = 'Inactive';
+    this.update(this.customer.id, this.customer);
+    } else {
+    this.customer.status = 'Active';
+    this.update(this.customer.id, this.customer);
+    }
+  }
   store(customer: Customer) {
     this.customersService.store(customer)
         .subscribe(
