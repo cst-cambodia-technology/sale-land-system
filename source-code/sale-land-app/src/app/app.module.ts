@@ -23,6 +23,7 @@ import {SellersService} from "./pages/sellers/sellers.service";
 import {UserService} from "./pages/users/users.service";
 import {ModalModule} from "ngx-bootstrap";
 import {NgxPaginationModule} from "ngx-pagination";
+import {InvoiceService} from "./pages/sales/invoice/invoice.service";
 
 
 // Application wide providers
@@ -66,6 +67,7 @@ export type StoreType = {
     CustomersService,
     SellersService,
     UserService,
+    InvoiceService,
   ]
 })
 

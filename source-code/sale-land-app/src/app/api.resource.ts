@@ -7,5 +7,6 @@ export class ApiResource {
     public static CUSTOMERS: string     =   ApiResource.API_ROOT + 'customers/';
     public static SELLERS: string       =   ApiResource.API_ROOT + 'sellers/';
     public static USERS: string         =   ApiResource.API_ROOT + 'users';
+    public static INVOICES: string      =   ApiResource.API_ROOT + 'invoices';
 
 }
