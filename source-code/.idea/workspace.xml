@@ -45,8 +45,8 @@
       <file leaf-file-name="invoices.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/invoices.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="125" column="37" lean-forward="true" selection-start-line="125" selection-start-column="37" selection-end-line="125" selection-end-column="37" />
+            <state relative-caret-position="229">
+              <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
               <folding>
                 <element signature="e#0#55#0" expanded="true" />
               </folding>
@@ -58,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/model/layoutList.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
-              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+              <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
               <folding>
                 <element signature="n#!!doc;n#LayoutList#0" expanded="false" />
               </folding>
@@ -71,7 +71,30 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="462">
               <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="20" />
-              <folding />
+              <folding>
+                <marker date="1503051122505" expanded="true" signature="253:7780" ph="{...}" />
+                <marker date="1503051122505" expanded="true" signature="2191:2615" ph="{...}" />
+                <marker date="1503051122505" expanded="true" signature="2449:2615" ph="..." />
+                <marker date="1503051122505" expanded="true" signature="2532:2591" ph="..." />
+                <marker date="1503051122505" expanded="true" signature="2599:2615" ph="..." />
+                <marker date="1503051122505" expanded="true" signature="2789:2943" ph=" Store a newly created resource in storage. ..." />
+                <marker date="1503051122505" expanded="true" signature="2989:4844" ph="{...}" />
+                <marker date="1503051122505" expanded="true" signature="3056:3162" ph="{...}" />
+                <marker date="1503051122505" expanded="true" signature="4239:4793" ph="..." />
+                <marker date="1503051122505" expanded="true" signature="4853:4971" ph=" Retrieve the specified resource. ..." />
+                <marker date="1503051122505" expanded="true" signature="5003:5432" ph="{...}" />
+                <marker date="1503051122505" expanded="true" signature="5070:5176" ph="{...}" />
+                <marker date="1503051122505" expanded="true" signature="5191:5321" ph="..." />
+                <marker date="1503051122505" expanded="true" signature="5357:5425" ph="..." />
+                <marker date="1503051122505" expanded="true" signature="5441:5618" ph=" Update the specified resource in storage. ..." />
+                <marker date="1503051122505" expanded="true" signature="5670:7582" ph="{...}" />
+                <marker date="1503051122505" expanded="true" signature="5737:5843" ph="{...}" />
+                <marker date="1503051122505" expanded="true" signature="5895:6877" ph="..." />
+                <marker date="1503051122505" expanded="true" signature="6914:6982" ph="..." />
+                <marker date="1503051122505" expanded="true" signature="7074:7574" ph="..." />
+                <marker date="1503051122505" expanded="true" signature="7591:7720" ph=" Remove the specified resource from storage. ..." />
+                <marker date="1503051122505" expanded="true" signature="7755:7778" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -551,12 +574,12 @@
       <workItem from="1502684152418" duration="2155000" />
       <workItem from="1502733967104" duration="12262000" />
       <workItem from="1502828914687" duration="50675000" />
-      <workItem from="1503018905154" duration="26479000" />
+      <workItem from="1503018905154" duration="26608000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="372518000" />
+    <option name="totallyTimeSpent" value="372647000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1011,14 +1034,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="20" />
-          <folding />
+          <folding>
+            <marker date="1503051122505" expanded="true" signature="253:7780" ph="{...}" />
+            <marker date="1503051122505" expanded="true" signature="2191:2615" ph="{...}" />
+            <marker date="1503051122505" expanded="true" signature="2449:2615" ph="..." />
+            <marker date="1503051122505" expanded="true" signature="2532:2591" ph="..." />
+            <marker date="1503051122505" expanded="true" signature="2599:2615" ph="..." />
+            <marker date="1503051122505" expanded="true" signature="2789:2943" ph=" Store a newly created resource in storage. ..." />
+            <marker date="1503051122505" expanded="true" signature="2989:4844" ph="{...}" />
+            <marker date="1503051122505" expanded="true" signature="3056:3162" ph="{...}" />
+            <marker date="1503051122505" expanded="true" signature="4239:4793" ph="..." />
+            <marker date="1503051122505" expanded="true" signature="4853:4971" ph=" Retrieve the specified resource. ..." />
+            <marker date="1503051122505" expanded="true" signature="5003:5432" ph="{...}" />
+            <marker date="1503051122505" expanded="true" signature="5070:5176" ph="{...}" />
+            <marker date="1503051122505" expanded="true" signature="5191:5321" ph="..." />
+            <marker date="1503051122505" expanded="true" signature="5357:5425" ph="..." />
+            <marker date="1503051122505" expanded="true" signature="5441:5618" ph=" Update the specified resource in storage. ..." />
+            <marker date="1503051122505" expanded="true" signature="5670:7582" ph="{...}" />
+            <marker date="1503051122505" expanded="true" signature="5737:5843" ph="{...}" />
+            <marker date="1503051122505" expanded="true" signature="5895:6877" ph="..." />
+            <marker date="1503051122505" expanded="true" signature="6914:6982" ph="..." />
+            <marker date="1503051122505" expanded="true" signature="7074:7574" ph="..." />
+            <marker date="1503051122505" expanded="true" signature="7591:7720" ph=" Remove the specified resource from storage. ..." />
+            <marker date="1503051122505" expanded="true" signature="7755:7778" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/model/layoutList.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
           <folding>
             <element signature="n#!!doc;n#LayoutList#0" expanded="false" />
           </folding>
@@ -1041,8 +1087,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/invoices.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="125" column="37" lean-forward="true" selection-start-line="125" selection-start-column="37" selection-end-line="125" selection-end-column="37" />
+        <state relative-caret-position="229">
+          <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
           <folding>
             <element signature="e#0#55#0" expanded="true" />
           </folding>
