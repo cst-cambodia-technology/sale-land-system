@@ -1,52 +1,57 @@
 <div class="row">
-  <div class="col-sm-12">
-    <div class="form-group row text-right">
-      <div class="col-sm-12">
-        <!--<button type="button" class="btn btn-primary" (click)="new()">New seller</button>-->
-        <button type="button" class="btn btn-primary" (click)="new()">New seller</button>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-12">
-    <ba-card baCardClass="with-scroll">
-      <div class="row">
-
-        <div class="col-sm-12 horizontal-scroll">
-          <table class="table table-bordered">
-            <thead>
-            <tr>
-              <th>SELLER</th>
-              <th>COMPANY</th>
-              <th>OCCUPATION</th>
-              <th>ADDRESS</th>
-              <th>EMAIL</th>
-              <th>Phone</th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let seller of sellers">
-                <td>{{ seller.displayName }}</td>
-                <td>{{ seller.companyName }}</td>
-                <td>{{ seller.jobTitle }}</td>
-                <td>{{seller.address.street ? seller.address.street  + ', ' : ''}}
-                  {{seller.address.city ? seller.address.city  + ', ' : ''}}
-                  {{seller.address.state ? seller.address.state  + ', ' : ''}}
-                  {{seller.address.postalCode ? seller.address.postalCode  + ', ' : ''}}
-                  {{seller.address.country ? seller.address.country : ''}}
-                </td>
-                <td>{{ seller.contact.email }}</td>
-                <td>{{ seller.contact.phone }}</td>
-                <td>{{ seller.status}}</td>
-                <td><button class="btn btn-default" (click)="edit(seller)">Edit</button></td>
-              </tr>
-            </tbody>
-          </table>
+    <div class="col-sm-12">
+        <div class="form-group row text-right">
+            <div class="col-sm-12">
+                <!--<button type="button" class="btn btn-primary" (click)="new()">New seller</button>-->
+                <button type="button" class="btn btn-primary" (click)="new()">New seller</button>
+            </div>
         </div>
-      </div>
-    </ba-card>
-  </div>
+    </div>
+    <div class="col-sm-12">
+        <ba-card baCardClass="with-scroll">
+            <div class="row">
+                <div class="col-sm-12 horizontal-scroll">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>SELLER</th>
+                            <th>COMPANY</th>
+                            <th>OCCUPATION</th>
+                            <th>ADDRESS</th>
+                            <th>EMAIL</th>
+                            <th>Phone</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let seller of sellers | paginate: { itemsPerPage:10, currentPage: p }">
+                            <td>{{ seller.displayName }}</td>
+                            <td>{{ seller.companyName }}</td>
+                            <td>{{ seller.jobTitle }}</td>
+                            <td>{{seller.address.street ? seller.address.street  + ', ' : ''}}
+                                {{seller.address.city ? seller.address.city  + ', ' : ''}}
+                                {{seller.address.state ? seller.address.state  + ', ' : ''}}
+                                {{seller.address.postalCode ? seller.address.postalCode  + ', ' : ''}}
+                                {{seller.address.country ? seller.address.country : ''}}
+                            </td>
+                            <td>{{ seller.contact.email }}</td>
+                            <td>{{ seller.contact.phone }}</td>
+                            <td>{{ seller.status}}</td>
+                            <td><button class="btn btn-default" (click)="edit(seller)">Edit</button></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                </div>
+                <div class="col-sm-4" style="text-align: left;">
+                    <!-- <p> Showing 1 to 10 of 100 entries </p> -->
+                </div>
+                <div class="col-sm-8" style="text-align: right;">
+                    <pagination-controls (pageChange)="p =$event"></pagination-controls>
+                </div>
+            </div>
+        </ba-card>
+    </div>
 </div>
 <app-seller-module #sellerModal (myEvent)="refreshList($event)"></app-seller-module>
-

@@ -9,18 +9,21 @@
     <div class="col-sm-12">
         <ba-card baCardClass="with-scroll">
             <div class="row">
-
+                <div class="col-sm-12" style="text-align: right;">
+                  <input type="text" [(ngModel)]="search" placeholder="Search..." />
+                </div>
                 <div class="col-sm-12 horizontal-scroll">
-                      <table class="table table-bordered">
+                  <br>
+                      <table class="table table-bordered"> 
                           <thead>
                           <tr>
-                              <th>NAME</th>
+                              <th>PROJECT</th>
                               <th>DESCRIPTION</th>
                               <th>ACTION</th>
                           </tr>
                           </thead>
                           <tbody>
-                          <tr *ngFor="let project of projects">
+                          <tr *ngFor="let project of projects | filter:search | paginate: { itemsPerPage:10, currentPage: p }">
                               <td>{{ project.name }}</td>
                               <td>{{ project.description }}</td>
                               <td>
@@ -29,6 +32,13 @@
                           </tr>
                           </tbody>
                       </table>
+                  <br>
+                </div>
+                <div class="col-sm-4" style="text-align: left;">
+                       <!-- <p> Showing {{p}} to {{p*10}} of 100 entries </p> -->
+                </div>
+                <div class="col-sm-8" style="text-align: right;">
+                  <pagination-controls (pageChange)="p =($event)"></pagination-controls>
                 </div>
             </div>
         </ba-card>

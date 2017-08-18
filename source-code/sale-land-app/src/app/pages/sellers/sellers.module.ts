@@ -9,6 +9,7 @@ import {SellerModal} from './seller/seller.component';
 import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ModalModule} from "ngx-bootstrap";
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import {ModalModule} from "ngx-bootstrap";
     RouterModule,
     routing,
     ModalModule.forRoot(),
+    NgxPaginationModule
   ],
   declarations: [
       Sellers,

@@ -15,6 +15,30 @@ export const PAGES_MENU = [
         }
       },
       {
+        path: 'sales',
+        data: {
+          menu: {
+            title: 'general.menu.sales',
+            icon: 'ion-document',
+            selected: false,
+            expanded: false,
+            order: 650,
+            hidden: false,
+          }
+        },
+        children: [
+          {
+            path: 'invoice',
+            data: {
+              menu: {
+                title: 'general.menu.invoice',
+                hidden: false,
+              }
+            }
+          }
+        ]
+      },
+      {
         path: 'editors',
         data: {
           menu: {

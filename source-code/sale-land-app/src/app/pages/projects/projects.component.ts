@@ -3,7 +3,6 @@ import {ProjectComponent} from "./project/project.component";
 import {ProjectsService} from "./projects.service";
 import {Project} from "./project/project";
 
-
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.html',
@@ -51,4 +50,6 @@ export class Projects implements OnInit {
   findIndexToUpdate(project){
         return project.id === this;
   }
+
+   p: number = 1;
 }

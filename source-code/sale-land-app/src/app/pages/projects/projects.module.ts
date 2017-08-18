@@ -8,6 +8,8 @@ import { ProjectComponent } from './project/project.component';
 import { NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule } from '@angular/forms';
 import { ModalModule } from "ngx-bootstrap";
+import { FilterPipe } from './filter.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   imports: [
       CommonModule,
@@ -17,10 +19,12 @@ import { ModalModule } from "ngx-bootstrap";
       NgbModalModule,
       routing,
       ModalModule.forRoot(),
+      NgxPaginationModule
   ],
   declarations: [
       Projects,
       ProjectComponent,
+      FilterPipe,
   ],
   entryComponents: [
       ProjectComponent,
