@@ -50,6 +50,5 @@ export class Projects implements OnInit {
   findIndexToUpdate(project){
         return project.id === this;
   }
-
-   p: number = 1;
+    pageSize = 10;
 }
