@@ -3,7 +3,7 @@
  */
 export class LayoutList{
     layoutId: number = null;
-    label: string = null;
+    layout: string = null;
     size: string = null;
     price: number = null;
     description: string = null;

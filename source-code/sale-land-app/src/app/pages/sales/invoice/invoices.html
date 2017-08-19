@@ -29,7 +29,7 @@
               <div class="col-sm-12">
                 <div class="form-group" [ngClass]="{'has-error': (!customer.valid && customer.touched), 'has-success': (customer.valid && customer.touched)}">
                   <label for="customer" class="control-label">Customer<span class="required">*</span></label>
-                  <select [(ngModel)]="customer.id" #customer="ngModel" id="customer" class="form-control" required [ngModelOptions]="{standalone: true}">
+                  <select [(ngModel)]="customerId" #customer="ngModel" id="customer" class="form-control" required [ngModelOptions]="{standalone: true}">
                     <option *ngFor="let customer of customers" value="{{ customer.id }}">{{ customer.displayName }}</option>
                   </select>
                 </div>
@@ -38,7 +38,7 @@
               <div class="col-sm-12">
                 <div class="form-group">
                   <label for="memo" class="control-label">Memo</label>
-                  <textarea  id="memo" name="memo" class="form-control"></textarea>
+                  <textarea [(ngModel)]="memo" id="memo" name="memo" class="form-control" [ngModelOptions]="{standalone: true}"></textarea>
                 </div>
               </div>
             </div>
@@ -50,7 +50,7 @@
               <div class="col-sm-6">
                 <div class="form-group" [ngClass]="{'has-error': (!layoutId.valid && layoutId.touched), 'has-success': (layoutId.valid && layoutId.touched)}">
                   <label class="control-label">Layout<span class="required">*</span></label>
-                  <select [(ngModel)]="layoutList.layoutId" #layoutId="ngModel" (change)="onChange(layoutList.layoutId)" class="form-control" [ngModelOptions]="{standalone: true}">
+                  <select [(ngModel)]="layoutList.layoutId" #layoutId="ngModel" (change)="onChangeLayout(layoutList.layoutId)" class="form-control" [ngModelOptions]="{standalone: true}">
                     <option *ngFor="let layout of layouts" value="{{ layout.id }}">{{ layout.label }}</option>
                   </select>
                 </div>
@@ -110,7 +110,7 @@
         <tbody>
         <tr *ngFor="let row of layoutLists; let i = index">
           <td>{{ i+1 }}</td>
-          <td>{{ row.label }}</td>
+          <td>{{ row.layout }}</td>
           <td>{{ row.size }}</td>
           <td>{{ row.price | currency:'USD':true:'1.2-2' }}</td>
           <td>{{ row.description }}</td>
@@ -129,7 +129,7 @@
   <!--subtotal-->
   <div class="row">
 
-    <div class="col-sm-6 offset-sm-6">
+    <div class="col-sm-8 offset-sm-6">
       <form class="form-horizontal">
         <div class="row">
           <div class="col-sm-12">
@@ -145,13 +145,13 @@
             </div>
             <div class="row">
               <div class="col-sm-3">
-                <select [(ngModel)]="discountMethod" id="discountMethod" class="form-control" [ngModelOptions]="{standalone: true}">
-                  <option value="Percent">Percent</option>
-                  <option value="Value">Value</option>
+                <select [(ngModel)]="discountMethod" id="discountMethod" class="form-control" (change)="onChangeDiscountMethod(discountMethod)" [ngModelOptions]="{standalone: true}">
+                  <option value="Percent">Discount Percent</option>
+                  <option value="Value">Discount Value</option>
                 </select>
               </div>
               <div class="col-sm-3">
-                <input [(ngModel)]="discount" type="number" class="form-control" id="discount" [ngModelOptions]="{standalone: true}">
+                <input [(ngModel)]="discount" [disabled]="!discountMethod" (change)="onChangeDiscount($event.target.value)" type="number" class="form-control" id="discount" placeholder="{{ placeholderDiscount }}" [ngModelOptions]="{standalone: true}">
               </div>
 
               <div class="col-sm-6">
@@ -177,7 +177,7 @@
                 </div>
               </div>
               <div class="col-sm-4">
-                <input [(ngModel)]="deposit" type="number" class="form-control" id="deposit" [ngModelOptions]="{standalone: true}">
+                <input [(ngModel)]="deposit" (change)="onChangeDeposit(deposit)" type="number" class="form-control" id="deposit" placeholder="$" [ngModelOptions]="{standalone: true}" style="width: 60%">
               </div>
             </div>
 
@@ -188,7 +188,7 @@
                 </div>
               </div>
               <div class="col-sm-6">
-                <label class="control-label" id="balance">{{ balance | currency:'USD':true:'1.2-2' }}</label>
+                <label class="control-label" id="balance">{{ getBalance() | currency:'USD':true:'1.2-2' }}</label>
               </div>
             </div>
 
@@ -196,7 +196,7 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="pull-right">
-                  <button class="btn btn-primary">Save</button>
+                  <button class="btn btn-primary" (click)="actionSave($event.preventDefault())">Save</button>
                 </div>
               </div>
               <div class="col-sm-6">

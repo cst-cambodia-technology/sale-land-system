@@ -5,7 +5,7 @@ import {LayoutsService} from "../../layouts/layouts.sevice";
 import {Layout} from "../../layouts/layout/layouts";
 import {LayoutList} from "./model/layoutList";
 import {InvoiceService} from "./invoice.service";
-import {DatePipe} from "@angular/common";
+import {Invoice} from "./model/invoice";
 import {DateFormatter} from "ngx-bootstrap";
 
 
@@ -16,27 +16,31 @@ import {DateFormatter} from "ngx-bootstrap";
 })
 export class Invoices implements OnInit {
   @Input() no: string;
+  @Input() memo: string;
+  @Input() customerId: number;
   @Input() date: any;
   @Input() customers: Customer[];
   @Input() layouts: Layout[];
   @Input() layoutList =  new LayoutList();
   @Input() layoutLists = [];
-  @Input() customer = new Customer();
+  // @Input() customer = new Customer();
 
 
 
   @Input() subTotal: number = 0;
   @Input() discountMethod: string;
-  @Input() discount: number = 0;
+  @Input() discount: number = null;
   @Input() discountValue: number = 0;
   @Input() grandTotal: number = 0;
-  @Input() deposit: number = 0;
+  @Input() deposit: number;
   @Input() balance: number = 0;
+
+  @Input() placeholderDiscount: string;
 
 
   constructor(private customerService: CustomersService,
               private layoutService: LayoutsService,
-              private invoiceSerive: InvoiceService) { }
+              private invoiceService: InvoiceService) { }
 
   ngOnInit() {
     // this.date = this.datePipe.transform(new Date(), 'MM/dd/yyyy');
@@ -59,12 +63,12 @@ export class Invoices implements OnInit {
   }
 
   /*change layout*/
-  onChange(id: number){
+  onChangeLayout(id: number){
     for(let i=0; i<this.layouts.length;i++){
       if(id == this.layouts[i].id){
 
         this.layoutList.layoutId    = this.layouts[i].id;
-        this.layoutList.label       = this.layouts[i].label;
+        this.layoutList.layout       = this.layouts[i].label;
         this.layoutList.size        = this.layouts[i].size;
         this.layoutList.price       = this.layouts[i].price;
         this.layoutList.description = this.layouts[i].description;
@@ -74,11 +78,52 @@ export class Invoices implements OnInit {
     }
   }
 
+  onChangeDiscountMethod(discountMethod){
+    if(discountMethod != 'Percent'){
+      this.placeholderDiscount = '$';
+    }else {
+      this.placeholderDiscount = '%';
+    }
+
+  }
+
+  onChangeDiscount(discount){
+    this.discount = discount;
+    if(this.discountMethod == 'Percent'){
+      if(discount.toString() == ''){
+        this.discountValue = 0;
+      }else {
+        let dis ;
+        dis = (this.discount/100)*this.subTotal;
+        this.discountValue = dis;
+      }
+    }
+    if(this.discountMethod == 'Value'){
+      if(discount.toString() == ''){
+        this.discountValue = 0;
+      }else {
+        this.discountValue = this.discount;
+      }
+    }
+
+    if(this.deposit != null){
+      let balance;
+      balance = this.getGrandTotal() - this.deposit;
+      this.balance = balance;
+    }else {
+      this.balance = this.grandTotal;
+    }
+  }
+
+  onChangeDeposit(deposit){
+      let balance ;
+      balance = this.getGrandTotal() - deposit;
+      this.balance = balance;
+      this.deposit = deposit;
+  }
+
   /*click add layout*/
   onClickAdd(){
-    let subTotal;
-
-    console.log(new DateFormatter().format(this.date, 'MM/DD/YYYY'));
     this.layoutLists.push(this.layoutList);
 
     for(let i=0 ; i<this.layouts.length;i++){
@@ -87,15 +132,6 @@ export class Invoices implements OnInit {
         break;
       }
     }
-
-
-
-    // subTotal = this.layoutList.price;
-    // this.subTotal = this.subTotal + subTotal;
-    //
-    // this.grandTotal = this.subTotal - this.discount;
-
-
     /*reset layout form*/
     this.layoutList = new LayoutList();
   }
@@ -105,7 +141,7 @@ export class Invoices implements OnInit {
     let subTotal = 0;
     for (let layoutList of this.layoutLists){
       if(layoutList.price){
-        subTotal += parseInt(layoutList.price);
+        subTotal += parseFloat(layoutList.price);
 
         this.subTotal = subTotal;
       }
@@ -115,17 +151,37 @@ export class Invoices implements OnInit {
 
   getGrandTotal(): number{
     let grandTotal = 0;
-    if(this.getSubTotal()){
-      grandTotal = this.getSubTotal() - this.discount;
+    if(this.discount != null){
+      grandTotal = this.getSubTotal() - this.discountValue;
 
+      this.grandTotal = grandTotal;
+    }else {
+      grandTotal = this.getSubTotal();
       this.grandTotal = grandTotal;
     }
     return grandTotal;
   }
 
+  getBalance(): number{
+    let balance = 0;
+
+    if(this.deposit == null){
+      balance = this.grandTotal;
+      this.balance = balance;
+    }else {
+      balance = this.grandTotal - this.deposit;
+    }
+
+    return balance;
+  }
+
   /*click button clear in list sale*/
   onClickClear(id : number){
     let layout = new Layout();
+
+    this.discount = null;
+    this.deposit = null;
+    this.discountValue = 0;
 
     for(let i=0; i<this.layoutLists.length; i++){
       if(id == this.layoutLists[i].layoutId){
@@ -157,6 +213,32 @@ export class Invoices implements OnInit {
     }
   }
 
+  actionSave(event): void{
+    let invoice = new Invoice();
+    invoice.customerId = this.customerId;
+    invoice.no = this.no.toString();
+    invoice.date = new DateFormatter().format(this.date, 'YYYY-MM-DD');
+    invoice.memo = this.memo;
+    invoice.subTotal = this.subTotal;
+    invoice.discountMethod = this.discountMethod;
+    invoice.discount = this.discount;
+    invoice.discountValue = this.discountValue;
+    invoice.grandTotal = this.grandTotal;
+    invoice.deposit = this.deposit;
+    invoice.balance =this.balance;
+    invoice.status = 'Open';
+    invoice.invoiceDetails = this.layoutLists;
+
+    this.invoiceService.store(invoice)
+        .subscribe(
+            (invoice: Invoice ) => {
+              this.resetInvoice();
+            },
+            (error: Response)=> console.log(error)
+        );
+
+  }
+
 
   private getCustomers(){
     this.customerService.index()
@@ -174,10 +256,25 @@ export class Invoices implements OnInit {
   }
 
   private getInvoiceNo(){
-    this.invoiceSerive.getInvoiceNo()
+    this.invoiceService.getInvoiceNo()
       .subscribe(
           (no: string)=> this.no = no,
           (error:  Error) => console.log(error)
       );
+  }
+  private resetInvoice(): void{
+    this.layoutLists = [];
+    this.customerId = null;
+    this.getInvoiceNo();
+    this.getLayouts();
+    this.memo = '';
+    this.layoutList = new LayoutList();
+    this.subTotal = 0;
+    this.discountMethod = null;
+    this.discount = null;
+    this.discountValue = 0;
+    this.grandTotal = 0;
+    this.deposit = null;
+    this.balance = 0;
   }
 }

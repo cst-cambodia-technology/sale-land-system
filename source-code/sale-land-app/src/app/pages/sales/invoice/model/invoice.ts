@@ -6,7 +6,7 @@ export class Invoice{
 
     customerId: number;
     no: string;
-    date: Date;
+    date: string;
     memo: string;
     subTotal: number;
     discountMethod: string;
@@ -15,7 +15,7 @@ export class Invoice{
     grandTotal: number;
     deposit: number;
     balance:number;
-    status: number;
-    invoiceDetails = new LayoutList();
+    status: string;
+    invoiceDetails: LayoutList[];
 }
 

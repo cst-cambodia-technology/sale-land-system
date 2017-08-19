@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3f888d3-28ab-4710-a98a-a1d214d74b67" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/blade.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/index.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/model/LayoutList.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sale-land-app/src/app/pages/sales/sales.ts" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sale-land-app/src/app/pages/sales/index.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/index.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/blade.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sale-land-app/src/app/pages/sales/sales.routing.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sale-land-app/src/app/pages/sales/sales.ts" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sale-land-app/src/app/pages/sales/sales.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/model/LayoutList.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sale-land-app/src/app/pages/pages.routing.ts" afterPath="$PROJECT_DIR$/sale-land-app/src/app/pages/pages.routing.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sale-land-app/src/app/pages/pages.menu.ts" afterPath="$PROJECT_DIR$/sale-land-app/src/app/pages/pages.menu.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sale-land-app/src/assets/i18n/US/en.json" afterPath="$PROJECT_DIR$/sale-land-app/src/assets/i18n/US/en.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sale-land-app/src/app/pages/pages.menu.ts" afterPath="$PROJECT_DIR$/sale-land-app/src/app/pages/pages.menu.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,13 +42,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="invoices.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/invoices.ts">
+      <file leaf-file-name="invoice.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/model/invoice.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+            <state relative-caret-position="352">
+              <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
               <folding>
-                <element signature="e#0#55#0" expanded="true" />
+                <element signature="n#!!doc;n#Invoice#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -57,8 +57,8 @@
       <file leaf-file-name="layoutList.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/model/layoutList.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            <state relative-caret-position="66">
+              <caret line="5" column="8" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
               <folding>
                 <element signature="n#!!doc;n#LayoutList#0" expanded="false" />
               </folding>
@@ -69,32 +69,53 @@
       <file leaf-file-name="InvoiceController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sale-land-api/app/Http/Controllers/InvoiceController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="20" />
+            <state relative-caret-position="370">
+              <caret line="116" column="15" lean-forward="false" selection-start-line="116" selection-start-column="15" selection-end-line="116" selection-end-column="15" />
               <folding>
-                <marker date="1503051122505" expanded="true" signature="253:7780" ph="{...}" />
-                <marker date="1503051122505" expanded="true" signature="2191:2615" ph="{...}" />
-                <marker date="1503051122505" expanded="true" signature="2449:2615" ph="..." />
-                <marker date="1503051122505" expanded="true" signature="2532:2591" ph="..." />
-                <marker date="1503051122505" expanded="true" signature="2599:2615" ph="..." />
-                <marker date="1503051122505" expanded="true" signature="2789:2943" ph=" Store a newly created resource in storage. ..." />
-                <marker date="1503051122505" expanded="true" signature="2989:4844" ph="{...}" />
-                <marker date="1503051122505" expanded="true" signature="3056:3162" ph="{...}" />
-                <marker date="1503051122505" expanded="true" signature="4239:4793" ph="..." />
-                <marker date="1503051122505" expanded="true" signature="4853:4971" ph=" Retrieve the specified resource. ..." />
-                <marker date="1503051122505" expanded="true" signature="5003:5432" ph="{...}" />
-                <marker date="1503051122505" expanded="true" signature="5070:5176" ph="{...}" />
-                <marker date="1503051122505" expanded="true" signature="5191:5321" ph="..." />
-                <marker date="1503051122505" expanded="true" signature="5357:5425" ph="..." />
-                <marker date="1503051122505" expanded="true" signature="5441:5618" ph=" Update the specified resource in storage. ..." />
-                <marker date="1503051122505" expanded="true" signature="5670:7582" ph="{...}" />
-                <marker date="1503051122505" expanded="true" signature="5737:5843" ph="{...}" />
-                <marker date="1503051122505" expanded="true" signature="5895:6877" ph="..." />
-                <marker date="1503051122505" expanded="true" signature="6914:6982" ph="..." />
-                <marker date="1503051122505" expanded="true" signature="7074:7574" ph="..." />
-                <marker date="1503051122505" expanded="true" signature="7591:7720" ph=" Remove the specified resource from storage. ..." />
-                <marker date="1503051122505" expanded="true" signature="7755:7778" ph="{...}" />
+                <element signature="e#40#56#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InvoiceDetail.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sale-land-api/app/InvoiceDetail.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Invoice.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sale-land-api/app/Invoice.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="invoices.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/invoices.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="277" column="21" lean-forward="true" selection-start-line="265" selection-start-column="4" selection-end-line="277" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/layouts/layout/layout.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2092">
+              <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -102,14 +123,15 @@
       <file leaf-file-name="invoices.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/invoices.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="168" column="74" lean-forward="false" selection-start-line="168" selection-start-column="74" selection-end-line="168" selection-end-column="74" />
+            <state relative-caret-position="-814">
+              <caret line="2" column="11" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="11" />
               <folding>
                 <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#ba-card#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#ba-card#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#ba-card#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#ba-card#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#ba-card#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#1;n#div#3;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#ba-card#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -131,7 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/sale-land-app/src/app/pages/users/model/partials/authorization.ts" />
         <option value="$PROJECT_DIR$/sale-land-app/src/app/pages/users/users.service.ts" />
         <option value="$PROJECT_DIR$/sale-land-api/app/Http/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/sale-land-app/src/app/pages/users/users.html" />
@@ -174,13 +195,14 @@
         <option value="$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/model/LayoutList.ts" />
         <option value="$PROJECT_DIR$/sale-land-app/src/app/api.resource.ts" />
         <option value="$PROJECT_DIR$/sale-land-app/src/app/pages/customers/customers.service.ts" />
-        <option value="$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/invoice.service.ts" />
         <option value="$PROJECT_DIR$/sale-land-app/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/model/invoice.ts" />
         <option value="$PROJECT_DIR$/sale-land-app/src/app/pages/sales/sales.module.ts" />
         <option value="$PROJECT_DIR$/sale-land-app/src/app/pages/pages.menu.ts" />
-        <option value="$PROJECT_DIR$/sale-land-api/app/Http/Controllers/InvoiceController.php" />
+        <option value="$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/invoice.service.ts" />
+        <option value="$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/model/invoice.ts" />
+        <option value="$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/model/layoutList.ts" />
         <option value="$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/invoices.html" />
+        <option value="$PROJECT_DIR$/sale-land-api/app/Http/Controllers/InvoiceController.php" />
         <option value="$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/invoices.ts" />
       </list>
     </option>
@@ -212,9 +234,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 7" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1791" />
-    <option name="width" value="1498" />
-    <option name="height" value="1057" />
+    <option name="x" value="1358" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -232,6 +255,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -425,16 +449,141 @@
               <option name="myItemId" value="source-code" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sale-land-app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source-code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source-code" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sale-land-app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source-code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source-code" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sale-land-api" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source-code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source-code" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sale-land-api" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source-code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source-code" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sale-land-api" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrations" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source-code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source-code" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sale-land-api" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="eu.ydp.idea.ts.spec.generator.settings.spec.template" value="import {$ClassName$} from '$TestsRelativePath$../src/$classRelativePath$/$ClassName$';&#10;&#10;describe('$ClassName$', () =&gt; {&#10;  let $ObjName$:$ClassName$;&#10;&#10;  beforeEach(() =&gt; {&#10;    $ObjName$ = new $ClassName$();&#10;  });&#10;&#10;  describe('', () =&gt; {&#10;    it('', () =&gt; {&#10;      // given&#10;&#10;      // when&#10;&#10;      // then&#10;    });&#10;  });&#10;});&#10;" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="SensioLabs.Insight" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="node.js.selected.package.tslint" value="D:\CST\Project\sale-land-system\source-code\sale-land-app\node_modules\tslint" />
@@ -574,12 +723,13 @@
       <workItem from="1502684152418" duration="2155000" />
       <workItem from="1502733967104" duration="12262000" />
       <workItem from="1502828914687" duration="50675000" />
-      <workItem from="1503018905154" duration="26608000" />
+      <workItem from="1503018905154" duration="26700000" />
+      <workItem from="1503059284131" duration="24524000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="372647000" />
+    <option name="totallyTimeSpent" value="397263000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -591,21 +741,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1791" y="0" width="1498" height="1057" extended-state="0" />
+    <frame x="1358" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19680111" sideWeight="0.4801027" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4169346" sideWeight="0.50479746" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="NativeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32850242" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31511253" sideWeight="0.49520257" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21162046" sideWeight="0.4801027" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1991342" sideWeight="0.49520257" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1641791" sideWeight="0.5198973" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -613,7 +764,6 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -656,7 +806,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -673,29 +823,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/app.translation.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-132">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/users/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/invoices-routing.ts" />
-    <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/sales.module.ts" />
     <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/index.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -794,9 +921,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="22" column="70" lean-forward="false" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="70" />
-          <folding>
-            <element signature="e#0#56#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -804,15 +928,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="770">
           <caret line="38" column="59" lean-forward="false" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-            <marker date="1502634857294" expanded="true" signature="306:443" ph="..." />
-            <marker date="1502634857294" expanded="true" signature="337:432" ph="..." />
-            <marker date="1502634857294" expanded="true" signature="483:1054" ph="..." />
-            <marker date="1502634857294" expanded="true" signature="631:1040" ph="..." />
-            <marker date="1502634857294" expanded="false" signature="662:668" ph="©" />
-            <marker date="1502634857294" expanded="true" signature="778:1027" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -874,14 +989,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/layouts/layout/layout.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sale-land-api/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="505">
@@ -896,38 +1003,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/layouts/layouts.sevice.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="26" column="17" lean-forward="true" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/customers/customers.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="10" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="18" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es6.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="873" column="8" lean-forward="false" selection-start-line="873" selection-start-column="8" selection-end-line="873" selection-end-column="8" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/invoice.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="16" column="46" lean-forward="false" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -945,21 +1025,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/model/invoice.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-          <folding>
-            <element signature="n#!!doc;n#Invoice#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/customers/customer/customer.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -979,22 +1048,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/layouts/layout/layouts.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="3" lean-forward="true" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/customers/customers.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="25" />
           <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1026,45 +1084,105 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="121" column="24" lean-forward="false" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sale-land-api/app/Http/Controllers/LayoutController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1386">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sale-land-api/app/Http/Controllers/CustomerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="87" column="48" lean-forward="false" selection-start-line="87" selection-start-column="40" selection-end-line="87" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/customers/customers.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/layouts/layouts.sevice.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="41" column="38" lean-forward="false" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/invoice.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="39" column="37" lean-forward="true" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sale-land-api/database/migrations/2017_08_10_014107_create_invoices_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/layouts/layout/layouts.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="3" lean-forward="true" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sale-land-api/app/Http/Controllers/InvoiceController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="20" />
+        <state relative-caret-position="370">
+          <caret line="116" column="15" lean-forward="false" selection-start-line="116" selection-start-column="15" selection-end-line="116" selection-end-column="15" />
           <folding>
-            <marker date="1503051122505" expanded="true" signature="253:7780" ph="{...}" />
-            <marker date="1503051122505" expanded="true" signature="2191:2615" ph="{...}" />
-            <marker date="1503051122505" expanded="true" signature="2449:2615" ph="..." />
-            <marker date="1503051122505" expanded="true" signature="2532:2591" ph="..." />
-            <marker date="1503051122505" expanded="true" signature="2599:2615" ph="..." />
-            <marker date="1503051122505" expanded="true" signature="2789:2943" ph=" Store a newly created resource in storage. ..." />
-            <marker date="1503051122505" expanded="true" signature="2989:4844" ph="{...}" />
-            <marker date="1503051122505" expanded="true" signature="3056:3162" ph="{...}" />
-            <marker date="1503051122505" expanded="true" signature="4239:4793" ph="..." />
-            <marker date="1503051122505" expanded="true" signature="4853:4971" ph=" Retrieve the specified resource. ..." />
-            <marker date="1503051122505" expanded="true" signature="5003:5432" ph="{...}" />
-            <marker date="1503051122505" expanded="true" signature="5070:5176" ph="{...}" />
-            <marker date="1503051122505" expanded="true" signature="5191:5321" ph="..." />
-            <marker date="1503051122505" expanded="true" signature="5357:5425" ph="..." />
-            <marker date="1503051122505" expanded="true" signature="5441:5618" ph=" Update the specified resource in storage. ..." />
-            <marker date="1503051122505" expanded="true" signature="5670:7582" ph="{...}" />
-            <marker date="1503051122505" expanded="true" signature="5737:5843" ph="{...}" />
-            <marker date="1503051122505" expanded="true" signature="5895:6877" ph="..." />
-            <marker date="1503051122505" expanded="true" signature="6914:6982" ph="..." />
-            <marker date="1503051122505" expanded="true" signature="7074:7574" ph="..." />
-            <marker date="1503051122505" expanded="true" signature="7591:7720" ph=" Remove the specified resource from storage. ..." />
-            <marker date="1503051122505" expanded="true" signature="7755:7778" ph="{...}" />
+            <element signature="e#40#56#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sale-land-api/app/InvoiceDetail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sale-land-api/app/Invoice.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/model/invoice.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding>
+            <element signature="n#!!doc;n#Invoice#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/model/layoutList.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        <state relative-caret-position="66">
+          <caret line="5" column="8" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
           <folding>
             <element signature="n#!!doc;n#LayoutList#0" expanded="false" />
           </folding>
@@ -1073,22 +1191,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/invoices.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="168" column="74" lean-forward="false" selection-start-line="168" selection-start-column="74" selection-end-line="168" selection-end-column="74" />
+        <state relative-caret-position="-814">
+          <caret line="2" column="11" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="11" />
           <folding>
             <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#ba-card#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#ba-card#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#ba-card#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#ba-card#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#ba-card#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#1;n#div#3;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#ba-card#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/layouts/layout/layout.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2092">
+          <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sale-land-app/src/app/pages/sales/invoice/invoices.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+        <state relative-caret-position="416">
+          <caret line="277" column="21" lean-forward="true" selection-start-line="265" selection-start-column="4" selection-end-line="277" selection-end-column="21" />
           <folding>
             <element signature="e#0#55#0" expanded="true" />
           </folding>

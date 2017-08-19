@@ -1,8 +1,10 @@
 import {Injectable} from "@angular/core";
-import {Headers, Http, Response} from "@angular/http";
+import {Headers, Http, RequestOptions, Response} from "@angular/http";
 import {ApiResource} from "../../../api.resource";
 import 'rxjs/Rx';
 import {Observable} from "rxjs/Observable";
+import {Invoice} from "./model/invoice";
+import {LayoutList} from "./model/layoutList";
 /**
  * Created by Sokhon Pang on 8/17/2017.
  */
@@ -22,6 +24,20 @@ export class InvoiceService{
                 (error: Error) =>{
                     return console.log(error.message);
                 }
+            );
+    }
+
+    store(invoice: Invoice): Observable<any>{
+        let headers = new Headers({
+            'Authorization': 'Bearer' + localStorage.getItem('token'),
+            'X-Requested-With': 'XMLHttpRequest'
+        });
+        let option = new RequestOptions({ headers: headers });
+
+        return this.http.post(ApiResource.INVOICES, invoice, option )
+            .map(
+                response => response.json(),
+                error => error.json()
             );
     }
 }

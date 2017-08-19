@@ -114,7 +114,7 @@ class InvoiceController extends Controller
             $invoiceDetail->description =   $item['description'];
             $invoiceDetail->createdBy   =   $user->id;
             $invoiceDetail->modifiedBy  =   $user->id;
-            $invoice->invoiceDetails()->save($invoiceDetail);
+            $invoice->details()->save($invoiceDetail);
         }
 
         return response()->json($invoice);
