@@ -18,12 +18,15 @@ export class AuthService {
             .map(
                 (response: Response) => {
                     const token = response.json().token;
-                    return {token: token};
+                    const base64Url = token.split('.')[1];
+                    const base64 = base64Url.replace('-', '+').replace('_', '/');
+                    return {token: token, decoded: JSON.parse(window.atob(base64))};
                 }
             )
             .do(
                 data => {
                     localStorage.setItem('token', data.token);
+                    localStorage.setItem('tokenInfo', JSON.stringify(data.decoded));
                 }
             );
     }

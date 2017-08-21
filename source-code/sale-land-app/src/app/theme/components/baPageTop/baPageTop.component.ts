@@ -31,6 +31,7 @@ export class BaPageTop {
 
   public signout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('tokenInfo');
     window.location.href = AppSetting.DOMAIN_NAME + '#/login';
   }
 }

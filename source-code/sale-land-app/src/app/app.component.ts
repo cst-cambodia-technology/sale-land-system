@@ -36,6 +36,9 @@ export class App {
     this._state.subscribe('menu.isCollapsed', (isCollapsed) => {
       this.isMenuCollapsed = isCollapsed;
     });
+
+    const tokenInfo = JSON.parse(localStorage.getItem('tokenInfo'));
+
   }
 
   public ngAfterViewInit(): void {

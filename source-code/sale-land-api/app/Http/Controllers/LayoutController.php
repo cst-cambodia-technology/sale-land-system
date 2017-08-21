@@ -54,15 +54,21 @@ class LayoutController extends Controller
     /**
      * Retrieve a listing of the resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         if (! $user = JWTAuth::parseToken()->authenticate())
         {
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
 
+        $projectId = $request->input('projectId');
+
+        if (isset($projectId)) {
+            
+        }
         $layouts =  Layout::with('project')->get();
 
         return response()->json($layouts);
