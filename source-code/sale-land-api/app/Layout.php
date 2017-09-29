@@ -23,6 +23,6 @@ class Layout extends Model
      * @var array
      */
     protected $hidden = [
-        'projectId',
+
     ];
 }

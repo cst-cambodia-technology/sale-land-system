@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Helper\LayoutSchema;
 use App\Layout;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -64,12 +65,24 @@ class LayoutController extends Controller
             return response()->json(['error' => 'user_authenticate_not_found'], 404);
         }
 
-        $projectId = $request->input('projectId');
+        $fields     =   $request->input('fields');
+        $projectId  =   $request->input('projectId');
+        $status     =   $request->input('status');
 
-        if (isset($projectId)) {
-            
+        if (isset($fields)) {
+            $fields = explode(',', $fields);
+        } else {
+            $fields = explode(',', LayoutSchema::$FIELDS);
         }
-        $layouts =  Layout::with('project')->get();
+
+        if (isset($projectId) && isset($status)) {
+            $status = explode(',', $status);
+
+            $layouts =  Layout::where(LayoutSchema::$PROJECT_ID, $projectId)->whereIn(LayoutSchema::$STATUS, $status)->select($fields)->get();
+            return response()->json($layouts);
+        }
+
+        $layouts =  Layout::with(LayoutSchema::$RELATIONS)->select($fields)->get();
 
         return response()->json($layouts);
     }

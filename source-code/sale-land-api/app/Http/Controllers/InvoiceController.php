@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Invoice;
 use App\InvoiceDetail;
+use App\Layout;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -108,13 +109,18 @@ class InvoiceController extends Controller
         foreach ($items as $item) {
             $invoiceDetail              =   new InvoiceDetail();
             $invoiceDetail->layoutId    =   $item['layoutId'];
-            $invoiceDetail->layout     =   $item['layout'];
+            $invoiceDetail->layout      =   $item['layout'];
             $invoiceDetail->size        =   $item['size'];
             $invoiceDetail->price       =   $item['price'];
             $invoiceDetail->description =   $item['description'];
             $invoiceDetail->createdBy   =   $user->id;
             $invoiceDetail->modifiedBy  =   $user->id;
             $invoice->details()->save($invoiceDetail);
+            if ((float)$request->input('balance')> 0.00) {
+                Layout::where('id', $item['layoutId'])->update(['status' => 'Reserved']);
+            } else {
+                Layout::where('id', $item['layoutId'])->update(['status' => 'Closed']);
+            }
         }
 
         return response()->json($invoice);
